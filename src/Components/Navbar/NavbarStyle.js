@@ -1,18 +1,16 @@
 import styled from 'styled-components'
 
 import {Link as LinkR} from "react-router-dom"
-import {Link as LinkS} from 'react-scroll'
 
 export const Nav = styled.nav`
-     background: #000;
+    background: #000;
     height: 80px;
-    //margin-top: -80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 10;
 
     @media screen and (min-width: 960px){
@@ -23,13 +21,15 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
-  //  height: 100px;
+    height: 0px;
     z-index: 1;
     width : 100%;
     padding : 0 24px;
     max-width : 1100px;
+    
 `
 export const NavLogo = styled(LinkR)`
+
     color: #fff;
     justify-self: flex-start;
     cursor: pointer;
@@ -39,6 +39,11 @@ export const NavLogo = styled(LinkR)`
     margin-left: 24px;
     font-weight: bold;
     text-decoration:none;
+
+     &:hover {
+        text-decoration: none;
+        color:#fff;
+    }
 `
 
 export const MobileIcon = styled.div`
@@ -70,10 +75,11 @@ export const NavMenu = styled.ul`
 `
 
 export const NavItem = styled.li`
-  //  height: 80px;
+ 
+  text-decoration:none;
 `
 
-export const NavLinks = styled(LinkS)`
+export const NavLinks = styled(LinkR)`
     color: #fff;
     display: flex;
     align-items: center;
@@ -81,9 +87,12 @@ export const NavLinks = styled(LinkS)`
     padding: 0 1rem;
     heigth: 100%;
     cursor: pointer;
-    &.active{
-        border-bottom: 3px solid #01bf71
+
+    &:hover {
+        text-decoration: none;
+        color:#fff;
     }
+    
 `
 
 export const NavBtn = styled.nav`
@@ -105,9 +114,10 @@ export const NavBtnLink = styled(LinkR)`
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    text-decoration: none;
+    
     &:hover{
         transition: all 0.2 ease-in-out;
         color: #fff;
+        text-decoration: none;
     }
 `

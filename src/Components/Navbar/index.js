@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React  from 'react'
 import {FaBars} from 'react-icons/fa'
+
 
 
 import {
@@ -15,6 +16,8 @@ import {
 
 const Navbar = ({toggle}) => {
 
+   
+
   
 
    return (
@@ -28,15 +31,18 @@ const Navbar = ({toggle}) => {
                    </MobileIcon>
                    <NavMenu>
                        <NavItem>
-                           <NavLinks to="about">Cadastro de usuario</NavLinks>
+                           <NavLinks to="/cadastroUser">Cadastro de usuario</NavLinks>
                        </NavItem>
                        <NavItem>
-                           <NavLinks to= "discover">Cadastro de imóvel</NavLinks>
+                           <NavLinks to= "discover">Anuncie</NavLinks>
+                       </NavItem>
+                       <NavItem>
+                           <NavLinks to= "discover">Contato</NavLinks>
                        </NavItem>
                        
                    </NavMenu>
                    <NavBtn>
-                       <NavBtnLink to="/signin">Sing in</NavBtnLink>
+                       <NavBtnLink to="/singin">Sing in</NavBtnLink>
                    </NavBtn>
                    
                </NavbarContainer>
@@ -45,5 +51,6 @@ const Navbar = ({toggle}) => {
       </>
    )
 }
+
 
 export default Navbar
