@@ -29,7 +29,7 @@ const Navbar = ({toggle}) => {
                    </MobileIcon>
                    <NavMenu>
                        <NavItem>
-                           <NavLinks to="/cadastroUser">Cadastro de usuario</NavLinks>
+                           <NavLinks to="/cadastroUser">Cadastro de usuarioooo</NavLinks>
                        </NavItem>
                        <NavItem>
                            <NavLinks to= "discover">Contato</NavLinks>
