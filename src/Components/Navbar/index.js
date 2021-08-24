@@ -16,9 +16,7 @@ import {
 
 const Navbar = ({toggle}) => {
 
-   
 
-  
 
    return (
       <>
@@ -34,15 +32,15 @@ const Navbar = ({toggle}) => {
                            <NavLinks to="/cadastroUser">Cadastro de usuario</NavLinks>
                        </NavItem>
                        <NavItem>
-                           <NavLinks to= "discover">Anuncie</NavLinks>
+                           <NavLinks to= "discover">Contato</NavLinks>
                        </NavItem>
                        <NavItem>
-                           <NavLinks to= "discover">Contato</NavLinks>
+                           <NavLinks to= "discover">Entrar</NavLinks>
                        </NavItem>
                        
                    </NavMenu>
                    <NavBtn>
-                       <NavBtnLink to="/singin">Sing in</NavBtnLink>
+                       <NavBtnLink to="/singin">Anunciar</NavBtnLink>
                    </NavBtn>
                    
                </NavbarContainer>
