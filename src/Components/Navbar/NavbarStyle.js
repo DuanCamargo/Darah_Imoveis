@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import {Link as LinkR} from "react-router-dom"
 
 export const Nav = styled.nav`
-    background: #000;
-    height: 80px;
+    background: #c9d8c5;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +19,7 @@ export const Nav = styled.nav`
 `
 
 export const NavbarContainer = styled.div`
+
     display: flex;
     justify-content: space-between;
     height: 0px;
@@ -50,9 +51,11 @@ export const MobileIcon = styled.div`
     display:none;
     
     @media screen and (max-width: 768px){
+        margin: -17px 0px;
         display: block;
         position: absolute;
         top: 0;
+        padding-bottom: -20px;
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
@@ -105,10 +108,10 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(LinkR)`
     border-radius: 50px;
-    background: #01bf71;
+    background: #009E10 ;
     white-space: nowrap;
     padding: 10px 22px;
-    color: #010606;
+    color: #fff;
     font-size: 16px;
     outline: none;
     border: none;
@@ -116,7 +119,8 @@ export const NavBtnLink = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     
     &:hover{
-        transition: all 0.2 ease-in-out;
+        transition: all 0.2s ease-in-out;
+        background:  #01BF71;
         color: #fff;
         text-decoration: none;
     }

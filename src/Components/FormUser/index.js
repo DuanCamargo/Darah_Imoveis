@@ -2,6 +2,9 @@ import React from 'react'
 import {FormContainer, FormH1} from './FormStyle'
 import Navbar from '../Navbar/index'
 import { useState } from 'react'
+import { PostForm } from '../../Service/PostUsuarioForm'
+// import{ useHistory} from 'react-router-dom'
+
 
 const FormUser = ()=>{
 
@@ -14,6 +17,7 @@ const FormUser = ()=>{
       };
 
     const [input, setInput] = useState(initialCadastroState)
+    // const history = useHistory();
 
     const handleInputChange = (event) =>{
         
@@ -21,7 +25,18 @@ const FormUser = ()=>{
             setInput({ ...input, [name]: value });
             
     }
-    console.log(input);
+    
+    const teste = (e) =>{
+        e.preventDefault();
+        PostForm({
+                    name: input.nome,
+                    sobrenome: input.sobrenome,
+                    email: input.email,
+                    senha:input.senha,
+                    telefone:input.telefone
+            });
+        
+    }
    
 
     return (
@@ -29,7 +44,7 @@ const FormUser = ()=>{
         <Navbar/>
         <FormH1>Cadastro de Usuário</FormH1>
        <FormContainer>
-           <form>
+           <form onSubmit={teste} >
                 <div className="form-group">
                     <label htmlFor="name">Nome:</label>
                     <input type="text" className="form-control" id="name"  name="nome" placeholder="Insira o seu nome" onChange={handleInputChange} required />
@@ -55,7 +70,7 @@ const FormUser = ()=>{
 
                 <div className="form-group">
                     <label htmlFor="senha">Senha:</label>
-                    <input type="password" className="form-control" name="telefone" id="senha" placeholder="Insira a sua senha" onChange={handleInputChange} required/>
+                    <input type="password" className="form-control" name="senha" id="senha" placeholder="Insira a sua senha" onChange={handleInputChange} required/>
                 </div>
 
                 <button type="submit" className="btn btn-primary ">Cadastrar</button>
