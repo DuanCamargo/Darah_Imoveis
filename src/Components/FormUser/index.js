@@ -21,6 +21,7 @@ const FormUser = ()=>{
             setInput({ ...input, [name]: value });
             
     }
+    console.log(input);
    
 
     return (
