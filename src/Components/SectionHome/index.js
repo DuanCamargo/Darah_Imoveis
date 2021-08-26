@@ -2,6 +2,8 @@ import React from 'react'
 import Video from '../../Video/home.mp4'
 import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, HeroP, InputVideo, InputDiv, InputContainer  } from './SectionStyle'
 import { Button } from './ButtonStyle'
+import {BsSearch} from 'react-icons/bs'
+import '../../../src/App.css'
 
 
 const SectionHome = () => {
@@ -25,7 +27,7 @@ const SectionHome = () => {
                                         <InputVideo type="text" placeholder="Informe a cidade "></InputVideo>
                                     </InputDiv>
                                     
-                                    <Button type="submit">Procurar</Button> 
+                                    <Button type="submit" >Procurar <BsSearch className="iconPesquisar"/> </Button> 
 
                                 </InputContainer>
                            

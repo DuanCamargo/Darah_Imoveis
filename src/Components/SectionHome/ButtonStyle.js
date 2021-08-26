@@ -18,5 +18,11 @@ export const Button = styled.button`
     &:hover{
         transition: all 0.2s ease-in-out;
         background:  #01BF71;
+        
+    }
+    &:focus{
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: none;
     }
 `

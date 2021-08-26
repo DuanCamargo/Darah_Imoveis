@@ -78,18 +78,23 @@ export const NavMenu = styled.ul`
 `
 
 export const NavItem = styled.li`
- 
+
   text-decoration:none;
 `
 
 export const NavLinks = styled(LinkR)`
-    color: #fff;
+
+    color: #ab4100;
     display: flex;
+    justify-content: space-around;
     align-items: center;
     text-decoration: none;
     padding: 0 1rem;
     heigth: 100%;
     cursor: pointer;
+    
+    
+
 
     &:hover {
         text-decoration: none;

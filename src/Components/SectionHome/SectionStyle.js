@@ -112,9 +112,6 @@ export const InputContainer = styled.div`
    justify-content: space-around;
    align-items:center;
 
-   @media screen and(max-width:600px){
-       
-   }
    
 }
 

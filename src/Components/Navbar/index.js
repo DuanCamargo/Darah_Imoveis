@@ -1,5 +1,9 @@
 import React  from 'react'
 import {FaBars} from 'react-icons/fa'
+import { BsFillPersonFill } from "react-icons/bs";
+import {BsFillGridFill}  from "react-icons/bs";
+import '../../../src/App.css'
+
 
 
 
@@ -29,14 +33,15 @@ const Navbar = ({toggle}) => {
                    </MobileIcon>
                    <NavMenu>
                        <NavItem>
-                           <NavLinks to="/cadastroUser">Cadastro de usuario</NavLinks>
+                           <NavLinks to="/homeCadastro" >Cadastro de usuario</NavLinks>
                        </NavItem>
                        <NavItem>
-                           <NavLinks to= "./testeHome">Anuncie</NavLinks>
+                           <NavLinks to= "./testeHome"> <BsFillGridFill className="iconNav"/> Anuncie </NavLinks>
                        </NavItem>
                        <NavItem>
-                           <NavLinks to= "discover">Entrar</NavLinks>
+                           <NavLinks to= "discover"> <BsFillPersonFill className="iconNav"/>Entrar</NavLinks>
                        </NavItem>
+                       
                        
                    </NavMenu>
                    <NavBtn>

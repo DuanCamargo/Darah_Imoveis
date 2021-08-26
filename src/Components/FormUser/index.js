@@ -1,12 +1,14 @@
 import React from 'react'
 import {FormContainer, FormH1} from './FormStyle'
-import Navbar from '../Navbar/index'
 import { useState } from 'react'
 import { PostForm } from '../../Service/PostUsuarioForm'
+
+
+
 // import{ useHistory} from 'react-router-dom'
 
 
-const FormUser = ()=>{
+const FormUser = ({isOpen, toggle})=>{
 
      const initialCadastroState = {
          nome: "",
@@ -26,7 +28,7 @@ const FormUser = ()=>{
             
     }
     
-    const teste = (e) =>{
+    const SendForm = (e) =>{
         e.preventDefault();
         PostForm({
                     name: input.nome,
@@ -38,13 +40,15 @@ const FormUser = ()=>{
         
     }
    
+    
 
     return (
         <>
-        <Navbar/>
+        
+        
         <FormH1>Cadastro de Usuário</FormH1>
        <FormContainer>
-           <form onSubmit={teste} >
+           <form onSubmit={SendForm} >
                 <div className="form-group">
                     <label htmlFor="name">Nome:</label>
                     <input type="text" className="form-control" id="name"  name="nome" placeholder="Insira o seu nome" onChange={handleInputChange} required />
