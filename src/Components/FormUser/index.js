@@ -32,18 +32,16 @@ const FormUser = ({isOpen, toggle})=>{
         <>
         
     <FormH1>Cadastro de Usuário</FormH1>
-       <FormContainer>
+        <FormContainer>
            <form onSubmit={SendForm} >
                 <div className="form-group">
                     <label htmlFor="name">Nome:</label>
                     <input type="text" className="form-control" id="name"  name="nome" placeholder="Insira o seu nome" onChange={handleInputChange} required />
-                    
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="sobrenome">Sobrenome:</label>
                     <input type="text" className="form-control" id="sobrenome" name="sobrenome" placeholder="Insira o seu sobrenome" onChange={handleInputChange} required/>
-                    
                 </div>
 
                 <div className="form-group">
@@ -54,7 +52,6 @@ const FormUser = ({isOpen, toggle})=>{
                 <div className="form-group">
                     <label htmlFor="telefone">Whatsapp</label>
                     <input type="number" className="form-control" id="whatsapp" name="whatsapp"  placeholder="Insira o seu wahtsapp" onChange={handleInputChange} required />
-                    
                 </div>
 
                 <div className="form-group">
@@ -65,10 +62,8 @@ const FormUser = ({isOpen, toggle})=>{
                 <button type="submit" className="btn btn-primary ">Cadastrar</button>
             </form>
             
-       </FormContainer>
-        
+        </FormContainer>
         </>
     )
 }
-
 export default FormUser
