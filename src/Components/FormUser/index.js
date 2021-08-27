@@ -51,7 +51,7 @@ const FormUser = ({isOpen, toggle})=>{
 
                 <div className="form-group">
                     <label htmlFor="telefone">Whatsapp</label>
-                    <input type="number" className="form-control" id="whatsapp" name="whatsapp"  placeholder="Insira o seu wahtsapp" onChange={handleInputChange} required />
+                    <input type="number" className="form-control" id="whatsapp" name="whatsapp"  placeholder="Insira o seu whatsapp" onChange={handleInputChange} required />
                 </div>
 
                 <div className="form-group">
