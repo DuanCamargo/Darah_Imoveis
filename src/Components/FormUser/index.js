@@ -3,11 +3,6 @@ import {FormContainer, FormH1} from './FormStyle'
 import { useState } from 'react'
 import { PostForm } from '../../Service/PostUsuarioForm'
 
-
-
-// import{ useHistory} from 'react-router-dom'
-
-
 const FormUser = ({isOpen, toggle})=>{
 
      const initialCadastroState = {
@@ -15,7 +10,7 @@ const FormUser = ({isOpen, toggle})=>{
          sobrenome: "",
          email: "",
          senha:"",
-         telefone:""
+         whatsapp:""
       };
 
     const [input, setInput] = useState(initialCadastroState)
@@ -35,7 +30,7 @@ const FormUser = ({isOpen, toggle})=>{
                     sobrenome: input.sobrenome,
                     email: input.email,
                     senha:input.senha,
-                    telefone:input.telefone
+                    whatsapp:input.whatsapp
             });
         
     }
@@ -67,8 +62,8 @@ const FormUser = ({isOpen, toggle})=>{
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="telefone">Telefone</label>
-                    <input type="number" className="form-control" id="telefone" name="telefone"  placeholder="Insira o seu telefone" onChange={handleInputChange} required />
+                    <label htmlFor="telefone">whatsapp</label>
+                    <input type="number" className="form-control" id="wahtsapp" name="wahtsapp"  placeholder="Insira o seu wahtsapp" onChange={handleInputChange} required />
                     
                 </div>
 
