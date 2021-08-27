@@ -1,10 +1,7 @@
 import axios from '../http-common';
 
-
-
 export const PostForm = (dataForm)=>{
-
-    axios.post(`/usuario`,  dataForm )
+    axios.post(`http://localhost:8081/usuario`,  dataForm )
         .then(res => {
           console.log(res);
           // console.log(res.data);

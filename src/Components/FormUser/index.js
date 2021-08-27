@@ -25,23 +25,13 @@ const FormUser = ({isOpen, toggle})=>{
     
     const SendForm = (e) =>{
         e.preventDefault();
-        PostForm({
-                    name: input.nome,
-                    sobrenome: input.sobrenome,
-                    email: input.email,
-                    senha:input.senha,
-                    whatsapp:input.whatsapp
-            });
-        
+        PostForm(input);
     }
-   
-    
 
     return (
         <>
         
-        
-        <FormH1>Cadastro de Usuário</FormH1>
+    <FormH1>Cadastro de Usuário</FormH1>
        <FormContainer>
            <form onSubmit={SendForm} >
                 <div className="form-group">
@@ -62,8 +52,8 @@ const FormUser = ({isOpen, toggle})=>{
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="telefone">whatsapp</label>
-                    <input type="number" className="form-control" id="wahtsapp" name="wahtsapp"  placeholder="Insira o seu wahtsapp" onChange={handleInputChange} required />
+                    <label htmlFor="telefone">Whatsapp</label>
+                    <input type="number" className="form-control" id="whatsapp" name="whatsapp"  placeholder="Insira o seu wahtsapp" onChange={handleInputChange} required />
                     
                 </div>
 
