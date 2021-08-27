@@ -16,10 +16,10 @@ export const HeroContainer =styled.div`
         position: absolute;
         top: 0;
         bottom: 0;
-        rigth: 0;
+        right: 0;
         left: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), 
-        linear-gradient(180degm rgba(0,0,0,0.2) 0% transparent 100%)
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%),
+        linear-gradient(180degm rgba(0,0,0,0.2) 0% transparent 100%);
         z-index: 2;
     }
 `
@@ -90,6 +90,7 @@ export const InputVideo = styled.input`
     text-align: center;
     z-index: 10;
     color: #000;
+
     background-image: url('https://img.freepik.com/vetores-gratis/localizacao_53876-25530.jpg?size=338&ext=jpg');
     background-repeat: no-repeat;
     background-size: 23px 23px;
@@ -113,9 +114,9 @@ export const InputContainer = styled.div`
    align-items:center;
 
    
-}
-
 `
+
+
 export const InputDiv = styled.div`
    
     max-width: 300px;
