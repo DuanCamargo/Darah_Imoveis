@@ -30,18 +30,22 @@ function Login2() {
   }
 
   console.log(input);
+
+  const loginSenha = () =>{
+
+    GetForm(input.email, input.senha)
+
+  }
     
   return (
     <div className="App">
+      <form onSubmit={loginSenha}>
       <CardWrapper>
         <CardHeader>
           <CardHeading>Sign in</CardHeading>
         </CardHeader>
 
         <CardBody>
-          {/* <CardFieldset>
-            <CardInput placeholder="Usuario" type="text" required />
-          </CardFieldset> */}
 
           <CardFieldset>
             <CardInput placeholder="E-mail" type="text" name="email" onChange={handleInputChange} required />
@@ -55,7 +59,7 @@ function Login2() {
          
 
           <CardFieldset>
-            <CardButton type="button">Log in</CardButton>
+            <CardButton type="submit">Log in</CardButton>
           </CardFieldset>
 
           <CardFieldset>
@@ -63,6 +67,7 @@ function Login2() {
           </CardFieldset>
         </CardBody>
       </CardWrapper>
+      </form>
     </div>
   );
 }
