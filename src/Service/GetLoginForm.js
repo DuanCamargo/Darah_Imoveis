@@ -1,7 +1,6 @@
 import axios from '../http-common';
 
 export const GetForm = (email, senha)=>{
-
   var login = {
     method: 'GET',
     url: '/usuario/loginSenha',
