@@ -29,6 +29,11 @@ function Login2() {
     setInput({ ...input, [name]: value });
   }
 
+  const loginSenha = (event) => {
+    event.preventDefault();
+    GetForm()
+  }
+
   console.log(input);
 
   const loginSenha = () =>{
