@@ -10,6 +10,4 @@ export const PostForm = (dataForm)=>{
         .catch( e => {
             console.log(e);
         })
-
-
 }

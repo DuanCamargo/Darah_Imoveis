@@ -1,10 +1,9 @@
 import React from 'react';
 import Navbar from '../Components/Navbar/index';
-import Cadastro from '../Components/FormUser/index'
+import Anuncio from '../Components/FormImov/index'
 import Sidebar from '../Components/Sidebar/index';
-import {ImgSvg2} from '../Components/FormUser/Svg'
 import { useState } from 'react';
-const Home2 = () =>{
+const Home3 = () =>{
     const [isOpen, setIsOpen] = useState(false)
 
     const toggle = () =>{
@@ -14,10 +13,10 @@ const Home2 = () =>{
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar  toggle={toggle}/>
-            <Cadastro {...ImgSvg2}/>
+            <Anuncio/>
         </>
     )
 }
 
 
-export default Home2
+export default Home3

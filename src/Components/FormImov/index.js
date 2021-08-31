@@ -55,7 +55,7 @@ const FormImov = () => {
                         cidade: "",
                         estado: "",
                     }}
-                    render={({ values, handleInputChange, setFieldValue }) => (
+                    render={({setFieldValue }) => (
 
                         <form>
                             <div className="form-control-group">
@@ -120,8 +120,7 @@ const FormImov = () => {
 
                             <button type="submit" className="btn btn-primary">
                                 Próximo
-</button>
-
+                            </button>
                         </form>
                     )}
                 />

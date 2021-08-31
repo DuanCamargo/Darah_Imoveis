@@ -3,11 +3,6 @@ import {FaBars} from 'react-icons/fa'
 import { BsFillPersonFill } from "react-icons/bs";
 import {BsFillGridFill}  from "react-icons/bs";
 import '../../../src/App.css'
-
-
-
-
-
 import {
     Nav,
     NavbarContainer, 
@@ -21,13 +16,8 @@ import {
 
 const Navbar = ({toggle}) => {
 
-   
-
-
-
    return (
       <>
-      
            <Nav >
                <NavbarContainer>
                    <NavLogo to='/' >DarahLogo</NavLogo>
@@ -48,7 +38,7 @@ const Navbar = ({toggle}) => {
                        
                    </NavMenu>
                    <NavBtn>
-                       <NavBtnLink to="/singin">Anunciar</NavBtnLink>
+                       <NavBtnLink to="/imovel">Cadastro de Imóvel</NavBtnLink>
                    </NavBtn>
                    
                </NavbarContainer>
