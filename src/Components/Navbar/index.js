@@ -42,7 +42,7 @@ const Navbar = ({toggle}) => {
                            <NavLinks to= '/'> <BsFillGridFill className="iconNav"/> Anuncios </NavLinks>
                        </NavItem>
                        <NavItem>
-                           <NavLinks to= "/singin"> <BsFillPersonFill className="iconNav"/>Entrar</NavLinks>
+                           <NavLinks to= "/login"> <BsFillPersonFill className="iconNav"/>Entrar</NavLinks>
                        </NavItem>
                        
                        
