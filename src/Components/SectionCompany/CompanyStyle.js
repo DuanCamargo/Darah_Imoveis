@@ -43,7 +43,7 @@ export const Column1 = styled.div`
 
 export const Column2 = styled.div`
 
-margin: 20px;
+    margin: 20px;
     width: 500px;
     height: 500px;
 
