@@ -23,6 +23,16 @@ const Footer = () => {
     const parser = new DOMParser();
     const decodeString = parser.parseFromString(`<!doctype html><body>${copy}`, 'text/html').body.textContent;
 
+  const date = (data = new Date()) =>{
+       var dia = data.getDate();
+       var mes = data.getMonth()+1;
+       var ano = data.getFullYear(); 
+
+        if(dia.toString().length ===1){dia = '0'+dia}
+        if(mes.toString().length ===1){mes = '0'+mes}
+       return ano+'-'+mes+'-'+dia;
+     }
+     console.log(date());
     return (
         <>
         <FooterContainer>

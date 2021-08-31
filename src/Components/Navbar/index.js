@@ -20,7 +20,7 @@ const Navbar = ({toggle}) => {
       <>
            <Nav >
                <NavbarContainer>
-                   <NavLogo to='/' >DarahLogo</NavLogo>
+                   <NavLogo to='/' >Ôh de casa</NavLogo>
                    <MobileIcon onClick={toggle}>
                        <FaBars/>
                    </MobileIcon>
@@ -32,7 +32,7 @@ const Navbar = ({toggle}) => {
                            <NavLinks to= '/anuncios'> <BsFillGridFill className="iconNav"/> Anuncios </NavLinks>
                        </NavItem>
                        <NavItem>
-                           <NavLinks to= "/signin"> <BsFillPersonFill className="iconNav"/>Entrar</NavLinks>
+                           <NavLinks to= "/login"> <BsFillPersonFill className="iconNav"/> Entrar </NavLinks>
                        </NavItem>
                        
                        
