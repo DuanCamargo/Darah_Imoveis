@@ -7,6 +7,7 @@ import {ImgSvg} from '../Components/SectionCompany/SVG'
 import Footer from '../Components/Footer/index'
 import { useState } from 'react';
 import SectionCompany from '../Components/SectionCompany';
+
 const Home = () =>{
     const [isOpen, setIsOpen] = useState(false)
 

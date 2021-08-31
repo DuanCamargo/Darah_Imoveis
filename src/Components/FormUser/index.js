@@ -16,7 +16,7 @@ const FormUser = ({img, alt})=>{
          sobrenome: "",
          email: "",
          senha:"",
-         telefone:""
+         whatsapp:""
       };
 
     const [input, setInput] = useState(initialCadastroState)
@@ -67,7 +67,7 @@ const FormUser = ({img, alt})=>{
 
                 <div className="form-group">
                     <label htmlFor="telefone">Telefone</label>
-                    <input type="number" className="form-control" id="telefone" name="telefone"  placeholder="Insira o seu telefone" onChange={handleInputChange} required />
+                    <input type="number" className="form-control" id="whatsapp" name="whatsapp"  placeholder="Insira o seu telefone" onChange={handleInputChange} required />
                     
                 </div>
 
