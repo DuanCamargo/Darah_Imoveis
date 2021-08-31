@@ -1,4 +1,6 @@
-import React from "react";
+import {React, useState} from "react";
+import { GetForm } from '../../Service/GetLoginForm.js'
+
 
 import {
   CardWrapper,
@@ -8,15 +10,27 @@ import {
   CardIcon,
   CardFieldset,
   CardInput,
-  CardOptionsItem,
-  CardOptions,
-  CardOptionsNote,
   CardButton,
   CardLink
 } from "./Card";
 
 
 function Login2() {
+
+  const initialLoginState = {
+    email: "",
+    senha:""
+  };
+
+  const [input, setInput] = useState(initialLoginState)
+
+  const handleInputChange = (event) =>{
+    const {name, value} = event.target;
+    setInput({ ...input, [name]: value });
+  }
+
+  console.log(input);
+    
   return (
     <div className="App">
       <CardWrapper>
@@ -25,23 +39,23 @@ function Login2() {
         </CardHeader>
 
         <CardBody>
-          <CardFieldset>
+          {/* <CardFieldset>
             <CardInput placeholder="Usuario" type="text" required />
+          </CardFieldset> */}
+
+          <CardFieldset>
+            <CardInput placeholder="E-mail" type="text" name="email" onChange={handleInputChange} required />
           </CardFieldset>
 
           <CardFieldset>
-            <CardInput placeholder="E-mail" type="text" required />
-          </CardFieldset>
-
-          <CardFieldset>
-            <CardInput placeholder="Senha" type="senha" required />
+            <CardInput placeholder="Senha" type="senha" name="senha" onChange={handleInputChange} required />
             <CardIcon className="fa fa-eye" eye small />
           </CardFieldset>
 
          
 
           <CardFieldset>
-            <CardButton type="button">Sign Up</CardButton>
+            <CardButton type="button">Log in</CardButton>
           </CardFieldset>
 
           <CardFieldset>
