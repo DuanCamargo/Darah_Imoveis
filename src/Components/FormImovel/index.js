@@ -29,7 +29,7 @@ const FormImovel = ({alt}) => {
     
     const SendForm = (e) =>{
         e.preventDefault();
-        //PostForm(input);
+        
         
     }
    
@@ -76,6 +76,9 @@ const FormImovel = ({alt}) => {
             </form>
             
        </FormContainer>
+
+
+       
 
        
        </FormContainerGeral>  

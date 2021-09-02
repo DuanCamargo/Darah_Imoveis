@@ -1,6 +1,6 @@
 import React from 'react';
 import {FormContainerGeral, FormContainer, FormIM2}  from './CadImovelStyle';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const CadImovel =({alt}) => {
 
@@ -28,8 +28,13 @@ const CadImovel =({alt}) => {
 
     const handleInputChange = (event) =>{
         
-        const {name, value} = event.target;
-            setInput({ ...input, [name]: value });
+        const target = event.target;
+        const value= target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name] : value
+        });
             
     }
 
@@ -46,8 +51,11 @@ const CadImovel =({alt}) => {
              
              <FormIM2>Preencha os campos abaixo</FormIM2>
                 <form onSubmit={SendForm}>
-                    <div class name="form-group">
-                        <label htmlFor="tipo de residencia">Tipo de residência</label>
+                  <h5>Tipo de Residência</h5>
+                    <div class name="form-check">
+                         <inpute type="checkbox" className="form-check-input" onChange={handleInputChange}/>
+                        <label calssName="form-check-label ms-2">Casa</label>
+
 
                     </div>
                 </form>
