@@ -1,15 +1,12 @@
-import React from 'react'
-import {FormContainer} from './FormStyle'
-import {RiAccountCircleFill} from 'react-icons/ri'
-import { useState } from 'react'
-import { PostForm } from '../../Service/PostUsuarioForm'
+import React from 'react';
+import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
+//import {RiAccountCircleFill} from 'react-icons/ri'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
-// import{ useHistory} from 'react-router-dom
-
-
-const FormImovel = ({alt})=>{
+const FormImovel = ({alt}) => {
 
      const initialCadastroState = {
          cep: "",
@@ -20,8 +17,8 @@ const FormImovel = ({alt})=>{
          estado:""
       };
 
-    const [input, setInput] = useState(initialAnuncioState)
-    // const history = useHistory();
+    const [input, setInput] = useState(initialCadastroState)
+   
 
     const handleInputChange = (event) =>{
         
@@ -32,7 +29,7 @@ const FormImovel = ({alt})=>{
     
     const SendForm = (e) =>{
         e.preventDefault();
-        PostForm(input);
+        //PostForm(input);
         
     }
    
@@ -40,15 +37,13 @@ const FormImovel = ({alt})=>{
 
     return (
         <>
-           
-           
-        <FormContainerGeral>
-        
+                
+        <FormContainerGeral> 
        
        <FormContainer>
            
-       <Form> <RiAccountCircleFill/> Faça o seu Anúncio</Form>
-           <form onSubmit={SendForm} >
+       <FormIM>Faça o seu Anúncio</FormIM>
+           <form onSubmit={SendForm}>
                 <div className="form-group">
                     <input type="number" className="form-control" id="cep"  name="cep" placeholder="Cep" onChange={handleInputChange} required />  
                 </div>
@@ -72,9 +67,10 @@ const FormImovel = ({alt})=>{
                 <div className="form-group">
                     <input type="text" className="form-control" name="estado" id="estado" placeholder="UF" onChange={handleInputChange} required/>
                 </div>
-
+            
                 <div className="col text-center">
-                    <button type="submit" className="btn btn-primary ">Próximo</button>
+                    <Link to="/CadImovel" type="submit" className="btn btn-primary ">Próximo</Link>
+                    
                 </div>
              
             </form>
@@ -87,4 +83,4 @@ const FormImovel = ({alt})=>{
     )
 }
 
-export default FormUser
+export default FormImovel

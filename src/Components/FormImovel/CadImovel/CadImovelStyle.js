@@ -22,10 +22,21 @@ export const FormContainer =styled.div`
   }
 `
 
-export const Form = styled`
+export const FormIM2 = styled.h1`
     text-align: center;
-    font-size: 34px;
+    font-size: 28px;
     @media screen and (max-width:820px){
    font-size: 25px;
   }
+`
+
+export const FormContainerGeral = styled.div`
+display: flex;
+flex-wrap:wrap;
+background-color: #e6e6e6;
+
+align-items: center;
+  width: 100%;
+  height: 100vh;
+ 
 `
