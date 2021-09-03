@@ -9,10 +9,7 @@ const CadImovel =({alt}) => {
        apartamento: "",
        quartoEresidência: "",
        residencia: "",
-       solteiro: "",
-       solteiroCsuite: "",
-       casal: "",
-       casalCsuite: "",
+       quartos:"",
        metrosQuadrados: "",
        qntdCamas: "",
        detalhesQuarto: "",
@@ -28,13 +25,8 @@ const CadImovel =({alt}) => {
 
     const handleInputChange = (event) =>{
         
-        const target = event.target;
-        const value= target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-
-        this.setState({
-            [name] : value
-        });
+       
+      
             
     }
 
@@ -50,15 +42,57 @@ const CadImovel =({alt}) => {
             <FormContainer>
              
              <FormIM2>Preencha os campos abaixo</FormIM2>
+             
                 <form onSubmit={SendForm}>
-                  <h5>Tipo de Residência</h5>
-                    <div class name="form-check">
-                         <inpute type="checkbox" className="form-check-input" onChange={handleInputChange}/>
-                        <label calssName="form-check-label ms-2">Casa</label>
+                    <div class name="form-container">
+                        <label htmlFor="residence">Tipo de Residência</label>
+                        <select id="residence" name="residence" onChange={handleInputChange}>
+                            <option value={null}>Selecione uma opção abaixo</option>
+                            <option value="home">Casa</option>
+                            <option value="apt">Apartamento</option>
+                        </select>
+                      </div>
 
+                      <div>
+                        <label htmlFor="sharing">Tipo de Compartilhamento</label>
+                        <select id="sharing" name="sharing" onChange={handleInputChange}>
+                            <option value={null}>Selecione uma opção abaixo</option>
+                            <option value="quarto">Quarto e residência</option>
+                            <option value="quarto1">Residência</option>
+                        </select>
+                      </div>
 
-                    </div>
-                </form>
+                      <div>
+                        <label htmlFor="kind">Tipo do quarto.............</label>
+                        <select id="kind" name="kind" onChange={handleInputChange}>
+                            <option value={null}>Selecione uma opção abaixo</option>
+                            <option value="solteiro">Solteiro</option>
+                            <option value="casal">Casal</option>
+                            <option value="suite">Solteiro com suíte</option>
+                            <option value="suite1">Casal com suíte</option>
+                        </select>
+                      </div>
+                    </form>
+
+                    
+                    <form onSubmit={SendForm}>
+                        <div>
+                            <h4>Detalhes do quarto</h4>
+                            <input type="text" className="form-control" id="metrosQuadrados" name="metrosQuadrados" placeholder="M²" onChane={handleInputChange} requered/>
+                        </div>
+
+                        <div>
+                            <input type="text" className="form-control" id="qtdCama" name="qtdCama" placeholder="Quantidade de Cama" onChane={handleInputChange} requered/>
+                      </div>
+
+                      <div>
+                            <label htmlFor="quarto">Mais detalhes do quarto</label>
+                            <input type="text-area" className="form-control" id="detalhesquarto" name="detalhesquarto" placeholder="mobiliado, ar-condicionado, frigobar etc" onChane={handleInputChange} requered/>
+                        </div>
+                    </form>
+
+                    
+                
 
             </FormContainer>
 

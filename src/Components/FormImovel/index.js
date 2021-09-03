@@ -1,9 +1,8 @@
 import React from 'react';
 import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
-//import {RiAccountCircleFill} from 'react-icons/ri'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { PostFormImov} from '../../Service/PostImovelForm'
 
 
 const FormImovel = ({alt}) => {
@@ -29,7 +28,7 @@ const FormImovel = ({alt}) => {
     
     const SendForm = (e) =>{
         e.preventDefault();
-        
+        PostFormImov(input);
         
     }
    
