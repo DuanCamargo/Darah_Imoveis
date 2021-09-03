@@ -20,15 +20,17 @@ const CadImovel =({alt}) => {
 
     };
 
-    const [input, setInput] = useState(initialCadastro2State)
+    const [input] = useState(initialCadastro2State)
    
 
     const handleInputChange = (event) =>{
-        
-       
-      
-            
+          
+             
     }
+
+    construcot ()
+
+
 
     const SendForm = (e) =>{
         e.preventDefault();
@@ -87,7 +89,7 @@ const CadImovel =({alt}) => {
 
                       <div>
                             <label htmlFor="quarto">Mais detalhes do quarto</label>
-                            <input type="text-area" className="form-control" id="detalhesquarto" name="detalhesquarto" placeholder="mobiliado, ar-condicionado, frigobar etc" onChane={handleInputChange} requered/>
+                            
                         </div>
                     </form>
 

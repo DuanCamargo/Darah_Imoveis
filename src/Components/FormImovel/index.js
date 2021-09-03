@@ -12,6 +12,7 @@ const FormImovel = ({alt}) => {
          logradouro: "",
          numero: "",
          complemento:"",
+         bairro:"",
          cidade:"",
          estado:""
       };
@@ -57,6 +58,10 @@ const FormImovel = ({alt}) => {
 
                 <div className="form-group">
                     <input type="text" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
+                </div>
+
+                <div className="form-group">
+                    <input type="text" className="form-control" id="bairro" name="bairro"  placeholder="bairro" onChange={handleInputChange} required />        
                 </div>
 
                 <div className="form-group">
