@@ -28,7 +28,7 @@ const CadImovel =({alt}) => {
              
     }
 
-    construcot ()
+   
 
 
 
