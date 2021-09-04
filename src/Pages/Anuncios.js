@@ -14,8 +14,7 @@ const Anuncios = () =>{
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar  toggle={toggle}/>
-            <SidebarFilter/>
-            
+            <SidebarFilter/>           
 
         </>
     )

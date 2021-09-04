@@ -12,19 +12,20 @@
     margin-right: 3px;
   }
   
-/* input[type=number]::-webkit-inner-spin-button { 
-  -webkit-appearance: none;
+input[type=number]::-webkit-inner-spin-button { 
+-webkit-appearance: none;
     
 }
 input[type=number] { 
    -moz-appearance: textfield;
    appearance: textfield;
+}
 
-} */
+
 
 .num{
   -moz-appearance: textfield;
    appearance: textfield;
 
-   min: 0;
+  
 }
