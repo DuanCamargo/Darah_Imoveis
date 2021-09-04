@@ -132,9 +132,12 @@ const AnuncioTela = () => {
             {anuncios && anuncios.slice(currentPage * pageSize,(currentPage + 1) * pageSize).map((anuncio) => {
                 return (
                     <S.ImovelContainer>
+
                     <S.ContainerImageInside>
-                    <img className="roundedImg" src="https://picsum.photos/320/250"></img>
+                        <img className="roundedImg" src="https://picsum.photos/320/250"></img>
                     </S.ContainerImageInside>
+
+
                     <S.ContainerImovelInfos>
                         <S.ContainerImovelInside1 className="ml-3">
                             <p className="mr-3">{anuncio.moradiaTip}</p>

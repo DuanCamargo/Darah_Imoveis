@@ -3,6 +3,8 @@ import {FormContainer, FormH1, FormContainerGeral, Img, Imgh1, ContainerImg, Pdi
 import {RiAccountCircleFill} from 'react-icons/ri'
 import { useState } from 'react'
 import { PostForm } from '../../Service/PostUsuarioForm'
+import loginSenha from '../FormLogin/FormLogin'
+
 
 
 
@@ -32,6 +34,8 @@ const FormUser = ({img, alt})=>{
     const SendForm = (e) =>{
         e.preventDefault();
         PostForm(input);
+        //teste do localStorage
+        loginSenha(input)
         
     }
    
