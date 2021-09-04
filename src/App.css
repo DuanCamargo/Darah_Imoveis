@@ -20,31 +20,6 @@ input[type=number] {
    -moz-appearance: textfield;
    appearance: textfield;
 
-<<<<<<< HEAD
-}
-
-::-webkit-scrollbar-track {
-  background-color: #F4F4F4;
-}
-::-webkit-scrollbar {
-  width: 8px;
-  background: #F4F4F4;
-}
-::-webkit-scrollbar-thumb {
-  background: #7e7c7c;
-  border-radius: 20px;
-}
-
-.divGosh{
-  color: #ab4100;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
-=======
 } */
 
 .num{
@@ -52,5 +27,4 @@ input[type=number] {
    appearance: textfield;
 
    min: 0;
->>>>>>> 3d7b944a75620dd27f1e7d9ca45f9dd33ba27c5d
 }
