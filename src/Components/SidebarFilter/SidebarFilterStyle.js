@@ -8,7 +8,7 @@ export const FilterContainer =styled.div`
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
   width: 350px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
@@ -23,6 +23,35 @@ export const FilterContainer =styled.div`
   }
 `
 
+
+
+
+export const FormContainerGeral = styled.div`
+display: flex;
+justify-content: space-between;
+
+padding: 20px;
+background-color: #e6e6e6;
+
+
+  width: 100%;
+  height: 100vh;
+  
+  @media screen and (max-width:900px){
+    flex-wrap:wrap;
+    margin-top: 20px;
+    width: 320px;
+    
+  }
+`
+
+export const ContainerImoveisGeral = styled.div`
+width: 100%;
+margin: 0 30px;
+padding: 0 20px;
+background-color: #e6e6e6;
+`
+
 export const ImovelContainer =styled.div`
   box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -30,9 +59,11 @@ export const ImovelContainer =styled.div`
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
-  width: 75%;
-  margin: 0 auto;
-  padding: 20px;
+  width: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  margin: 10px 20px;
+  /* padding: 20px; */
   border-radius: 10px;
   background-color: #fff;
   top: 100px;
@@ -46,17 +77,6 @@ export const ImovelContainer =styled.div`
    
     
   }
-`
-
-export const FormContainerGeral = styled.div`
-display: flex;
-flex-wrap:wrap;
-padding: 3% 0;
-background-color: #e6e6e6;
-
-
-  width: 100%;
-  height: 100vh;
 `
 
 export const InputValueFilter = styled.input`
@@ -157,3 +177,66 @@ export const ButtonStyled = styled.button`
         outline: none;
     }
 `;
+
+export const DivSeparator = styled.div`
+width: 1px;
+height: 40px;
+/* height: fit-content; */
+background-color: #db7093;
+margin: 0 auto;
+`;
+
+
+
+export const ContainerImageInside = styled.div`
+display: flex;
+justify-content: space-around;
+width: fit-content;
+height: 250px;
+`;
+
+
+export const ContainerImovelInfos = styled.div`
+display: block;
+max-height: 250px
+`;
+
+export const ContainerImovelInside1 = styled.div`
+display: flex;
+justify-content: space-around;
+width: fit-content;
+margin-top: 1%;
+margin-left: 1%;
+`;
+
+export const ContainerImovelInside2 = styled.div`
+display: flex;
+align-items: center;
+width: fit-content;
+margin-top: 3%;
+`;
+
+
+export const DivTextValue = styled.div`
+width: fit-content;
+margin-left: 2%;
+background: #F2BE38;
+align-items: center;
+padding: 2px 10px 0px 10px;
+border: 2px solid black;
+border-radius: 5px;
+`;
+
+export const TextValue = styled.h1`
+color: #DB7093;
+border-radius: 50%;
+`;
+
+export const ContainerImovelInside3 = styled.div`
+display: flex;
+align-items: center;
+width: fit-content;
+margin-top: 3%;
+`;
+
+
