@@ -102,6 +102,9 @@ export const NavLinks = styled(LinkR)`
     }
     
 `
+export const Teste = styled.div`
+ background-color: blue;
+`
 
 export const NavBtn = styled.nav`
     display:flex;

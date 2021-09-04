@@ -9,7 +9,7 @@ import { PostForm } from '../../Service/PostUsuarioForm'
 // import{ useHistory} from 'react-router-dom
 
 
-const FormImovel = ({alt})=>{
+const FormImovel = ()=>{
 
      const initialCadastroState = {
          cep: "",
@@ -78,6 +78,8 @@ const FormImovel = ({alt})=>{
                 </div>
              
             </form>
+
+            
             
        </FormContainer>
 
