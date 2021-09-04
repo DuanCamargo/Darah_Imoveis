@@ -44,13 +44,15 @@ function Login2() {
           senha:"",
           whatsapp:""
         };
-        data.id = response.data.id_usuario
+        data.id = response.data.id_usuario;
+        data.nome = response.data.nome;
+        data.sobrenome= response.data.sobrenome;
+        data.email = response.data.email;
+        data.senha = response.data.senha;
+        data.whatsapp = response.data.whatsapp;
         setUsuarioLogado(data);
-        //console.log(response.data)
-        //console.log(usuarioLogado)
+        console.log(usuarioLogado)
       })
-      
-      
     }else{
       alert("Falha na autenticação")
     }
