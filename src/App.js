@@ -6,13 +6,11 @@ import Anuncios from './Pages/Anuncios.js'
 import Login2 from './Pages/Login.js'
 import CadastroImovel from './Pages/CadastroImovel.js'
 import CadastroImovel2 from './Pages/CadastroImovel2.js'
-
-
-
-
+import { UsuarioLogadoProvider } from './Context/UsuarioLogado';
 
 function App() {
   return (
+    <UsuarioLogadoProvider>
     <Router>
       <Switch>
         <Route path="/" component={Home} exact />
@@ -24,6 +22,7 @@ function App() {
 
       </Switch>
     </Router>
+    </UsuarioLogadoProvider>
   );
 }
 

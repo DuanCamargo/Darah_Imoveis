@@ -21,35 +21,6 @@ input[type=number] {
    appearance: textfield;
 }
 
-.roundedImg {
-  border:0 solid ;
-  border-radius: 10px 0 0 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #F4F4F4;
-}
-::-webkit-scrollbar {
-  width: 8px;
-  background: #F4F4F4;
-}
-::-webkit-scrollbar-thumb {
-  background: #7e7c7c;
-  border-radius: 20px;
-}
-
-.divGosh{
-  color: #ab4100;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
-
-}
-
 .num{
   -moz-appearance: textfield;
    appearance: textfield;
