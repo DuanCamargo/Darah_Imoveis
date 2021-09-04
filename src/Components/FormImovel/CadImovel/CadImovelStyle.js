@@ -7,7 +7,7 @@ export const FormContainer =styled.div`
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
-  width: 350px;
+  width: 450px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 10px;
@@ -22,10 +22,21 @@ export const FormContainer =styled.div`
   }
 `
 
-export const Form = styled`
+export const FormIM2 = styled.h1`
     text-align: center;
-    font-size: 34px;
+    font-size: 28px;
     @media screen and (max-width:820px){
    font-size: 25px;
   }
+`
+
+export const FormContainerGeral = styled.div`
+display: flex;
+flex-wrap:wrap;
+background-color: #e6e6e6;
+
+align-items: center;
+  width: 100%;
+  height: 100vh;
+ 
 `

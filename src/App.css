@@ -12,7 +12,7 @@
     margin-right: 3px;
   }
   
-input[type=number]::-webkit-inner-spin-button { 
+/* input[type=number]::-webkit-inner-spin-button { 
   -webkit-appearance: none;
     
 }
@@ -20,6 +20,7 @@ input[type=number] {
    -moz-appearance: textfield;
    appearance: textfield;
 
+<<<<<<< HEAD
 }
 
 ::-webkit-scrollbar-track {
@@ -43,4 +44,13 @@ input[type=number] {
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
+=======
+} */
+
+.num{
+  -moz-appearance: textfield;
+   appearance: textfield;
+
+   min: 0;
+>>>>>>> 3d7b944a75620dd27f1e7d9ca45f9dd33ba27c5d
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from '../Components/Navbar/index';
-import CadastroImovel from '../Components/FormImovel/index';
+import CadastroImovel2 from '../Components/FormImovel/CadImovel/index';
 import Sidebar from '../Components/Sidebar/index';
 import { useState } from 'react';
 
-const FormImovel = () =>{
+const CadImovel = () =>{
     const [isOpen, setIsOpen] = useState(false)
 
     const toggle = () =>{
@@ -14,10 +14,11 @@ const FormImovel = () =>{
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar  toggle={toggle}/>
-            <CadastroImovel/>
+           
+            <CadastroImovel2 />
         </>
     )
 }
 
 
-export default FormImovel
+export default CadImovel
