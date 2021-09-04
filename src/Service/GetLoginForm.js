@@ -19,10 +19,3 @@ export const GetForm = (email, senha)=>{
   })
 }
 
-const banco = () =>{
-  let user = teste();
-  return 
-
-}
-
-export default banco;

@@ -1,5 +1,5 @@
 import React from "react";
-import { GetForm } from '../../Service/GetLoginForm.js'
+import { GetForm, banco } from '../../Service/GetLoginForm.js'
 import { UsuarioLogadoContext } from "../../Context/UsuarioLogado";
 import { useState } from 'react';
 import { useContext } from "react";
@@ -35,9 +35,21 @@ function Login2() {
   const loginSenha = (event) =>{
     if(input.email != null && input.senha !=null){
       event.preventDefault();
-      let returnLogin = GetForm(input.email, input.senha)
-      setUsuarioLogado();
-      console.log("entrouuuu : "+ returnLogin)
+      GetForm(input.email, input.senha).then(response => {
+        const data = {
+          id: "",
+          nome: "",
+          sobrenome: "",
+          email: "",
+          senha:"",
+          whatsapp:""
+        };
+        data.id = response.data.id_usuario
+        setUsuarioLogado(data);
+        //console.log(response.data)
+        //console.log(usuarioLogado)
+      })
+      
       
     }else{
       alert("Falha na autenticação")

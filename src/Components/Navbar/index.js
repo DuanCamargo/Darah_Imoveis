@@ -18,8 +18,8 @@ import {
 
 const Navbar = ({toggle}) => {
 
-    const [div, setDiv] = useState(false);
-    const onClickk = () => setDiv(true);
+    // const [div, setDiv] = useState(false);
+    // const onClickk = () => setDiv(true);
 
    return (
       <>
@@ -46,10 +46,7 @@ const Navbar = ({toggle}) => {
                            </Teste>
                        </NavItem>
                      
-                       <NavItem>
-                       <input type="submit" onClick={onClickk}/>
-                       {div ? <Teste/> : null }
-                       </NavItem>
+                      
 
 
                       
