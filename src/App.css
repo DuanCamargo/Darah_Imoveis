@@ -25,6 +25,4 @@ input[type=number] {
 .num{
   -moz-appearance: textfield;
    appearance: textfield;
-
-   min: 0;
 }
