@@ -101,14 +101,8 @@ const CadImovel =({alt}) => {
                         </div>
                     </form>
                     
-                    {/* #################### OUTRA TELA!!! ##################*/}
+                    {/* #################### TELA VALORES!!! ##################*/}
                     <form onSubmit={SendForm}>
-                    {/* 
-                        valorTvCabo:"",
-                        valorAgua:"",
-                        valorEnergia:"",
-                        valorGas:"", */}
-
                         <div>
                             <label htmlFor="valorAluguel">Valor Aluguel</label>
                             <textarea className="form-control" id="valorAluguel" name="valorAluguel" placeholder="Valor Aluguel" onChange={handleInputChange} />
