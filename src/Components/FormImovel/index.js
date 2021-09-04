@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 import { PostFormImov} from '../../Service/PostImovelForm'
 
 
-const FormImovel = ({alt}) => {
+
+// import{ useHistory} from 'react-router-dom
+
+
+const FormImovel = ()=>{
 
      const initialCadastroState = {
          cep: "",

@@ -1,4 +1,5 @@
 import React  from 'react'
+import { useState } from 'react';
 import {FaBars} from 'react-icons/fa'
 import { BsFillPersonFill } from "react-icons/bs";
 import {BsFillGridFill}  from "react-icons/bs";
@@ -12,9 +13,13 @@ import {
     NavItem, 
     NavBtn, 
     NavBtnLink,
-    NavLinks} from "./NavbarStyle"
+    NavLinks,
+    Teste} from "./NavbarStyle"
 
 const Navbar = ({toggle}) => {
+
+    // const [div, setDiv] = useState(false);
+    // const onClickk = () => setDiv(true);
 
    return (
       <>
@@ -34,6 +39,17 @@ const Navbar = ({toggle}) => {
                        <NavItem>
                            <NavLinks to= "/login"> <BsFillPersonFill className="iconNav"/> Entrar </NavLinks>
                        </NavItem>
+                       <NavItem>
+                           <Teste>
+                               <div id="teste" className="divGosh">
+                                   <p>entrou</p> </div>
+                           </Teste>
+                       </NavItem>
+                     
+                      
+
+
+                      
                        
                        
                    </NavMenu>
