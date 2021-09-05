@@ -40,3 +40,23 @@ align-items: center;
   height: 100vh;
  
 `
+
+export const FormContainerFotoG = styled.div`
+display: felx;
+flex-wrap:wrap;
+background-color: #e6e6e6
+
+aligin-itens: center;
+   width: 100%
+   height: 100 vh;
+`
+
+export const FormContainerFoto = styled.div`
+display: felx;
+flex-wrap:wrap;
+background-color: #e6e6e6
+
+aligin-itens: center;
+   width: 100%
+   height: 100 vh;
+`

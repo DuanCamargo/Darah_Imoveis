@@ -11,10 +11,11 @@ export const GetForm = (email, senha)=>{
   };
 
   return axios(login)
-  .then(function(response){
+  .then(function teste (response){
     console.log(response.data);
   })
   .catch(e => {
     console.log(e)
   })
 }
+

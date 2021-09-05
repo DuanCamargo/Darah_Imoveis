@@ -1,6 +1,8 @@
-import {React, useState} from "react";
-import { GetForm } from '../../Service/GetLoginForm.js'
-
+import React from "react";
+import { GetForm, banco } from '../../Service/GetLoginForm.js'
+import { UsuarioLogadoContext } from "../../Context/UsuarioLogado";
+import { useState } from 'react';
+import { useContext } from "react";
 
 import {
   CardWrapper,
@@ -23,6 +25,7 @@ function Login2() {
   };
 
   const [input, setInput] = useState(initialLoginState)
+  const [usuarioLogado, setUsuarioLogado] = useContext(UsuarioLogadoContext)
 
   const handleInputChange = (event) =>{
     const {name, value} = event.target;
@@ -30,8 +33,30 @@ function Login2() {
   }
 
   const loginSenha = (event) =>{
-    event.preventDefault();
-    GetForm(input.email, input.senha)
+    if(input.email != null && input.senha !=null){
+      event.preventDefault();
+      GetForm(input.email, input.senha).then(response => {
+        const data = {
+          id: "",
+          nome: "",
+          sobrenome: "",
+          email: "",
+          senha:"",
+          whatsapp:""
+        };
+        data.id = response.data.id_usuario;
+        data.nome = response.data.nome;
+        data.sobrenome= response.data.sobrenome;
+        data.email = response.data.email;
+        data.senha = response.data.senha;
+        data.whatsapp = response.data.whatsapp;
+        setUsuarioLogado(data);
+        console.log(usuarioLogado)
+      })
+    }else{
+      alert("Falha na autenticação")
+    }
+    
   }
     
   return (
