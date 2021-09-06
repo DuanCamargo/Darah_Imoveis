@@ -39,12 +39,12 @@ const Navbar = ({toggle}) => {
                        <NavItem>
                            <NavLinks to= "/login"> <BsFillPersonFill className="iconNav"/> Entrar </NavLinks>
                        </NavItem>
-                       <NavItem>
+                       {/* <NavItem>
                            <Teste>
                                <div id="teste" className="divGosh">
                                    <p>entrou</p> </div>
                            </Teste>
-                       </NavItem>
+                       </NavItem> */}
                      
                       
 
