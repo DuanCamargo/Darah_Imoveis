@@ -67,7 +67,6 @@ const FormImovel = ()=>{
                     
                         <div className="col text-center">
                             <button type="submit" className="btn btn-primary ">Próximo</button>
-                            {/* <Redirect to="/CadImovel">sfhkjdh</Redirect> */}
                         </div>
                     </form>
                 </FormContainer>
