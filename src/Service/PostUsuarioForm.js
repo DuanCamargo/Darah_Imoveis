@@ -5,7 +5,7 @@ export const PostForm = (dataForm)=>{
         .then(res => {
           console.log(res);
           // console.log(res.data);
-          alert("Enviado com sucesso")
+          alert("Usuário Enviado com sucesso")
         })
         .catch( e => {
             console.log(e);

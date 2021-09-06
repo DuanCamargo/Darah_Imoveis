@@ -87,7 +87,7 @@ const CadImovel = ({ alt }) => {
                 <FormContainer>
                     <form onSubmit={SendForm}>
                         <FormIM2>Preencha os campos abaixo</FormIM2>
-                        <div class name="form-container">
+                        <div  className="form-container">
                             <label htmlFor="tipoResidencia">Tipo de Residência</label>
                             <select id="tipoResidencia" name="tipoResidencia" onChange={handleInputChange}>
                                 <option value={null}>Selecione uma opção abaixo</option>
@@ -184,7 +184,7 @@ const CadImovel = ({ alt }) => {
 
                     {/* #################### TELA QUARTO!!! ##################*/}
                     <form onSubmit={SendForm}>
-                        <div class name="form-container">
+                        <div className="form-container">
                             <label htmlFor="tipoQuarto">Tipo de Quarto</label>
                             <select id="tipoQuarto" name="tipoQuarto" onChange={handleInputChange}>
                                 <option value={null}>Selecione uma opção abaixo</option>
@@ -217,14 +217,15 @@ const CadImovel = ({ alt }) => {
 
                         <form onSubmit={SendForm}>
                             <FormContainerFoto>
-                                <div id="file"> 
-                                <form runat="server">
-                                    <input accept="image/*" type='file' id="imgImov" onChange={ (e) => imgImov(e)} />
-                                    <img id="blah" src="#" alt="your image" />
-                                    <input type="text" className="form-control" id="file" name="file" placeholder="Descrição"/>
-                                </form>
-                                
-                                </div>
+                            <div className="page">
+                               <div className="container">
+                                   <h1 className="heading">adicionar imagem</h1>
+                                   <div className="img-holder">
+                                       <img src={img} alt="" id="img" className="img"/>
+                                   </div>
+                                   <input type="file" className="img" id="img" name="foto" placeholder="adcione sua imagem"/>
+                                   </div>
+                            </div>
 
                             </FormContainerFoto>
 

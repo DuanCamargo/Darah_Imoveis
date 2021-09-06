@@ -5,7 +5,8 @@ export const PostFormImov = (dataForm)=>{
         .then(res => {
           console.log(res);
           // console.log(res.data);
-          alert("Enviado com sucesso")
+          alert("Imóvel Enviado com sucesso")
+          window.location.href="/CadImovel"
         })
         .catch( e => {
             console.log(e);
