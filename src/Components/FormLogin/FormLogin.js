@@ -37,11 +37,25 @@ function Login2() {
       console.log("Eles não são NULOS")
       event.preventDefault();
 
-      var x = GetForm(input.email, input.senha).then(response => {
-        console.log(response.nome)
-      })
+      GetForm(input.email, input.senha).then(response => {
+        const data = {
+          id: "",
+          nome: "",
+          sobrenome: "",
+          email: "",
+          senha:"",
+          whatsapp:""
+        };
+        data.nome = response.nome;
+        data.sobrenome = response.sobrenome;
+        data.whatsapp = response.whatsapp;
+        data.email = response.email;
+        data.senha = response.senha;
+        data.id = response.id_usuario;
 
-      console.log(x)
+        setUsuarioLogado(data)
+        console.log(usuarioLogado)
+      })
   }
 }
   return (
