@@ -1,11 +1,11 @@
 import axios from '../http-common';
 
-export const PostFormImov = (dataForm)=>{
+export const PostCadImovel = (dataForm)=>{
     axios.post(`http://localhost:8081/imovel`,  dataForm )
         .then(res => {
           console.log(res);
-          alert("Endereço salvo com sucesso")
-          window.location.href="/CadImovel"
+          alert("Imovel salvo com sucesso")
+        //   window.location.href="/CadImovel"
         })
         .catch( e => {
             console.log(e);

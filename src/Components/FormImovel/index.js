@@ -1,9 +1,7 @@
 import React from 'react';
 import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { PostFormImov} from '../../Service/PostImovelForm'
-import { Redirect } from 'react-router';
 
 const FormImovel = ()=>{
 

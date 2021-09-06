@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef} from 'react';
 import { Button } from '../../SectionHome/SectionStyle';
 import ReactDOMServer from 'react-dom/server';
 
@@ -14,6 +14,8 @@ const CadImovel = ({ alt }) => {
         qtdBaheiroSocial: "",
         detalhesResidencia: "",
         regrasResidencia: "",
+        detalhesRegiao: "",
+        mapa: "",
 
         valorAluguel: "",
         valorIPTU: "",
@@ -29,15 +31,8 @@ const CadImovel = ({ alt }) => {
         qtdCamaQaurto: "",
         detalhesQuarto: "",
 
-        detalhesRegiao: "",
-
-        mapa: "",
-
         fotos: ""
     }
-
-   
-
 
    const imgImov = evt => {
         let parent = evt.target.parentNode
@@ -47,7 +42,6 @@ const CadImovel = ({ alt }) => {
             console.log (parent.img)
             console.log (parent.blah)
             parent.blah.src = URL.createObjectURL(file)
-            
         }
     }
 
@@ -64,28 +58,25 @@ const CadImovel = ({ alt }) => {
         )
         console.log (ReactDOMServer.renderToStaticMarkup(photo))
         document.getElementById('file').innerHTML += ReactDOMServer.renderToStaticMarkup(photo)
-        
-
-       
-       
-       
     }
 
     const handleInputChange = (event) => {
 
     }
 
-
-
     const SendForm = (e) => {
+        e.preventDefault();
+    }
+
+    const SendResidencia = (e) => {
         e.preventDefault();
     }
 
     return (
         <>
             <FormContainerGeral>
-                <FormContainer>
-                    <form onSubmit={SendForm}>
+                <FormContainer id="residencia">
+                    <form onSubmit={SendResidencia}>
                         <FormIM2>Preencha os campos abaixo</FormIM2>
                         <div  className="form-container">
                             <label htmlFor="tipoResidencia">Tipo de Residência</label>
@@ -142,7 +133,9 @@ const CadImovel = ({ alt }) => {
                             <Button type="submit" className="btn btn-primary ">Próximo</Button>
                         </div>
                     </form>
-
+                </FormContainer>
+                
+                <FormContainer id="valores">
                     {/* #################### TELA VALORES!!! ##################*/}
                     <form onSubmit={SendForm}>
                         <div>
@@ -181,7 +174,8 @@ const CadImovel = ({ alt }) => {
                             <Button type="submit" className="btn btn-primary ">Próximo</Button>
                         </div>
                     </form>
-
+                </FormContainer>
+                <FormContainer id="quarto">
                     {/* #################### TELA QUARTO!!! ##################*/}
                     <form onSubmit={SendForm}>
                         <div className="form-container">
@@ -210,21 +204,21 @@ const CadImovel = ({ alt }) => {
                             <Button type="submit" className="btn btn-primary ">Próximo</Button>
                         </div>
                     </form>
+
+                </FormContainer>
                     {/* #################### TELA FOTOS!!! ##################*/}
-
+                <FormContainer id="fotos">
                     <FormContainerFotoG>
-
-
                         <form onSubmit={SendForm}>
                             <FormContainerFoto>
                             <div className="page">
                                <div className="container">
                                    <h1 className="heading">adicionar imagem</h1>
                                    <div className="img-holder">
-                                       <img src={img} alt="" id="img" className="img"/>
+                                       <img src="" alt="" id="img" className="img"/>
                                    </div>
                                    <input type="file" className="img" id="img" name="foto" placeholder="adcione sua imagem"/>
-                                   </div>
+                                </div>
                             </div>
 
                             </FormContainerFoto>
@@ -237,9 +231,7 @@ const CadImovel = ({ alt }) => {
                                 <Button type="submit" className="btn btn-primary ">Finalizar</Button>
                             </div>
                         </form>
-
                     </FormContainerFotoG>
-
                 </FormContainer>
             </FormContainerGeral>
         </>

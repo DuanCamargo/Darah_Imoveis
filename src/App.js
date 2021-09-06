@@ -19,7 +19,10 @@ function App() {
         <Route path="/login" component={Login2} exact />
         <Route path="/imovel" component={CadastroImovel} exact />
         <Route path="/CadImovel" component={CadastroImovel2} exact />
-
+        <Route path="/CadImovel" component={CadastroImovel2} exact />
+        <Route path="/CadImovel" component={CadastroImovel2} exact />
+        <Route path="/CadImovel" component={CadastroImovel2} exact />
+        <Route path="/CadImovel" component={CadastroImovel2} exact />
       </Switch>
     </Router>
     </UsuarioLogadoProvider>
