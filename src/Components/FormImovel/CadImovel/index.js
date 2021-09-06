@@ -2,6 +2,7 @@ import React from 'react';
 import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
 import { useEffect, useState } from 'react';
 import { Button } from '../../SectionHome/SectionStyle';
+import ReactDOMServer from 'react-dom/server';
 
 const CadImovel = ({ alt }) => {
 
@@ -35,19 +36,46 @@ const CadImovel = ({ alt }) => {
         fotos: ""
     }
 
-    let file ={img:'http://imagens.ndig.com.br/internet/perfil_sem_foto_facebook.jpg'}
-
-    const [input] = useState(init)
-
-    const [img] = useState(file.img)
    
 
 
-    const handleInputChange = (event) => {
-        
+   const imgImov = evt => {
+        let parent = evt.target.parentNode
+        const [file] = evt.target.files
+        if (file) {
+             
+            console.log (parent.img)
+            console.log (parent.blah)
+            parent.blah.src = URL.createObjectURL(file)
+            
+        }
     }
 
-    
+    const addPhotos = () => {
+      
+        let photo = (
+            <>
+        <form runat="server">
+        <input accept="image/*" type='file' id="imgImov" onChange={ (e) => imgImov(e)} />
+        <img id="blah" src="#" alt="your image" />
+        <input type="text" className="form-control" id="file" name="file" placeholder="Descrição"/>
+        </form>
+        </>
+        )
+        console.log (ReactDOMServer.renderToStaticMarkup(photo))
+        document.getElementById('file').innerHTML += ReactDOMServer.renderToStaticMarkup(photo)
+        
+
+       
+       
+       
+    }
+
+    const handleInputChange = (event) => {
+
+    }
+
+
 
     const SendForm = (e) => {
         e.preventDefault();
@@ -189,21 +217,19 @@ const CadImovel = ({ alt }) => {
 
                         <form onSubmit={SendForm}>
                             <FormContainerFoto>
-                            <div className="page">
-                               <div calssName="container">
-                                   <h1 className="heading">adicionar imagem</h1>
-                                   <div className="img-holder">
-                                       <img src={img} alt="" id="img" className="img"/>
-                                   </div>
-                                   <input type="file" className="img" id="img" name="foto" placeholder="adcione sua imagem"/>
-                                   </div>
-                            </div>
+                                <div id="file"> 
+                                <form runat="server">
+                                    <input accept="image/*" type='file' id="imgImov" onChange={ (e) => imgImov(e)} />
+                                    <img id="blah" src="#" alt="your image" />
+                                    <input type="text" className="form-control" id="file" name="file" placeholder="Descrição"/>
+                                </form>
+                                
+                                </div>
 
                             </FormContainerFoto>
 
-
                             <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary ">Add Foto</Button>
+                                <Button type="submit" className="btn btn-primary " onClick={addPhotos}>Add Foto</Button>
                             </div>
 
                             <div className="col text-center">
