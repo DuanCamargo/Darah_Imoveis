@@ -3,6 +3,7 @@ import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PostFormImov} from '../../Service/PostImovelForm'
+import { Redirect } from 'react-router';
 
 const FormImovel = ()=>{
 
@@ -27,6 +28,7 @@ const FormImovel = ()=>{
     const SendForm = (e) =>{
         e.preventDefault();
         PostFormImov(input);
+        
     }
 
     return (
@@ -65,6 +67,7 @@ const FormImovel = ()=>{
                     
                         <div className="col text-center">
                             <button type="submit" className="btn btn-primary ">Próximo</button>
+                            {/* <Redirect to="/CadImovel">sfhkjdh</Redirect> */}
                         </div>
                     </form>
                 </FormContainer>
