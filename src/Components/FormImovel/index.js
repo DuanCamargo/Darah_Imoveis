@@ -64,7 +64,7 @@ const FormImovel = ()=>{
                         </div>
                     
                         <div className="col text-center">
-                            <Link to="/CadImovel" type="submit" className="btn btn-primary ">Próximo</Link>
+                            <button type="submit" className="btn btn-primary ">Próximo</button>
                         </div>
                     </form>
                 </FormContainer>
