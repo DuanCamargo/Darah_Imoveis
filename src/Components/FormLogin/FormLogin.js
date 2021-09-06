@@ -34,31 +34,16 @@ function Login2() {
 
   const loginSenha = (event) =>{
     if(input.email != null && input.senha !=null){
+      console.log("Eles não são NULOS")
       event.preventDefault();
-      GetForm(input.email, input.senha).then(response => {
-        const data = {
-          id: "",
-          nome: "",
-          sobrenome: "",
-          email: "",
-          senha:"",
-          whatsapp:""
-        };
-        data.id = response.data.id_usuario;
-        data.nome = response.data.nome;
-        data.sobrenome= response.data.sobrenome;
-        data.email = response.data.email;
-        data.senha = response.data.senha;
-        data.whatsapp = response.data.whatsapp;
-        setUsuarioLogado(data);
-        console.log(usuarioLogado)
+
+      var x = GetForm(input.email, input.senha).then(response => {
+        console.log(response.nome)
       })
-    }else{
-      alert("Falha na autenticação")
-    }
-    
+
+      console.log(x)
   }
-    
+}
   return (
     <div className="App">
       <form onSubmit={loginSenha}>

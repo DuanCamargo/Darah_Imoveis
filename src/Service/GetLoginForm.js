@@ -1,6 +1,6 @@
-import axios from '../http-common';
+import axios from "../http-common";
 
-export const GetForm = (email, senha)=>{
+export const GetForm = (email, senha) => {
   var login = {
     method: 'GET',
     url: '/usuario/loginSenha',
@@ -11,8 +11,9 @@ export const GetForm = (email, senha)=>{
   };
 
   return axios(login)
-  .then(function teste (response){
-    console.log(response.data);
+  .then(function (response){
+    // console.log("GetLoginForm: "+response.data);
+    return response.data
   })
   .catch(e => {
     console.log(e)

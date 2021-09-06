@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://61329c8fab7b1e001799b575.mockapi.io/",
+  baseURL: "http://localhost:8081/",
   headers: {
     "Content-type": "application/json",
   }
