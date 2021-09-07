@@ -8,10 +8,7 @@ const CadImovel = () => {
 
     const init = {
         //Update
-        tipoResidencia: "",
-        metragemResidencia: "",
-        qtdPessoaResidencia: "",
-        qtdBaheiroSocial: "",
+        
 
         //Insert Into
         tipoCompartilhamento: "",
@@ -43,15 +40,6 @@ const CadImovel = () => {
                 <FormContainer id="residencia">
                     <form onSubmit={SendResidencia}>
                         <FormIM2>Preencha os campos abaixo</FormIM2>
-                        <div  className="form-container">
-                            <label htmlFor="tipoResidencia">Tipo de Residência</label>
-                            <select id="tipoResidencia" name="tipoResidencia" onChange={handleInputChange}>
-                                <option value={null}>Selecione uma opção abaixo</option>
-                                <option value="casa">Casa</option>
-                                <option value="apartamento">Apartamento</option>
-                            </select>
-                        </div>
-
                         <div>
                             <label htmlFor="tipoCompartilhamento">Tipo de Compartilhamento</label>
                             <select id="tipoCompartilhamento" name="tipoCompartilhamento" onChange={handleInputChange}>
@@ -61,20 +49,6 @@ const CadImovel = () => {
                             </select>
                         </div>
 
-                        <div>
-                            <label htmlFor="metragemResidencia">Metragem da Residencia</label>
-                            <input type="text" className="form-control" id="metragemResidencia" name="metragemResidencia" placeholder="M²" onChange={handleInputChange} />
-                        </div>
-
-                        <div>
-                            <label htmlFor="qtdPessoaResidencia">Quantidade de Pessoas na Residencia</label>
-                            <input type="text" className="form-control" id="qtdPessoaResidencia" name="qtdPessoaResidencia" placeholder="Quantidade de Pessoas na Residencia" onChange={handleInputChange} />
-                        </div>
-
-                        <div>
-                            <label htmlFor="qtdBaheiroSocial">Quantidade de Banheiro Social</label>
-                            <input type="number" min="0" className="form-control num" id="qtdBaheiroSocial" name="qtdBaheiroSocial" placeholder="Quantidade de Banheiro Social" onChange={handleInputChange} />
-                        </div>
                         <div>
                             <label htmlFor="regrasResidencia">Regras Residência</label>
                             <textarea className="form-control" id="regrasResidencia" name="regrasResidencia" placeholder="Ex:  não pode festa, não pode pet, etc..." onChange={handleInputChange} />
