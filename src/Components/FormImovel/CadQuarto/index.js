@@ -1,6 +1,7 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { FormContainerGeral, FormContainer} from './CadQuartoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
+import { PostCadQuarto } from '../../../Service/PostCadQuarto';
 
 const CadQuarto = () => {
 
@@ -11,12 +12,18 @@ const CadQuarto = () => {
         detalhesQuarto: "",
     }
 
-    const handleInputChange = (event) => {
+    const [input, setInput] = useState(init)
 
+    const handleInputChange = (event) =>{
+        const {name, value} = event.target;
+            setInput({ ...input, [name]: value });
     }
 
-    const SendFoto = (e) => {
+    console.log(input)
+
+    const SendQuarto = (e) => {
         e.preventDefault();
+        PostCadQuarto(input);
     }
 
     return (
@@ -24,7 +31,7 @@ const CadQuarto = () => {
             <FormContainerGeral>
                 <FormContainer id="quarto">
                     {/* #################### TELA QUARTO!!! ##################*/}
-                    <form onSubmit={SendFoto}>
+                    <form onSubmit={SendQuarto}>
                         <div className="form-container">
                             <label htmlFor="tipoQuarto">Tipo de Quarto</label>
                             <select id="tipoQuarto" name="tipoQuarto" onChange={handleInputChange}>

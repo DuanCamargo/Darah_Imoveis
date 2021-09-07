@@ -5,7 +5,7 @@ export const PostCadValores = (dataForm)=>{
         .then(res => {
           console.log(res);
           alert("Foto(s) salva(s) com sucesso")
-          // window.location.href="/CadImovel"
+          window.location.href="/CadFoto"
         })
         .catch( e => {
             console.log(e);

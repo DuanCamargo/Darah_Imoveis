@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../Components/Navbar/index';
-import CadastroQuartos from '../Components/FormImovel/CadQuartos/index';
+import CadastroQuartos from '../Components/FormImovel/CadQuarto/index';
 import Sidebar from '../Components/Sidebar/index';
 import { useState } from 'react';
 

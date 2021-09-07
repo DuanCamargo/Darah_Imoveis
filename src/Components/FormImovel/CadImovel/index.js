@@ -2,74 +2,39 @@ import React from 'react';
 import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
 import { useEffect, useState, useRef} from 'react';
 import { Button } from '../../SectionHome/SectionStyle';
-import ReactDOMServer from 'react-dom/server';
+import { PostCadImovel } from '../../../Service/PostCadImovel';
 
-const CadImovel = ({ alt }) => {
+const CadImovel = () => {
 
     const init = {
+        //Update
         tipoResidencia: "",
-        tipoCompartilhamento: "",
         metragemResidencia: "",
         qtdPessoaResidencia: "",
         qtdBaheiroSocial: "",
+
+        //Insert Into
+        tipoCompartilhamento: "",
         detalhesResidencia: "",
         regrasResidencia: "",
         detalhesRegiao: "",
+
+        //Insert Into
         mapa: "",
-
-        valorAluguel: "",
-        valorIPTU: "",
-        valorCondominio: "",
-        valorInternet: "",
-        valorTvCabo: "",
-        valorAgua: "",
-        valorEnergia: "",
-        valorGas: "",
-
-        tipoQuarto: "",
-        metragemQuarto: "",
-        qtdCamaQaurto: "",
-        detalhesQuarto: "",
-
-        fotos: ""
     }
 
-   const imgImov = evt => {
-        let parent = evt.target.parentNode
-        const [file] = evt.target.files
-        if (file) {
-             
-            console.log (parent.img)
-            console.log (parent.blah)
-            parent.blah.src = URL.createObjectURL(file)
-        }
+    const [input, setInput] = useState(init)
+
+    const handleInputChange = (event) =>{
+        const {name, value} = event.target;
+            setInput({ ...input, [name]: value });
     }
 
-    const addPhotos = () => {
-      
-        let photo = (
-            <>
-        <form runat="server">
-        <input accept="image/*" type='file' id="imgImov" onChange={ (e) => imgImov(e)} />
-        <img id="blah" src="#" alt="your image" />
-        <input type="text" className="form-control" id="file" name="file" placeholder="Descrição"/>
-        </form>
-        </>
-        )
-        console.log (ReactDOMServer.renderToStaticMarkup(photo))
-        document.getElementById('file').innerHTML += ReactDOMServer.renderToStaticMarkup(photo)
-    }
-
-    const handleInputChange = (event) => {
-
-    }
-
-    const SendForm = (e) => {
-        e.preventDefault();
-    }
+    console.log(input)
 
     const SendResidencia = (e) => {
         e.preventDefault();
+        PostCadImovel(input);
     }
 
     return (
@@ -83,7 +48,7 @@ const CadImovel = ({ alt }) => {
                             <select id="tipoResidencia" name="tipoResidencia" onChange={handleInputChange}>
                                 <option value={null}>Selecione uma opção abaixo</option>
                                 <option value="casa">Casa</option>
-                                <option value="apto">Apartamento</option>
+                                <option value="apartamento">Apartamento</option>
                             </select>
                         </div>
 
@@ -133,105 +98,6 @@ const CadImovel = ({ alt }) => {
                             <Button type="submit" className="btn btn-primary ">Próximo</Button>
                         </div>
                     </form>
-                </FormContainer>
-                
-                <FormContainer id="valores">
-                    {/* #################### TELA VALORES!!! ##################*/}
-                    <form onSubmit={SendForm}>
-                        <div>
-                            <label htmlFor="valorAluguel">Valor Aluguel</label>
-                            <input type="text" className="form-control" id="valorAluguel" name="valorAluguel" placeholder="R$ 00,00" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="valorIPTU">Valor IPTU</label>
-                            <input type="text" className="form-control" id="valorIPTU" name="valorIPTU" placeholder="R$ 00,00" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="valorCondominio">Valor Condominio</label>
-                            <input type="text" className="form-control" id="valorCondominio" name="R$ 00,00" placeholder="Valor Condominio" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="valorInternet">Valor Internet</label>
-                            <input type="text" className="form-control" id="valorInternet" name="valorInternet" placeholder="R$ 00,00" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="valorTvCabo">Valor Tv a Cabo</label>
-                            <input type="text" className="form-control" id="valorTvCabo" name="valorTvCabo" placeholder="R$ 00,00" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="valorAgua">Valor Água</label>
-                            <input type="text" className="form-control" id="valorAgua" name="valorAgua" placeholder="R$ 00,00" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="valorEnergia">Valor Energia</label>
-                            <input type="text" className="form-control" id="valorEnergia" name="valorEnergia" placeholder="R$ 00,00" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="valorGas">Valor Gás</label>
-                            <input type="text" className="form-control" id="valorGas" name="valorGas" placeholder="R$ 00,00" onChange={handleInputChange} />
-                        </div>
-                        <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
-                        </div>
-                    </form>
-                </FormContainer>
-                <FormContainer id="quarto">
-                    {/* #################### TELA QUARTO!!! ##################*/}
-                    <form onSubmit={SendForm}>
-                        <div className="form-container">
-                            <label htmlFor="tipoQuarto">Tipo de Quarto</label>
-                            <select id="tipoQuarto" name="tipoQuarto" onChange={handleInputChange}>
-                                <option value={null}>Selecione uma opção abaixo</option>
-                                <option value="solteiro">Casa</option>
-                                <option value="solteiroSuite">Apartamento</option>
-                                <option value="casal">Casa</option>
-                                <option value="casaSuite">Apartamento</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label htmlFor="metragemQuarto">Metragem do Quarto</label>
-                            <input type="text" className="form-control" id="metragemQuarto" name="metragemQuarto" placeholder="M²" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="qtdCamaQaurto">Quantidade de Cama no Quarto</label>
-                            <input type="number" min="0" className="form-control num" id="qtdCamaQaurto" name="qtdCamaQaurto" placeholder="Quantidade de Cama no Quarto" onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="detalhesQuarto">Detalhes Quarto</label>
-                            <textarea type="text" className="form-control" id="detalhesQuarto" name="detalhesQuarto" placeholder="ex: mobiliado, frigobar, ar-condicionado, etc" onChange={handleInputChange} />
-                        </div>
-                        <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
-                        </div>
-                    </form>
-
-                </FormContainer>
-                    {/* #################### TELA FOTOS!!! ##################*/}
-                <FormContainer id="fotos">
-                    <FormContainerFotoG>
-                        <form onSubmit={SendForm}>
-                            <FormContainerFoto>
-                            <div className="page">
-                               <div className="container">
-                                   <h1 className="heading">adicionar imagem</h1>
-                                   <div className="img-holder">
-                                       <img src="" alt="" id="img" className="img"/>
-                                   </div>
-                                   <input type="file" className="img" id="img" name="foto" placeholder="adcione sua imagem"/>
-                                </div>
-                            </div>
-
-                            </FormContainerFoto>
-
-                            <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary " onClick={addPhotos}>Add Foto</Button>
-                            </div>
-
-                            <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary ">Finalizar</Button>
-                            </div>
-                        </form>
-                    </FormContainerFotoG>
                 </FormContainer>
             </FormContainerGeral>
         </>

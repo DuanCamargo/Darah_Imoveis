@@ -5,7 +5,7 @@ export const PostCadQuarto = (dataForm)=>{
         .then(res => {
           console.log(res);
           alert("Quarto salvo com sucesso")
-        //   window.location.href="/CadImovel"
+          window.location.href="/CadValores"
         })
         .catch( e => {
             console.log(e);
