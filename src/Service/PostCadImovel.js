@@ -1,11 +1,11 @@
 import axios from '../http-common';
 
 export const PostCadImovel = (dataForm)=>{
-    axios.put(`http://localhost:8081/imovel`,  dataForm )
+    axios.post(`http://localhost:8081/anuncio`,  dataForm )
         .then(res => {
           console.log(res);
-          alert("Imovel salvo com sucesso")
-          window.location.href="/CadQuarto"
+          alert("Anuncio salvo com sucesso")
+          window.location.href="/CadValores"
         })
         .catch( e => {
             console.log(e);

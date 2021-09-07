@@ -5,7 +5,7 @@ export const PostFormImov = (dataForm)=>{
         .then(res => {
           console.log(res);
           alert("Endereço salvo com sucesso")
-          window.location.href="/CadImovel"
+          window.location.href="/CadQuarto"
         })
         .catch( e => {
             console.log(e);

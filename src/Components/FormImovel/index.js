@@ -5,7 +5,7 @@ import { PostFormImov} from '../../Service/PostImovelForm'
 
 const FormImovel = ()=>{
 
-     const initialCadastroState = {
+     const init = {
         cep: "",
         logradouro: "",
         numero: "",
@@ -19,7 +19,7 @@ const FormImovel = ()=>{
         qtd_banheiro: "",
       };
 
-    const [input, setInput] = useState(initialCadastroState)
+    const [input, setInput] = useState(init)
    
 
     const handleInputChange = (event) =>{

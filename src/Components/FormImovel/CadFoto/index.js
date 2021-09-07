@@ -4,83 +4,27 @@ import { Button } from '../../SectionHome/SectionStyle';
 import {PostCadFoto} from '../../../Service/PostCadFoto';
 import ReactDOMServer from 'react-dom/server';
 
-const CadFoto = ({ alt }) => {
+const ImageUpload = () => {
+    
+    const [files, setFiles] = useState([]);
 
-    const init = {
-        fotos: ""
+    const fileSelectedHandler = (e) => {
+      setFiles({ files: [...files, ...e.target.files] })
     }
 
-    const imgImov = evt => {
-        let parent = evt.target.parentNode
-        const [file] = evt.target.files
-        if (file) {
-             
-            console.log (parent.img)
-            console.log (parent.blah)
-            parent.blah.src = URL.createObjectURL(file)
-        }
-    }
-
-    const addPhotos = () => {
-      
-        let photo = (
-            <>
-        <form runat="server">
-        <input accept="image/*" type='file' id="imgImov" onChange={ (e) => imgImov(e)} />
-        <img id="blah" src="#" alt="your image" />
-        <input type="text" className="form-control" id="file" name="file" placeholder="Descrição"/>
-        </form>
-        </>
-        )
-        console.log (ReactDOMServer.renderToStaticMarkup(photo))
-        document.getElementById('file').innerHTML += ReactDOMServer.renderToStaticMarkup(photo)
-    }
-
-    const [input, setInput] = useState(init)
-   
-
-    const handleInputChange = (event) =>{
-        const {name, value} = event.target;
-            setInput({ ...input, [name]: value });
-    }
-
-    const SendFotos = (e) => {
-        e.preventDefault();
-        PostCadFoto(input);
-    }
-
+    console.log(files)
+  
     return (
         <>
-            <FormContainerGeral>
-                {/* #################### TELA FOTOS!!! ##################*/}
-                <FormContainer id="fotos">
-                    <FormContainerFotoG>
-                        <form onSubmit={SendFotos}>
-                            <FormContainerFoto>
-                            <div className="page">
-                               <div className="container">
-                                   <h1 className="heading">adicionar imagem</h1>
-                                   <div className="img-holder">
-                                       <img src="" alt="" id="img" className="img"/>
-                                   </div>
-                                   <input type="file" className="img" id="img" name="foto" placeholder="adcione sua imagem" onChange={handleInputChange} required/>
-                                </div>
-                            </div>
-
-                            </FormContainerFoto>
-
-                            <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary" onClick={addPhotos}>Add Foto</Button>
-                            </div>
-
-                            <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary ">Finalizar</Button>
-                            </div>
-                        </form>
-                    </FormContainerFotoG>
-                </FormContainer>
-            </FormContainerGeral>
+            <form>
+                <div><h2>Upload images</h2></div>
+                {/* <h3>Images</h3> */}
+                <input type="file" multiple onChange={fileSelectedHandler} />
+            </form>
+            <div>
+                <img src={files[0]}></img>
+            </div>
         </>
     )
-}
-export default CadFoto
+  }
+  export default ImageUpload
