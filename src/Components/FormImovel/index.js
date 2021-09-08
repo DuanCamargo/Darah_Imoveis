@@ -1,7 +1,8 @@
 import React from 'react';
 import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
 import { useState } from 'react';
-import { PostFormImov} from '../../Service/PostImovelForm'
+import { PostFormImov} from '../../Service/PostImovelForm';
+//import { Link } from "recat-router-dom";
 
 const FormImovel = ()=>{
 
@@ -94,7 +95,7 @@ const FormImovel = ()=>{
                         </div>
                     
                         <div className="col text-center">
-                            <button type="submit" className="btn btn-primary ">Próximo</button>
+                        < button  type = "submit"  className = "btn btn-primary"> Próximo </button>
                         </div>
                     </form>
                 </FormContainer>
