@@ -27,12 +27,20 @@ const Footer = () => {
        var dia = data.getDate();
        var mes = data.getMonth()+1;
        var ano = data.getFullYear(); 
+       var hora = data.getHours();
+       var minute = data.getMinutes();
+       var second = data.getSeconds()
 
         if(dia.toString().length ===1){dia = '0'+dia}
         if(mes.toString().length ===1){mes = '0'+mes}
-       return ano+'-'+mes+'-'+dia;
+        if(hora.toString().length ===1){hora = '0'+hora}
+        if(minute.toString().length ===1){minute = '0'+minute}
+        if(second.toString().length ===1){second = '0'+second}
+       
+      
+      
      }
-     console.log(date());
+   
     return (
         <>
         <FooterContainer>

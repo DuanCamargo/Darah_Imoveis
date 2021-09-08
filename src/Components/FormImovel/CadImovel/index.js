@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Button } from '../../SectionHome/SectionStyle';
-
+import '../../../../src/App.css'
 const CadImovel = ({ alt }) => {
 
     const init = {
@@ -35,13 +35,7 @@ const CadImovel = ({ alt }) => {
         fotos: ""
     }
 
-    let file ={img:'http://imagens.ndig.com.br/internet/perfil_sem_foto_facebook.jpg'}
-
-    const [input] = useState(init)
-
-    const [img] = useState(file.img)
-   
-
+    
 
     const handleInputChange = (event) => {
         
@@ -187,31 +181,16 @@ const CadImovel = ({ alt }) => {
                     <FormContainerFotoG>
 
 
-                        <form onSubmit={SendForm}>
-                            <FormContainerFoto>
-                            <div className="page">
-                               <div calssName="container">
-                                   <h1 className="heading">adicionar imagem</h1>
-                                   <div className="img-holder">
-                                       <img src={img} alt="" id="img" className="img"/>
-                                   </div>
-                                   <input type="file" className="img" id="img" name="foto" placeholder="adcione sua imagem"/>
-                                   </div>
-                            </div>
-
-                            </FormContainerFoto>
-
-
-                            <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary ">Add Foto</Button>
-                            </div>
-
-                            <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary ">Finalizar</Button>
-                            </div>
-                        </form>
-
+                        
+                                  
+                                    
+                                    
+  
                     </FormContainerFotoG>
+
+
+                    
+                    
 
                 </FormContainer>
             </FormContainerGeral>

@@ -42,21 +42,20 @@ align-items: center;
 `
 
 export const FormContainerFotoG = styled.div`
-display: felx;
+display: flex;
 flex-wrap:wrap;
-background-color: #e6e6e6
+background-color: #e6e6e6;
 
-aligin-itens: center;
-   width: 100%
-   height: 100 vh;
+align-items: center;
+   width: 100%;
+   height: 100vh;
 `
 
 export const FormContainerFoto = styled.div`
-display: felx;
+display: flex;
 flex-wrap:wrap;
-background-color: #e6e6e6
-
-aligin-itens: center;
-   width: 100%
-   height: 100 vh;
+background-color: #e6e6e6;
+margin: 0 auto;
+   width: 100%;
+   
 `

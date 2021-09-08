@@ -4,7 +4,7 @@ import {Link as LinkR} from "react-router-dom"
 
 export const Nav = styled.nav`
     background: #c9d8c5;
-    height: 55px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;

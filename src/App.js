@@ -5,6 +5,7 @@ import CadastroUser from './Pages/CadastroHome.js'
 import Anuncios from './Pages/Anuncios.js'
 import Login2 from './Pages/Login.js'
 import CadastroImovel from './Pages/CadastroImovel.js'
+import TelaImovDetalhado from './Pages/ImovDetalhado';
 import CadastroImovel2 from './Pages/CadastroImovel2.js'
 import { UsuarioLogadoProvider } from './Context/UsuarioLogado';
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" component={Login2} exact />
         <Route path="/imovel" component={CadastroImovel} exact />
         <Route path="/CadImovel" component={CadastroImovel2} exact />
+        <Route path="/imovelDetalhado" component={TelaImovDetalhado}/>
 
       </Switch>
     </Router>
