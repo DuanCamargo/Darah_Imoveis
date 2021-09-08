@@ -41,7 +41,6 @@ const CadImovel = ({ alt }) => {
         
     }
 
-    
 
     const SendForm = (e) => {
         e.preventDefault();
@@ -181,7 +180,11 @@ const CadImovel = ({ alt }) => {
                     <FormContainerFotoG>
 
 
-                        
+                        <div>
+                            <input type="file" >Insira a img</input>
+                            <img></img>
+
+                        </div>
                                   
                                     
                                     

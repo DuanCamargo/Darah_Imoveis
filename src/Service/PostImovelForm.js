@@ -4,8 +4,8 @@ export const PostFormImov = (dataForm)=>{
     axios.post(`http://localhost:8081/imovel`,  dataForm )
         .then(res => {
           console.log(res);
-          // console.log(res.data);
-          alert("Enviado com sucesso")
+          alert("Endereço salvo com sucesso")
+          window.location.href="/CadQuarto"
         })
         .catch( e => {
             console.log(e);

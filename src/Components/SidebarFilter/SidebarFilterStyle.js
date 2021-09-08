@@ -13,13 +13,13 @@ export const FilterContainer =styled.div`
   border-radius: 10px;
   background-color: #fff;
   height: fit-content;
-  
+  position: fixed;
 
   @media screen and (max-width:820px){
-    margin-top: 20px;
     width: 320px;
-   
     
+    
+    position: relative;
   }
 `
 
@@ -28,19 +28,15 @@ export const FilterContainer =styled.div`
 
 export const FormContainerGeral = styled.div`
 display: flex;
+min-height: 80vh;
 justify-content: space-between;
-
 padding: 20px;
 background-color: #e6e6e6;
 
-
-  width: 100%;
-  height: 100vh;
-  
   @media screen and (max-width:900px){
     flex-wrap:wrap;
     margin-top: 20px;
-    width: 320px;
+    width: 100%;
     
   }
 `
@@ -48,8 +44,13 @@ background-color: #e6e6e6;
 export const ContainerImoveisGeral = styled.div`
 width: 100%;
 margin: 0 30px;
+margin-left: 350px;
 padding: 0 20px;
-background-color: #e6e6e6;
+
+@media screen and (max-width:820px){
+    margin-left: 0;
+    width: 100%;
+  }
 `
 
 export const ImovelContainer =styled.div`
@@ -74,7 +75,7 @@ export const ImovelContainer =styled.div`
   @media screen and (max-width:820px){
     margin-top: 20px;
     width: 320px;
-   
+    flex-direction: column;
     
   }
 `
@@ -195,6 +196,12 @@ width: fit-content;
 height: 250px;
 `;
 
+export const RoundedImg = styled.img`
+  border-radius: 10px 0 0 10px;
+  @media screen and (max-width:820px){
+    border-radius: 10px 10px 0 0;
+  }
+`;
 
 export const ContainerImovelInfos = styled.div`
 display: block;

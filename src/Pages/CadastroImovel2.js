@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../Components/Navbar/index';
-import CadastroImovel2 from '../Components/FormImovel/CadImovel/index';
+import CadastroImovel from '../Components/FormImovel/CadImovel/index';
 import Sidebar from '../Components/Sidebar/index';
 import { useState } from 'react';
 
@@ -15,7 +15,7 @@ const CadImovel = () =>{
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar  toggle={toggle}/>
            
-            <CadastroImovel2 />
+            <CadastroImovel />
         </>
     )
 }

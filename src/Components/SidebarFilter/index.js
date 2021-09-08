@@ -2,6 +2,12 @@ import React, { useEffect } from 'react'
 import * as S from './SidebarFilterStyle.js'
 import { useState } from 'react'
 import Anuncios from '../../Service/AnuncioService'
+import {
+	Pagination,
+	PaginationItem,
+	PaginationLink,
+} from 'reactstrap';
+
 
 
 const AnuncioTela = () => {
@@ -21,8 +27,9 @@ const AnuncioTela = () => {
     const [anuncios, setAnuncios] = useState([]);
     const [maxPage, setMaxPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
-    const [pageSize, setPageSize] = useState(4);
+    const [pageSize, setPageSize] = useState(10);
     const [currentPage, setCurrentPage] = useState(0);
+
     const handlePageClick = (e, index) => {
         e.preventDefault();
         setCurrentPage(index);
@@ -41,8 +48,9 @@ const AnuncioTela = () => {
     const retrieveAnuncios = () => {
         Anuncios.getAll()
             .then(({data}) => {
-                anuncios(data);
+                setAnuncios(data);
                 setPageCount(Math.ceil(data.length / pageSize));
+                console.log(pageCount)
             })
             .catch((e) => console.log(e));
     };
@@ -73,7 +81,7 @@ const AnuncioTela = () => {
     },[])
 
     useEffect (() => {
-        console.log("Anuncios:", anuncios)
+        console.log(anuncios)
     },[anuncios])
 
     
@@ -131,10 +139,10 @@ const AnuncioTela = () => {
             <S.ContainerImoveisGeral>
             {anuncios && anuncios.slice(currentPage * pageSize,(currentPage + 1) * pageSize).map((anuncio) => {
                 return (
-                    <S.ImovelContainer>
+                    <S.ImovelContainer key={anuncio.id}>
 
                     <S.ContainerImageInside>
-                        <img className="roundedImg" src="https://picsum.photos/320/250"></img>
+                        <S.RoundedImg src="https://picsum.photos/320/250"></S.RoundedImg>
                     </S.ContainerImageInside>
 
 
@@ -178,74 +186,38 @@ const AnuncioTela = () => {
                 )
             })}
 
-                                    {/* <Pagination  className="pagination justify-content-end mb-0" listClassName="justify-content-end mb-0">
-                                        <PaginationItem
-                                            disabled={currentPage <= 0}
-                                        >
-                                            <PaginationLink
-                                                onClick={handlePreviousClick}
-                                                previous
-                                                href="#"
-                                            />
-                                        </PaginationItem>
+            <Pagination
+				className='pagination justify-content-end mb-0'
+				listClassName='justify-content-end mb-0'>
+					<PaginationItem disabled={currentPage <= 0}>
+						<PaginationLink
+						onClick={handlePreviousClick}
+						previous
+						href='#'
+						/>
+							</PaginationItem>
 
-                                        {[...Array(pageCount)].map(
-                                            (page, i) => (
-                                                <PaginationItem
-                                                    active={i === currentPage}
-                                                    key={i}
-                                                >
-                                                    <PaginationLink
-                                                        onClick={(e) =>
-                                                            handlePageClick(
-                                                                e,
-                                                                i
-                                                            )
-                                                        }
-                                                        href="#"
-                                                    >
-                                                        {i + 1}
-                                                    </PaginationLink>
-                                                </PaginationItem>
-                                            )
-                                        )}
+										{[...Array(pageCount)].map((page, i) => (
+											<PaginationItem active={i === currentPage} key={i}>
+												<PaginationLink
+													onClick={(e) => handlePageClick(e, i)}
+													href='#'
+												>
+													{i + 1}
+												</PaginationLink>
+											</PaginationItem>
+										))}
 
-                                        <PaginationItem
-                                            disabled={
-                                                currentPage == pageCount - 1
-                                            }
-                                        >
-                                            <PaginationLink
-                                                onClick={handleNextClick}
-                                                next
-                                                href="#"
-                                            />
-                                        </PaginationItem>
-                                    </Pagination> */}
-
-                                    <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only " disabled={currentPage <= 0}  >Previous</span>
-                                        </a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                    </nav>
-                
+										<PaginationItem disabled={currentPage === pageCount -1}>
+											<PaginationLink
+												onClick={handleNextClick}
+												next
+												href='#'
+											/>
+										</PaginationItem>
+									</Pagination>
             </S.ContainerImoveisGeral>
-            
-
+    
         </S.FormContainerGeral>
     )
 
