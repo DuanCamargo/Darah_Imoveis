@@ -19,14 +19,13 @@ const CadImovel = () => {
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
-        setInput({ ...input, [name]: value});
+        setInput({ ...input, [name]: value, data_publicacao: dataEHora});
     }
 
     console.log(input)
 
     const SendResidencia = (e) => {
         e.preventDefault();
-        setInput({input, data_publicacao: dataEHora})
         alert(input)
         PostCadImovel(input);
     }
@@ -80,8 +79,8 @@ const CadImovel = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="_q">Detalhes Quarto</label>
-                            <textarea type="text" className="form-control" id="_q" name="_q" placeholder="ex: mobiliado, frigobar, ar-condicionado, etc" onChange={handleInputChange} />
+                            <label htmlFor="detalhes_quarto">Detalhes Quarto</label>
+                            <textarea type="text" className="form-control" id="detalhes_quarto" name="detalhes_quarto" placeholder="ex: mobiliado, frigobar, ar-condicionado, etc" onChange={handleInputChange} />
                         </div>
 
                         {/* ########### MAPA ######### */}

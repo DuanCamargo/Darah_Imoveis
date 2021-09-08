@@ -6,7 +6,8 @@ import { PostFormImov} from '../../Service/PostImovelForm';
 
 const FormImovel = ()=>{
 
-     const init = {
+    const init = {
+        // id_imovel: "",
         cep: "",
         logradouro: "",
         numero: "",
@@ -18,10 +19,9 @@ const FormImovel = ()=>{
         metragem_imovel: "",
         qtd_num_pessoas: "",
         qtd_banheiro: "",
-      };
+    };
 
     const [input, setInput] = useState(init)
-   
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
@@ -32,8 +32,9 @@ const FormImovel = ()=>{
     
     const SendForm = (e) =>{
         e.preventDefault();
-        PostFormImov(input);
-        
+        PostFormImov(input).then(response => {
+            console.log("response: "+response)
+        })
     }
 
     return (
@@ -42,6 +43,7 @@ const FormImovel = ()=>{
                 <FormContainer>
                     <FormIM>Faça o seu Anúncio</FormIM>
                     <form onSubmit={SendForm}>
+
                         <div className="form-group">
                             <input type="number" className="form-control" id="cep"  name="cep" placeholder="Cep" onChange={handleInputChange} required />  
                         </div>
