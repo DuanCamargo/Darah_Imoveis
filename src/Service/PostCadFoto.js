@@ -1,13 +1,23 @@
-import axios from '../http-common';
+import axios from "../http-common";
 
-export const PostCadFoto = (dataForm)=>{
-    axios.post(`http://localhost:8081/foto`,  dataForm )
-        .then(res => {
-          console.log(res);
-          alert("Foto(s) salvas(s) com sucesso")
-        //   window.location.href="#"
-        })
-        .catch( e => {
-            console.log(e);
-        })
-}
+export const PostCadFoto = (foto, descricao) => {
+  var fotos = {
+    method: "POST",
+    url: "http://localhost:8081/foto",
+    headers: {
+      "content-type": "multipart/form-data",
+      "foto": foto,
+    },
+    data: {
+      descricao,
+    },
+  };
+
+  return axios(fotos)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
