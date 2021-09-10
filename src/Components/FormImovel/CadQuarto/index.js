@@ -1,9 +1,10 @@
 import {React, useState, useEffect} from 'react';
-import { FormContainerGeral, FormContainer} from './CadQuartoStyle';
+import * as R from './CadQuartoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadQuarto } from '../../../Service/PostCadQuarto';
 import { useLocation } from 'react-router';
 import {useHistory} from 'react-router-dom'
+import { RiCommunityLine } from "react-icons/ri";
 
 const CadQuarto = () => {
 
@@ -42,33 +43,41 @@ const CadQuarto = () => {
 
     return (
         <>
-            <FormContainerGeral>
-                <FormContainer id="quarto">
+            <R.FormContainerGeral>
+                <R.FormContainer id="quarto">
                     {/* #################### TELA QUARTO!!! ##################*/}
                     <form onSubmit={SendQuarto}>
-                        <div className="form-container">
-                            <label htmlFor="tipo_quarto">Tipo de Quarto</label>
-                            <select id="tipo_quarto" name="tipo_quarto" onChange={handleInputChange}>
+                    <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
+                    <R.DivSeparator/>
+                    <R.FormIM> Etapa 2</R.FormIM>
+                        
+                        <div className="form-container mt-4">
+                            <label htmlFor="tipo_quarto">Tipo de Quarto:</label>
+                            <R.SelectInputFilter id="tipo_quarto" name="tipo_quarto" onChange={handleInputChange}>
                                 <option value={null}>Selecione uma opção abaixo</option>
                                 <option value="solteiro">Solteiro</option>
                                 <option value="solteiroSuite">Solteiro Suite</option>
                                 <option value="casal">Casal</option>
                                 <option value="casaSuite">Casal Suite</option>
-                            </select>
+                            </R.SelectInputFilter>
                         </div>
-                        <div>
-                            <label htmlFor="metragem_quarto">Metragem do Quarto</label>
-                            <input type="text" className="form-control" id="metragem_quarto" name="metragem_quarto" placeholder="M²" onChange={handleInputChange} />
+                        <div className="mt-4">
+                            <label htmlFor="metragem_quarto">Metragem do Quarto:</label>
+                            <R.InputDefaultFilter type="text" className="form-control" id="metragem_quarto" name="metragem_quarto" placeholder="M²" onChange={handleInputChange} />
                         </div>
-                        <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
-                        </div>
-                        <div className="col text-center">
-                            <Button type="submit" className="btn btn-danger ">Voltar</Button>
-                        </div>
+                        <container className="d-flex align-items-center justify-content-between mt-4">
+                            <div className="ml-5">
+                                <R.ButtonStyledPrevious type="submit" className="btn btn-danger ">Anterior</R.ButtonStyledPrevious>
+                            </div>
+                            <R.DivSeparator/>
+                            <div className="mr-5">
+                                <R.ButtonStyledNext type="submit" className="btn btn-primary ">Próximo</R.ButtonStyledNext>
+                            </div>
+                        </container>
+                        
                     </form>
-                </FormContainer>
-            </FormContainerGeral>
+                </R.FormContainer>
+            </R.FormContainerGeral>
         </>
     )
 }

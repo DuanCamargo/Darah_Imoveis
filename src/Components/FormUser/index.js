@@ -4,6 +4,7 @@ import {RiAccountCircleFill} from 'react-icons/ri'
 import { useState } from 'react'
 import { PostForm } from '../../Service/PostUsuarioForm'
 import loginSenha from '../FormLogin/FormLogin'
+import * as S from '../FormUser/FormStyle'
 
 const FormUser = ({img, alt})=>{
 
@@ -30,38 +31,38 @@ const FormUser = ({img, alt})=>{
     }
 
     return (
-        <>
             <FormContainerGeral>
                 <FormContainer>
                     <FormH1> <RiAccountCircleFill/> Cadastro</FormH1>
+                    <FormH1> <S.DivSeparator/></FormH1>
                     <form onSubmit={SendForm} >
                         <div className="form-group">
                             <label htmlFor="name">Nome:</label>
-                            <input type="text" className="form-control" id="name"  name="nome" placeholder="Insira o seu nome" onChange={handleInputChange} required />
+                            <S.InputDefaultFilter autoComplete="off" type="text" className="form-control" id="name" placeholder="Insira o seu nome"  name="nome" /* placeholder="Insira o seu nome" */ onChange={handleInputChange} required />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="sobrenome">Sobrenome:</label>
-                            <input type="text" className="form-control" id="sobrenome" name="sobrenome" placeholder="Insira o seu sobrenome" onChange={handleInputChange} required/>
+                            <S.InputDefaultFilter autoComplete="off" type="text" className="form-control" id="sobrenome" name="sobrenome" placeholder="Insira o seu sobrenome" onChange={handleInputChange} required/>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Email:</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Insira o seu email" onChange={handleInputChange} required/>
+                            <S.InputDefaultFilter autoComplete="off" type="email"  className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Insira o seu email" onChange={handleInputChange} required/>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="telefone">Telefone</label>
-                            <input type="number" className="form-control" id="whatsapp" name="whatsapp"  placeholder="Insira o seu telefone" onChange={handleInputChange} required />
+                            <S.InputDefaultFilter autoComplete="off" type="number" className="form-control" id="whatsapp" name="whatsapp"  placeholder="Insira o seu telefone" onChange={handleInputChange} required />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="senha">Senha:</label>
-                            <input type="password" className="form-control" name="senha" id="senha" placeholder="Insira a sua senha" onChange={handleInputChange} required/>
+                            <S.InputDefaultFilter autoComplete="off" type="password" className="form-control" name="senha" id="senha" placeholder="Insira a sua senha" onChange={handleInputChange} required/>
                         </div>
 
                         <div className="col text-center">
-                            <button type="submit" className="btn btn-primary ">Cadastrar</button>
+                            <S.ButtonStyled autoComplete="off" type="submit" className="btn btn-primary ">Cadastrar</S.ButtonStyled>
                         </div>
                     </form>
                 </FormContainer>
@@ -78,7 +79,6 @@ const FormUser = ({img, alt})=>{
                     <Img src={img} alt={alt} ></Img>
                 </ContainerImg>
             </FormContainerGeral>  
-        </>
     )
 }
 

@@ -1,8 +1,9 @@
 import React from 'react';
-import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
+import * as R from './FormImovelStyle';
 import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
 import {useHistory, Link} from 'react-router-dom'
+import { RiCommunityLine } from "react-icons/ri";
 
 const FormImovel = ()=>{
 
@@ -45,69 +46,72 @@ const FormImovel = ()=>{
 
     return (
         <>
-            <FormContainerGeral> 
-                <FormContainer>
-                    <FormIM>Faça o seu Anúncio</FormIM>
+            <R.FormContainerGeral> 
+                <R.FormContainer>
+                    <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
+                    <R.DivSeparator/>
+                    <R.FormIM> Etapa 1</R.FormIM>
                     <form onSubmit={SendForm}>
 
-                        <div className="form-group">
-                            <input type="number" className="form-control" id="cep"  name="cep" placeholder="Cep" onChange={handleInputChange} required />  
+                        <div className="form-group mt-4">
+                            <R.InputDefaultFilter type="number" autoComplete="off" className="form-control" id="cep"  name="cep" placeholder="CEP" onChange={handleInputChange} required />  
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} required/>                  
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} required/>                  
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="bairro" name="bairro"  placeholder="bairro" onChange={handleInputChange} required />        
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="bairro" name="bairro"  placeholder="Bairro" onChange={handleInputChange} required />        
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} required/>
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} required/>
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" name="estado" id="estado" placeholder="UF" onChange={handleInputChange} required/>
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" name="estado" id="estado" placeholder="UF" onChange={handleInputChange} required/>
                         </div>
 
-                        <div  className="form-container">
-                            <label htmlFor="tipo_imovel">Tipo de Residência</label>
-                            <select id="tipo_imovel" name="tipo_imovel" onChange={handleInputChange}>
+                        <R.DivSeparator/>
+                        <div className="form-container">
+                            <label htmlFor="tipo_imovel">Tipo de Residência:</label>
+                            <R.SelectInputFilter id="tipo_imovel" name="tipo_imovel" onChange={handleInputChange}>
                                 <option value={null}>Selecione uma opção abaixo</option>
                                 <option value="casa">Casa</option>
                                 <option value="apartamento">Apartamento</option>
-                            </select>
+                            </R.SelectInputFilter>
                         </div>
 
-                        <div>
-                            <label htmlFor="metragem_imovel">Metragem da Residencia</label>
-                            <input type="number" min="0" className="form-control" id="metragem_imovel" name="metragem_imovel" placeholder="M²" onChange={handleInputChange} />
+                        <div className="mt-3">
+                            <label htmlFor="metragem_imovel">Metragem da Residencia:</label>
+                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control" id="metragem_imovel" name="metragem_imovel" placeholder="M²" onChange={handleInputChange} />
                         </div>
 
-                        <div>
-                            <label htmlFor="qtd_num_pessoas">Quantidade de Pessoas na Residencia</label>
-                            <input type="number" min="0" className="form-control" id="qtd_num_pessoas" name="qtd_num_pessoas" placeholder="Quantidade de Pessoas na Residencia" onChange={handleInputChange} />
+                        <div className="mt-3">
+                            <label htmlFor="qtd_num_pessoas">Quantidade de Pessoas na Residencia:</label>
+                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control" id="qtd_num_pessoas" name="qtd_num_pessoas" placeholder="Quantidade de Pessoas na Residencia" onChange={handleInputChange} />
                         </div>
 
-                        <div>
-                            <label htmlFor="qtd_banheiro">Quantidade de Banheiro Social</label>
-                            <input type="number" min="0" className="form-control num" id="qtd_banheiro" name="qtd_banheiro" placeholder="Quantidade de Banheiro Social" onChange={handleInputChange} />
+                        <div className="mt-3">
+                            <label htmlFor="qtd_banheiro">Quantidade de Banheiro Social:</label>
+                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control num" id="qtd_banheiro" name="qtd_banheiro" placeholder="Quantidade de Banheiro Social" onChange={handleInputChange} />
                         </div>
                     
-                        <div className="col text-center">
-                        < button  type = "submit"  className = "btn btn-primary"> Próximo </button>
+                        <div className="col text-center mt-3">
+                        <R.ButtonStyled  type = "submit"  className = "btn btn-primary"> Próximo </R.ButtonStyled>
                         </div>
                     </form>
-                </FormContainer>
-            </FormContainerGeral>  
+                </R.FormContainer>
+            </R.FormContainerGeral>  
         </>
     )
 }

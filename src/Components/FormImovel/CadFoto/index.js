@@ -1,8 +1,9 @@
 import { React, useState } from 'react';
-import { FormContainerGeral, FormContainer, FormContainerFotoG, FormContainerFoto } from './CadFotoStyle';
+import * as R from './CadFotoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadFoto } from '../../../Service/PostCadFoto';
 import ReactDOMServer from 'react-dom/server';
+import { RiImageAddFill } from "react-icons/ri";
 
 const ImageUpload = () => {
 
@@ -38,16 +39,21 @@ const ImageUpload = () => {
 
     return (
         <>
-            <FormContainerFoto>
-                <FormContainer>
+            <R.FormContainerFoto>
+                <R.FormContainer>
                     <form onSubmit={fileSelectedHandler}>
-                        <div><h2>Upload images</h2></div>
+                        
+                        <R.FormIM><RiImageAddFill/> Upload images</R.FormIM>
+                        <R.FormIM><R.DivSeparator/></R.FormIM>
+                        <R.FormIM>Etapa Final</R.FormIM>
                         {/* <h3>Images</h3> */}
-                        <input type="file" id='img' />
-                        <input type="text" className="file" name="file" id="descricao" placeholder="descrição" />
-                        <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary">Add Foto</Button>
-                            </div>
+                        <div class="mt-4"> 
+                            <input type="file" class="ml-3" id='img' />
+                            <R.InputFile type="text" className="file ml-3" name="file" id="descricao" placeholder="Descrição da foto" />
+                        </div>
+                        <div className="mt-3">
+                                <R.ButtonAddPhoto type="submit" className="btn btn-primary">Adicionar Foto</R.ButtonAddPhoto>
+                        </div>
                     </form>
                     <div>
                         {
@@ -62,11 +68,16 @@ const ImageUpload = () => {
                             })
                         }
                     </div>
-                    <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary">Add foto</Button>
-                            </div>
-                </FormContainer>
-            </FormContainerFoto>
+                    <div className="mt-3">
+                        <R.ButtonAddPhoto type="submit" className="btn btn-primary">Adicionar foto</R.ButtonAddPhoto>
+                    </div>
+
+                    <div className="mt-3 d-flex justify-content-end">
+                        <R.ButtonConcluir type="submit" className="btn btn-primary">Concluir</R.ButtonConcluir>
+                    </div>
+                </R.FormContainer>
+                
+            </R.FormContainerFoto>
         </>
     )
 }

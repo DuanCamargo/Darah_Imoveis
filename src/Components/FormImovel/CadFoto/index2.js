@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { FormContainerGeral, FormContainer, FormContainerFotoG, FormContainerFoto } from './CadFotoStyle';
+import * as R from './CadFotoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
 import {PostCadFoto} from '../../../Service/PostCadFoto';
 import ReactDOMServer from 'react-dom/server';
@@ -51,12 +51,12 @@ const CadFoto = () => {
 
     return (
         <>
-            <FormContainerGeral>
+            <R.FormContainerGeral>
                 {/* #################### TELA FOTOS!!! ##################*/}
-                <FormContainer id="fotos">
-                    <FormContainerFotoG>
+                <R.FormContainer id="fotos">
+                    <R.FormContainerFotoG>
                         <form onSubmit={SendFotos}>
-                            <FormContainerFoto>
+                            <R.FormContainerFoto>
                             <div className="page">
                                <div className="container">
                                    <h1 className="heading">adicionar imagem</h1>
@@ -67,7 +67,7 @@ const CadFoto = () => {
                                 </div>
                             </div>
 
-                            </FormContainerFoto>
+                            </R.FormContainerFoto>
 
                             <div className="col text-center">
                                 <Button type="submit" className="btn btn-primary" onClick={addPhotos}>Add Foto</Button>
@@ -77,9 +77,9 @@ const CadFoto = () => {
                                 <Button type="submit" className="btn btn-primary ">Finalizar</Button>
                             </div>
                         </form>
-                    </FormContainerFotoG>
-                </FormContainer>
-            </FormContainerGeral>
+                    </R.FormContainerFotoG>
+                </R.FormContainer>
+            </R.FormContainerGeral>
         </>
     )
 }

@@ -12,6 +12,7 @@ export const FormContainer =styled.div`
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
+  border: 1px solid #6c757d;
   
 
   @media screen and (max-width:820px){
@@ -21,6 +22,8 @@ export const FormContainer =styled.div`
     
   }
 `
+
+
 
 export const FormH1 = styled.h1`
     text-align: center;
@@ -40,6 +43,15 @@ align-items: center;
   height: 100vh;
  
 `
+
+export const DivSeparator = styled.div`
+width: 100%;
+height: 1px;
+/* height: fit-content; */
+background-color: #70C8DB;
+margin: 20px 0 20px 0;
+`;
+
 
 export const ContainerImg = styled.div`
   width: 450px;
@@ -90,3 +102,48 @@ export const Imgh1 = styled.p`
   }
 
 `
+
+
+
+export const InputDefaultFilter = styled.input`
+  padding: 0.5rem;
+  width: 100%;
+  height: 42px  ;
+  color: ${props => props.inputColor || "black"};
+  background: #ededed ;
+  border: 1px solid #6c757d;
+  border-radius: 3px;
+  transition: 0.5s;
+  :focus{
+        border: 1px solid #70C8DB;
+        box-shadow: 0 0 0 0.25rem  rgba(112,200,219, 0.5);
+        outline: none;
+        background: white;
+        color: #70C8DB;
+  }
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #6c757d;
+  }
+  :-ms-input-placeholder {
+     color: #6c757d;
+  }
+`
+
+export const ButtonStyled = styled.button`
+  background: linear-gradient(to right, #70C8DB, #93d6e4, #70C8DB);
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 1px solid #6c757d;
+  border-radius: 3px;
+  transition: 0.5s;
+  :hover,:active,:focus{
+        color: white;
+        box-shadow: 0 0 0 0.25rem  rgba(112,200,219, 0.5);
+        background: #5496A4 ; 
+        border-color: #6c757d;
+        outline: none;
+    }
+`;

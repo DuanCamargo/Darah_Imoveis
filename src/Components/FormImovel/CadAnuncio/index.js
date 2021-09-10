@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
-import {
-  FormContainerGeral,
-  FormContainer,
-  FormIM2,
-  FormContainerFotoG,
-  FormContainerFoto,
-} from "./CadAnuncioStyle";
+import * as R from "./CadAnuncioStyle";
 import { useState } from "react";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
 import { useLocation } from "react-router";
+import { RiCommunityLine } from "react-icons/ri";
 
 const CadAnuncio = () => {
   const init = {
@@ -77,15 +72,17 @@ const CadAnuncio = () => {
 
   return (
     <>
-      <FormContainerGeral>
-        <FormContainer id="residencia">
+      <R.FormContainerGeral>
+        <R.FormContainer className="mt-5 mb-5" id="residencia">
           <form onSubmit={SendResidencia}>
-            <FormIM2>Preencha os campos abaixo</FormIM2>
-            <div>
+            <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
+            <R.FormIM2><R.DivSeparator/></R.FormIM2>
+            <R.FormIM2>Etapa 3</R.FormIM2>
+            <div className="mt-4">
               <label htmlFor="tipo_compartilhamento">
-                Tipo de Compartilhamento
+                Tipo de Compartilhamento:
               </label>
-              <select
+              <R.SelectInputFilter
                 id="tipo_compartilhamento"
                 name="tipo_compartilhamento"
                 onChange={handleInputChange}
@@ -93,14 +90,14 @@ const CadAnuncio = () => {
                 <option value={null}>Selecione uma opção abaixo</option>
                 <option value="quarto_residencia">Quarto e residência</option>
                 <option value="residencia">Residência</option>
-              </select>
+              </R.SelectInputFilter>
             </div>
 
-            <div>
+            <div className="mt-4">
               <label htmlFor="detalhes_residencia">
-                Detalhes da Residência
+                Detalhes da Residência:
               </label>
-              <textarea
+              <R.InputTextAreaFilter
                 className="form-control"
                 id="detalhes_residencia"
                 name="detalhes_residencia"
@@ -109,9 +106,9 @@ const CadAnuncio = () => {
               />
             </div>
 
-            <div>
-              <label htmlFor="regras_residencia">Regras da Residência</label>
-              <textarea
+            <div className="mt-4">
+              <label htmlFor="regras_residencia">Regras da Residência:</label>
+              <R.InputTextAreaFilter
                 className="form-control"
                 id="regras_residencia"
                 name="regras_residencia"
@@ -120,9 +117,9 @@ const CadAnuncio = () => {
               />
             </div>
 
-            <div>
-              <label htmlFor="detalhes_regiao">Detalhes da Região</label>
-              <textarea
+            <div className="mt-4">
+              <label htmlFor="detalhes_regiao">Detalhes da Região:</label>
+              <R.InputTextAreaFilter
                 className="form-control"
                 id="detalhes_regiao"
                 name="detalhes_regiao"
@@ -131,9 +128,9 @@ const CadAnuncio = () => {
               />
             </div>
 
-            <div>
-              <label htmlFor="detalhes_quarto">Detalhes Quarto</label>
-              <textarea
+            <div className="mt-4">
+              <label htmlFor="detalhes_quarto">Detalhes Quarto:</label>
+              <R.InputTextAreaFilter
                 type="text"
                 className="form-control"
                 id="detalhes_quarto"
@@ -144,19 +141,19 @@ const CadAnuncio = () => {
             </div>
 
             {/* ########### MAPA ######### */}
-            <div>
-              <label htmlFor="mapa_embed">Mapa (EMBED)</label>
-              <input
+            <div className="mt-4">
+              <label htmlFor="mapa_embed">Mapa (EMBED):</label>
+              <R.InputDefaultFilter
                 type="text"
                 className="form-control"
                 id="mapa_embed"
                 name="mapa_embed"
-                placeholder="Embed seu mapa aqui"
+                placeholder="Coloque seu mapa aqui"
                 onChange={handleInputChange}
               />
             </div>
 
-            <div>
+            <div className="mt-4">
               <input
                 type="datetime"
                 defaultValue={dataEHora}
@@ -166,20 +163,22 @@ const CadAnuncio = () => {
                 hidden
               />
             </div>
-
-            <div className="col text-center">
-              <Button type="submit" className="btn btn-primary ">
-                Próximo
-              </Button>
-            </div>
-            <div className="col text-center">
-              <Button type="submit" className="btn btn-danger ">
-                Voltar
-              </Button>
-            </div>
+            <container className="d-flex align-items-center justify-content-between mt-4 ">
+              <div className="col text-center">
+                <R.ButtonStyledPrevious type="submit" className="btn btn-danger ">
+                  Anterior
+                </R.ButtonStyledPrevious>
+              </div>
+              <R.DivSeparator/>
+              <div className="col text-center">
+                <R.ButtonStyledNext type="submit" className="btn btn-primary ">
+                  Próximo
+                </R.ButtonStyledNext>
+              </div>
+            </container>
           </form>
-        </FormContainer>
-      </FormContainerGeral>
+        </R.FormContainer>
+      </R.FormContainerGeral>
     </>
   );
 };

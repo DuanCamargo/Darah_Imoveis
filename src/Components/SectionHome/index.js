@@ -5,17 +5,7 @@ import Video from '../../Video/home.mp4'
 import '../../../src/App.css'
 
 
-import { 
-    HeroContainer, 
-    HeroBg, 
-    VideoBg, 
-    HeroContent, 
-    HeroH1, 
-    HeroP, 
-    InputVideo, 
-    InputDiv, 
-    InputContainer, 
-    Button  } from './SectionStyle'
+import * as R from './SectionStyle'
 
 
 
@@ -30,29 +20,27 @@ const SectionHome = () => {
     return (
         <>
       
-            <HeroContainer >
+            <R.HeroContainer >
                 
-                <HeroBg>
-                    <VideoBg autoPlay loop muted src={Video}type='video/mp4'></VideoBg>
-                </HeroBg>
-                    <HeroContent>
-                        <HeroH1>Procure o seu imovel</HeroH1>
-                        <HeroP>Coloque o seu endereço para encontrarmos um imovel proximo a você</HeroP>
+                <R.HeroBg>
+                    <R.VideoBg autoPlay loop muted src={Video}type='video/mp4'></R.VideoBg>
+                </R.HeroBg>
+                    <R.HeroContent>
+                        <R.HeroH1>PROCURE O SEU IMOVEL</R.HeroH1>
+                        <R.HeroP>Digite o seu endereço para encontrarmos um imóvel proximo a você</R.HeroP>
                            
-                                <InputContainer>
-                                    <InputDiv>
-                                        <InputVideo type="text" placeholder="Informe o estado "></InputVideo>
-                                    </InputDiv>
-                                    <InputDiv>
-                                        <InputVideo type="text" placeholder="Informe a cidade "></InputVideo>
-                                    </InputDiv>
+                                <R.InputContainer className="d-flex justify-content-center">
+                                    <R.InputDiv>
+                                        <R.InputVideo1 type="text" placeholder="Estado "></R.InputVideo1>
+                                    </R.InputDiv>
+                                    <R.InputDiv>
+                                        <R.InputVideo2 type="text" placeholder="Cidade "></R.InputVideo2>
+                                    </R.InputDiv>
                                     
-                                    <Button type="submit" >Procurar <BsSearch className="iconPesquisar"/> </Button> 
-
-                                </InputContainer>
-                           
-                    </HeroContent>
-            </HeroContainer>
+                                    <R.Button type="submit"><BsSearch className="iconPesquisar"/> </R.Button> 
+                                </R.InputContainer>    
+                    </R.HeroContent>
+            </R.HeroContainer>
         </>
     )
 }
