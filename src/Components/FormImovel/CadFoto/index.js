@@ -6,6 +6,12 @@ import ReactDOMServer from 'react-dom/server';
 
 const ImageUpload = () => {
 
+    const init = {
+        id_imovel:0,
+        foto:"",
+        descricao_foto:"",
+    }
+    
     const [files, setFiles] = useState([]);
 
     const fileSelectedHandler = (e) => {
@@ -20,22 +26,32 @@ const ImageUpload = () => {
         }])     
         }
 
-    // const imgImov = evt => {
-    //     let parent = evt.target.parentNode
-    //     const [file] = evt.target.files
-    //     if (file) {
-             
-    //         console.log (parent.img)
-    //         console.log (parent.blah)
-    //         parent.blah.src = URL.createObjectURL(file)
-    //     }
-    // }
-    
 
+        /*
+        const [input, setInput] = useState(init);
 
-    
-    
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInput({
+      ...input,
+      [name]: value,
+      imovelDTO: { id_imovel: location.state },
+    });
+  };
 
+  console.log(input);
+  let history = useHistory()
+
+  const SendValores = (e) => {
+    e.preventDefault();
+    PostCadValores(input);
+    alert("Contas salvas com sucesso")
+    history.push({
+      pathname: "/CadFoto",
+      state: input.imovelDTO.id_imovel,
+    })
+  }
+        */
     return (
         <>
             <FormContainerFoto>

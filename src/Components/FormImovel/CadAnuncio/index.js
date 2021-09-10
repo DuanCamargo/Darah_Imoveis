@@ -1,15 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   FormContainerGeral,
   FormContainer,
   FormIM2,
-  FormContainerFotoG,
-  FormContainerFoto,
 } from "./CadAnuncioStyle";
 import { useState } from "react";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 const CadAnuncio = () => {
   const init = {
@@ -39,10 +37,15 @@ const CadAnuncio = () => {
   };
 
   console.log(input);
+  let history = useHistory()
 
   const SendResidencia = (e) => {
     e.preventDefault();
     PostCadImovel(input);
+    history.push({
+      pathname: "/CadValores",
+      state: input.imovelDTO.id_imovel,
+    })
   };
 
   const dateTime = (data = new Date()) => {
