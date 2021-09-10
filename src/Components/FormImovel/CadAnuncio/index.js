@@ -3,7 +3,7 @@ import * as R from "./CadAnuncioStyle";
 import { useState } from "react";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
-import { useLocation } from "react-router";
+import { useLocation, useHistory } from "react-router";
 import { RiCommunityLine } from "react-icons/ri";
 
 const CadAnuncio = () => {
@@ -34,10 +34,15 @@ const CadAnuncio = () => {
   };
 
   console.log(input);
+  let history = useHistory()
 
   const SendResidencia = (e) => {
     e.preventDefault();
     PostCadImovel(input);
+    history.push({
+      pathname: "/CadValores",
+      state: input.imovelDTO.id_imovel,
+    })
   };
 
   const dateTime = (data = new Date()) => {
