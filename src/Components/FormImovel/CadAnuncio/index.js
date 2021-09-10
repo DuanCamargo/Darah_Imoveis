@@ -1,10 +1,11 @@
-import React from 'react';
-import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
+import React, { useEffect } from 'react';
+import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadAnuncioStyle';
 import { useState} from 'react';
 import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadImovel } from '../../../Service/PostCadImovel';
+import { useLocation } from 'react-router';
 
-const CadImovel = () => {
+const CadAnuncio = () => {
 
     const init = {
         tipo_compartilhamento: "",
@@ -12,21 +13,29 @@ const CadImovel = () => {
         regras_residencia: "",
         detalhes_regiao: "",
         detalhes_quarto: "",
-        mapa: "",
+        mapa_embed: "",
+        
+        imovelDTO:{
+            id_imovel: 0,
+        }
+        
+        
     }
 
+    const location = useLocation()
     const [input, setInput] = useState(init)
+    
+
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
-        setInput({ ...input, [name]: value, data_publicacao: dataEHora});
+        setInput({ ...input, [name]: value, data_publicacao: dataEHora, imovelDTO:{id_imovel: location.state}});
     }
 
     console.log(input)
 
     const SendResidencia = (e) => {
         e.preventDefault();
-        alert(input)
         PostCadImovel(input);
     }
 
@@ -85,8 +94,8 @@ const CadImovel = () => {
 
                         {/* ########### MAPA ######### */}
                         <div>
-                            <label htmlFor="mapa">Mapa (EMBED)</label>
-                            <input type="text" className="form-control" id="mapa" name="mapa" placeholder="Embed seu mapa aqui" onChange={handleInputChange} />
+                            <label htmlFor="mapa_embed">Mapa (EMBED)</label>
+                            <input type="text" className="form-control" id="mapa_embed" name="mapa_embed" placeholder="Embed seu mapa aqui" onChange={handleInputChange} />
                         </div>
 
                         <div>
@@ -105,5 +114,5 @@ const CadImovel = () => {
         </>
     )
 }
-export default CadImovel
+export default CadAnuncio
 

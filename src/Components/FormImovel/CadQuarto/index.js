@@ -1,17 +1,27 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import { FormContainerGeral, FormContainer} from './CadQuartoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadQuarto } from '../../../Service/PostCadQuarto';
+import { useLocation } from 'react-router';
+import {useHistory} from 'react-router-dom'
 
 const CadQuarto = () => {
 
+    const location = useLocation()
+
     const init = {
-        //Quartto
         tipo_quarto: "",
-        metragem_quarto: ""
+        metragem_quarto: "",
+        id_imovel: 0,
     }
 
     const [input, setInput] = useState(init)
+
+    useEffect(() => {
+        // console.log(location.state)
+        setInput(input.id_imovel = location.state)
+        // console.log("ID IMOVEL: "+idImovel)
+    }, []); 
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
@@ -19,10 +29,15 @@ const CadQuarto = () => {
     }
 
     console.log(input)
+    let history = useHistory()
 
     const SendQuarto = (e) => {
         e.preventDefault();
-        PostCadQuarto(input);
+        PostCadQuarto(input)
+        history.push({
+            pathname:"/CadAnuncio",
+            state: input.id_imovel,
+        })
     }
 
     return (

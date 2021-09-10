@@ -2,7 +2,7 @@ import React from 'react';
 import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
 import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
-//import { Link } from "recat-router-dom";
+import {useHistory, Link} from 'react-router-dom'
 
 const FormImovel = ()=>{
 
@@ -29,11 +29,17 @@ const FormImovel = ()=>{
     }
 
     console.log(input)
+    let history = useHistory()
     
     const SendForm = (e) =>{
         e.preventDefault();
-        PostFormImov(input).then(response => {
-            console.log("response: "+response)
+        PostFormImov(input).then(id_imovel => {
+            
+            console.log("id_imovel = "+id_imovel)
+            history.push({
+                pathname: "/CadQuarto", 
+                state: {id_imovel},
+            })
         })
     }
 

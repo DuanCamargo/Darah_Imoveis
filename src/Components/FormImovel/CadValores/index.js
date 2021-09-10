@@ -1,26 +1,42 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import { FormContainerGeral, FormContainer} from './CadValoresStyle';
 import { Button } from '../../SectionHome/SectionStyle';
+import { PostCadValores } from '../../../Service/PostCadValores';
+import { useLocation, useHistory } from 'react-router';
 
 const CadValores = () => {
 
+    const location = useLocation()
+
     const init = {
-        valorAluguel: "",
-        valorIPTU: "",
-        valorCondominio: "",
-        valorInternet: "",
-        valorTvCabo: "",
-        valorAgua: "",
-        valorEnergia: "",
-        valorGas: "",
+        aluguel: 0,
+        iptu: 0,
+        condominio: 0,
+        internet: 0,
+        tv_cabo: 0,
+        agua: 0,
+        energia: 0,
+        gas: 0,
+        id_imovel: 0,
     }
 
-    const handleInputChange = (event) => {
+    const [input, setInput] = useState(init)
 
+    useEffect(() => {
+        console.log(location.state)
+        setInput(input.id_imovel = location.state)
+    }, []); 
+
+    const handleInputChange = (event) =>{
+        const {name, value} = event.target;
+            setInput({ ...input, [name]: value });
     }
+
+    console.log(input)
 
     const SendValores = (e) => {
         e.preventDefault();
+        PostCadValores(input);
     }
 
     return (
@@ -30,36 +46,36 @@ const CadValores = () => {
                     {/* #################### TELA VALORES!!! ##################*/}
                     <form onSubmit={SendValores}>
                         <div>
-                            <label htmlFor="valorAluguel">Valor Aluguel</label>
-                            <input type="text" className="form-control" id="valorAluguel" name="valorAluguel" placeholder="R$ 00,00" onChange={handleInputChange} />
+                            <label htmlFor="aluguel">Valor Aluguel</label>
+                            <input type="text" className="form-control" id="aluguel" name="aluguel" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div>
-                            <label htmlFor="valorIPTU">Valor IPTU</label>
-                            <input type="text" className="form-control" id="valorIPTU" name="valorIPTU" placeholder="R$ 00,00" onChange={handleInputChange} />
+                            <label htmlFor="iptu">Valor IPTU</label>
+                            <input type="text" className="form-control" id="iptu" name="iptu" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div>
-                            <label htmlFor="valorCondominio">Valor Condominio</label>
-                            <input type="text" className="form-control" id="valorCondominio" name="R$ 00,00" placeholder="Valor Condominio" onChange={handleInputChange} />
+                            <label htmlFor="condominio">Valor Condominio</label>
+                            <input type="text" className="form-control" id="condominio" name="condominio" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div>
-                            <label htmlFor="valorInternet">Valor Internet</label>
-                            <input type="text" className="form-control" id="valorInternet" name="valorInternet" placeholder="R$ 00,00" onChange={handleInputChange} />
+                            <label htmlFor="internet">Valor Internet</label>
+                            <input type="text" className="form-control" id="internet" name="internet" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div>
-                            <label htmlFor="valorTvCabo">Valor Tv a Cabo</label>
-                            <input type="text" className="form-control" id="valorTvCabo" name="valorTvCabo" placeholder="R$ 00,00" onChange={handleInputChange} />
+                            <label htmlFor="tv_cabo">Valor Tv a Cabo</label>
+                            <input type="text" className="form-control" id="tv_cabo" name="tv_cabo" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div>
-                            <label htmlFor="valorAgua">Valor Água</label>
-                            <input type="text" className="form-control" id="valorAgua" name="valorAgua" placeholder="R$ 00,00" onChange={handleInputChange} />
+                            <label htmlFor="agua">Valor Água</label>
+                            <input type="text" className="form-control" id="agua" name="agua" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div>
-                            <label htmlFor="valorEnergia">Valor Energia</label>
-                            <input type="text" className="form-control" id="valorEnergia" name="valorEnergia" placeholder="R$ 00,00" onChange={handleInputChange} />
+                            <label htmlFor="energia">Valor Energia</label>
+                            <input type="text" className="form-control" id="energia" name="energia" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div>
-                            <label htmlFor="valorGas">Valor Gás</label>
-                            <input type="text" className="form-control" id="valorGas" name="valorGas" placeholder="R$ 00,00" onChange={handleInputChange} />
+                            <label htmlFor="gas">Valor Gás</label>
+                            <input type="text" className="form-control" id="gas" name="gas" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div className="col text-center">
                             <Button type="submit" className="btn btn-primary ">Próximo</Button>

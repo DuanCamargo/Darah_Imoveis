@@ -4,8 +4,7 @@ export const PostCadValores = (dataForm)=>{
     axios.post(`http://localhost:8081/contas`,  dataForm )
         .then(res => {
           console.log(res);
-          alert("Foto(s) salva(s) com sucesso")
-          window.location.href="/CadFoto"
+          alert("Contas salvas com sucesso")
         })
         .catch( e => {
             console.log(e);
