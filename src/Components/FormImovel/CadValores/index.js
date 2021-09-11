@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import { React, useState, useEffect } from "react";
-import * as R from "./CadValoresStyle";
-import { Button } from "../../SectionHome/SectionStyle";
-import { PostCadValores } from "../../../Service/PostCadValores";
-import { useLocation, useHistory } from "react-router";
-import { RiCommunityLine } from "react-icons/ri";
-=======
 import { React, useState, useEffect, useContext } from "react";
 import { FormContainerGeral, FormContainer } from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
 import { useLocation, useHistory } from "react-router";
 import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
->>>>>>> 6f3a0a6 (e)
 
 const CadValores = () => {
   const location = useLocation();
