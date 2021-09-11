@@ -1,8 +1,9 @@
 import React from 'react';
 import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
 import { useState} from 'react';
-import { Button } from '../../SectionHome/SectionStyle';
+//import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadImovel } from '../../../Service/PostCadImovel';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const CadImovel = () => {
 
@@ -87,7 +88,8 @@ const CadImovel = () => {
                         {/* ########### MAPA ######### */}
                         <div>
                             <label htmlFor="mapa">Mapa (EMBED)</label>
-                            <input type="text" className="form-control" id="mapa" name="mapa" placeholder="Embed seu mapa aqui" onChange={handleInputChange} />
+                            <input type="text" className="form-control" id="mapa" name="mapa" placeholder="Embed seu mapa aqui" onChange={handleInputChange}>
+                            </input>
                         </div>
 
                         <div>
@@ -95,10 +97,10 @@ const CadImovel = () => {
                         </div>
 
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
+                            <Link to="/CadQuarto" type="submit" className="btn btn-primary ">Próximo</Link>
                         </div>
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-danger ">Voltar</Button>
+                            <Link to="/imovel" type="submit" className="btn btn-danger ">Voltar</Link>
                         </div>
                     </form>
                 </FormContainer>

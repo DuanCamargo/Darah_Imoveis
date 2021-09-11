@@ -7,12 +7,12 @@ export const FormContainer =styled.div`
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
-  width: 350px;
+  width: 950px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
-  
+  display: inline-block;
 
   @media screen and (max-width:820px){
     margin-top: 20px;
@@ -20,6 +20,10 @@ export const FormContainer =styled.div`
    
     
   }
+`
+
+export const FormContanier1 = styled.div`
+
 `
 
 export const FormIM = styled.h1`

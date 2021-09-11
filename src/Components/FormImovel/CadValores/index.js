@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormContainerGeral, FormContainer} from './CadValoresStyle';
-import { Button } from '../../SectionHome/SectionStyle';
+//import { Button } from '../../SectionHome/SectionStyle';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const CadValores = () => {
 
@@ -62,7 +63,10 @@ const CadValores = () => {
                             <input type="text" className="form-control" id="valorGas" name="valorGas" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
+                            <Link to="/CadFoto" type="submit" className="btn btn-primary ">Próximo</Link>
+                        </div>
+                        <div className="col text-center">
+                            <Link to="/CadQuarto" type="submit" className="btn btn-danger ">Voltar</Link>
                         </div>
                     </form>
                 </FormContainer>

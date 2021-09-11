@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { FormContainerGeral, FormContainer, FormContainerFotoG, FormContainerFoto } from './CadFotoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadFoto } from '../../../Service/PostCadFoto';
-import ReactDOMServer from 'react-dom/server';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const ImageUpload = () => {
 
@@ -19,17 +19,6 @@ const ImageUpload = () => {
         
         }])     
         }
-
-    // const imgImov = evt => {
-    //     let parent = evt.target.parentNode
-    //     const [file] = evt.target.files
-    //     if (file) {
-             
-    //         console.log (parent.img)
-    //         console.log (parent.blah)
-    //         parent.blah.src = URL.createObjectURL(file)
-    //     }
-    // }
     
 
 
@@ -62,9 +51,13 @@ const ImageUpload = () => {
                             })
                         }
                     </div>
+
                     <div className="col text-center">
-                                <Button type="submit" className="btn btn-primary">Add foto</Button>
-                            </div>
+                            <Link to="/CadValores" type="submit" className="btn btn-primary ">Voltar</Link>
+                        </div>
+                        <div className="col text-center">
+                            <Button type="submit" className="btn btn-danger " onClick >Concluir Cadastro</Button>
+                        </div>
                 </FormContainer>
             </FormContainerFoto>
         </>

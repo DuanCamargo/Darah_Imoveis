@@ -1,8 +1,8 @@
 import React from 'react';
-import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
+import {FormContainer, FormContainerGeral, FormIM, FormContanier1} from './FormImovelStyle';
 import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
-//import { Link } from "recat-router-dom";
+import { Link } from "react-router-dom";
 
 const FormImovel = ()=>{
 
@@ -28,7 +28,7 @@ const FormImovel = ()=>{
             setInput({ ...input, [name]: value });
     }
 
-    console.log(input)
+    
     
     const SendForm = (e) =>{
         e.preventDefault();
@@ -36,39 +36,158 @@ const FormImovel = ()=>{
         
     }
 
+    //AUTO PREENCHIMENTO CEP
+    function limpa_formulário_cep() {
+        //Limpa valores do formulário de cep.
+        document.getElementById('logradouro').value=("");
+        document.getElementById('bairro').value=("");
+        document.getElementById('cidade').value=("");
+        document.getElementById('uf').value=("");
+       
+}
+
+
+function meu_callback(conteudo) {
+    if (!("erro" in conteudo)) {
+        //Atualiza os campos com os valores.
+        document.getElementById('logradouro').value=(conteudo.logradouro);
+        document.getElementById('bairro').value=(conteudo.bairro);
+        document.getElementById('cidade').value=(conteudo.localidade);
+        document.getElementById('uf').value=(conteudo.uf);
+    } //end if.
+    else {
+        //CEP não Encontrado.
+        limpa_formulário_cep();
+        alert("CEP não encontrado.");
+    }
+}
+
+function pesquisacep(valor) {
+
+    //Nova variável "cep" somente com dígitos.
+    var cep = valor.toString().replace(/\D/g, '');
+    
+
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
+
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+
+        //Valida o formato do CEP.
+        if(validacep.test(cep)) {
+
+            //Preenche os campos com "..." enquanto consulta webservice.
+            document.getElementById('logradouro').value="...";
+            document.getElementById('bairro').value="...";
+            document.getElementById('cidade').value="...";
+            document.getElementById('uf').value="...";
+
+            //Cria um elemento javascript.
+            //var script = document.createElement('script');
+
+            fetch('https://viacep.com.br/ws/' + cep +'/json/')
+  .then(response => response.json())
+  .then(data => {
+    let endereço = {
+        cep: cep,
+        logradouro: data.logradouro,
+        numero: "",
+        complemento:"",
+        bairro: data.bairro,
+        cidade: data.localidade,
+        estado: data.uf,
+        tipo_imovel: "",
+        metragem_imovel: "",
+        qtd_num_pessoas: "",
+        qtd_banheiro: "",
+      };
+
+      setInput (endereço)
+       //Preenche os campos com "..." enquanto consulta webservice.
+    
+  });
+            
+
+        } //end if.
+        else {
+            //cep é inválido.
+            limpa_formulário_cep();
+            alert("Formato de CEP inválido.");
+        }
+    } //end if.
+    else {
+        //cep sem valor, limpa formulário.
+        limpa_formulário_cep();
+    }
+};
+
+
     return (
         <>
             <FormContainerGeral> 
                 <FormContainer>
                     <FormIM>Faça o seu Anúncio</FormIM>
-                    <form onSubmit={SendForm}>
+                    <form onSubmit={SendForm} >
+                            <form onChange={meu_callback, pesquisacep}>
                         <div className="form-group">
-                            <input type="number" className="form-control" id="cep"  name="cep" placeholder="Cep" onChange={handleInputChange} required />  
+                            <input type="number"  id="cep"  name="cep" placeholder="Cep" onChange={handleInputChange}  onBlur ={ (e) =>  {pesquisacep(e.target.value)}} required  />  
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} required/>                  
+                            <input type="text"  id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} value={input.logradouro} required/>                  
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
+                            <input type="text" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
+                        </div>
+                       
+
+                        <div className="form-group">
+                            <input type="text"  id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
+                            <input type="text"  id="bairro" name="bairro"  placeholder="bairro" onChange={handleInputChange} value={input.bairro}required />        
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" id="bairro" name="bairro"  placeholder="bairro" onChange={handleInputChange} required />        
+                            <input type="text"  name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} value={input.cidade} required/>
                         </div>
 
                         <div className="form-group">
-                            <input type="text" className="form-control" name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} required/>
-                        </div>
-
-                        <div className="form-group">
-                            <input type="text" className="form-control" name="estado" id="estado" placeholder="UF" onChange={handleInputChange} required/>
-                        </div>
+                                <select  id="uf" name="estado" onChange={handleInputChange} value={input.estado}>
+                                    <options value={null}>Selecione o Estado</options>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                        </form>
 
                         <div  className="form-container">
                             <label htmlFor="tipo_imovel">Tipo de Residência</label>
@@ -95,7 +214,7 @@ const FormImovel = ()=>{
                         </div>
                     
                         <div className="col text-center">
-                        < button  type = "submit"  className = "btn btn-primary"> Próximo </button>
+                        < Link to="/CadImovel"  type = "submit"  className = "btn btn-primary"> Próximo </Link>
                         </div>
                     </form>
                 </FormContainer>

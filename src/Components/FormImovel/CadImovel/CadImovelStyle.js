@@ -54,7 +54,7 @@ display: felx;
 flex-wrap:wrap;
 background-color: #e6e6e6
 
-aligin-itens: center;
+align-itens: center;
    width: 100%
    height: 100 vh;
 `

@@ -1,7 +1,8 @@
 import {React, useState} from 'react';
 import { FormContainerGeral, FormContainer} from './CadQuartoStyle';
-import { Button } from '../../SectionHome/SectionStyle';
+//import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadQuarto } from '../../../Service/PostCadQuarto';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const CadQuarto = () => {
 
@@ -46,10 +47,10 @@ const CadQuarto = () => {
                             <input type="text" className="form-control" id="metragem_quarto" name="metragem_quarto" placeholder="M²" onChange={handleInputChange} />
                         </div>
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
+                            <Link to="/CadValores" type="submit" className="btn btn-primary ">Próximo</Link>
                         </div>
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-danger ">Voltar</Button>
+                            <Link to="/CadImovel" type="submit" className="btn btn-danger ">Voltar</Link>
                         </div>
                     </form>
                 </FormContainer>
