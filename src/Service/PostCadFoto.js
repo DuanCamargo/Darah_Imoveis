@@ -6,7 +6,7 @@ export const PostCadFoto = (foto, descricao) => {
     url: "http://localhost:8081/foto",
     headers: {
       "content-type": "multipart/form-data",
-      "foto": foto,
+      "foto": foto
     },
     data: {
       descricao,

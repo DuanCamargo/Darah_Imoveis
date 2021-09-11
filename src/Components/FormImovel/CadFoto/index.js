@@ -9,7 +9,7 @@ import { useHistory, useLocation } from "react-router";
 const ImageUpload = () => {
     const location = useLocation();
     var formData = new FormData();
-    var imagem = document.querySelector("#img");
+    // var imagem = document.querySelector("#img");
 
     const init = {
         imovelDTO: {
@@ -27,13 +27,13 @@ const ImageUpload = () => {
         console.log(imagem.files);
         const file = e.target.img.files;
 
-        formData.append("foto", file);
-        console.log(file);
+        formData.append("foto", file[0]);
+        console.log(file[0]);
 
         setFiles([...files,
         {
-            foto: file,
-            descricao_foto: e.target.descricao.value,
+            foto: file[0],
+            // descricao_foto: e.target.descricao.value,
         },
         ]);
     };
@@ -47,6 +47,7 @@ const ImageUpload = () => {
     };
 
     console.log(formData);
+    console.log(input)
 
     const sendFoto = () => {
         PostCadFoto(formData, input);
@@ -62,27 +63,26 @@ const ImageUpload = () => {
                         <R.FormIM><R.DivSeparator/></R.FormIM>
                         <R.FormIM>Etapa Final</R.FormIM>
                         {/* <h3>Images</h3> */}
-                        <div class="mt-4"> 
-                            <input type="file" class="ml-3" id="img" />
-                            <R.InputFile type="text" className="file ml-3" name="file" id="descricao" placeholder="Descrição da foto" />
+                        <div className="mt-4"> 
+                            <input type="file" className="ml-3" id="img" />
+                            <R.InputFile type="text" className="file ml-3" name="descricao_foto" id="descricao_foto" placeholder="Descrição da foto" onChange={handleInputChange}/>
                         </div>
                         <div className="mt-3">
-                                <R.ButtonAddPhoto type="submit" className="btn btn-primary">Adicionar Foto</R.ButtonAddPhoto>
-
+                            <R.ButtonAddPhoto type="submit" className="btn btn-primary">Adicionar Foto</R.ButtonAddPhoto>
                         </div>
                     </form>
                     <div>
                         {files.map((file, i) => {
                             return (
                                 <div key={i}>
-                                    <img src={URL.createObjectURL(file.foto[0])} />
+                                    <img src={URL.createObjectURL(file.foto)} />
                                     <p>{file.descricao}</p>
                                 </div>
                             );
                         })}
                     </div>
                     <div className="mt-3 d-flex justify-content-end">
-                        <R.ButtonConcluir type="submit"  className="btn btn-primary">Concluir</R.ButtonConcluir>
+                        <R.ButtonConcluir type="submit"  className="btn btn-primary" onClick={sendFoto}>Concluir</R.ButtonConcluir>
                     </div>
                 </R.FormContainer>
                 
