@@ -7,8 +7,8 @@ export const HeroContainer =styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
-    padding: 0 30px;
-    height: 450px;
+/*     padding: 0 30px; */
+    height: 80vh;
     position: relative;
     z-index: 1;
     :before {
@@ -47,15 +47,17 @@ export const HeroContent = styled.div`
     z-index: 3;
     max-width: 1200px;
     position: absolute;
-    padding: 8px 24px;
+    /* padding: 8px 24px; */
     display: flex;
      flex-direction: column;
     align-items: center;
 `
 export const HeroH1 = styled.h1`
     color: #fff;
-    font-size: 48px;
+    font-size: 60px;
     text-align: center;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px; 
     @media screen and (max-width: 768px){
         font-size: 40px;
     }
@@ -82,26 +84,50 @@ export const HeroP = styled.p`
 
 
 
-export const InputVideo = styled.input`
-    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);    
-    padding: 5px;
+export const InputVideo1 = styled.input`
+    /* box-shadow: -4px 0 4px 0.25rem  rgba(255, 255, 255, 0.5);   */
+    
+    box-shadow: 4px 8px 40px rgba(255, 255, 255, 0.5); 
     border: 1px solid #fff;
-    border-radius: 10px;
+    border-radius: 20px 0 0 20px;
     text-align: center;
+    height: 50px;
     z-index: 10;
     color: #000;
+    transition: 1s;
 
-    background-image: url('https://img.freepik.com/vetores-gratis/localizacao_53876-25530.jpg?size=338&ext=jpg');
-    background-repeat: no-repeat;
+    /* background-image: url('https://img.freepik.com/vetores-gratis/localizacao_53876-25530.jpg?size=338&ext=jpg'); */
+    /* background-repeat: no-repeat;
     background-size: 23px 23px;
-    background-position: left center;
+    background-position: left center; */
 
     &:focus{
-        box-shadow: 0 0 0 0;
-        border: 0 none;
+        box-shadow: 0 0 4px 0.25rem  rgba(255, 255, 255, 0.5);   
+        border: 1;
         outline: none;
     }
+`
+export const InputVideo2 = styled.input`
+    /* box-shadow: 4px 0 4px 0.25rem rgba(255, 255, 255, 0.5); */
+    box-shadow: 4px 8px 40px rgba(255, 255, 255, 0.5); 
+    border: 1px solid #fff;
+    border-radius: 0;
+    text-align: center;
+    height: 50px;
+    z-index: 10;
+    color: #000;
+    transition: 1s;
 
+    /* background-image: url('https://img.freepik.com/vetores-gratis/localizacao_53876-25530.jpg?size=338&ext=jpg'); */
+    /* background-repeat: no-repeat;
+    background-size: 23px 23px;
+    background-position: left center; */
+
+    &:focus{
+        box-shadow: 0 0 4px 0.25rem  rgba(255, 255, 255, 0.5);   
+        border: 1;
+        outline: none;
+    }
 `
 export const InputContainer = styled.div`
     
@@ -109,7 +135,6 @@ export const InputContainer = styled.div`
     width: 50vw;
     display:flex;
     flex-wrap: wrap;
-    gap: 10px;
    justify-content: space-around;
    align-items:center;
 
@@ -123,7 +148,6 @@ export const InputDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items:center;
-
     
 
     
@@ -131,9 +155,12 @@ export const InputDiv = styled.div`
 
 export const Button = styled.button`
     border-radius: 20px;
-    background:  #009E10 ;
+    background: #01BF71 ;
     white-space: nowrap;
-    padding:  12px 20px;
+    height: 50px;
+    width: 35px;
+    border-radius: 0px 20px 20px 0;
+    /* box-shadow: 4px 0 4px 0.25rem rgba(56, 242, 190, 0.5); */
     color: #fff;
     font-size: 16px;
     outline: none;
@@ -142,12 +169,12 @@ export const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.2s ease-in-out;
+    transition: 1s;
     
     &:hover{
-        transition: all 0.2s ease-in-out;
-        background:  #01BF71;
-        
+        transition: all 0.5s ease-in-out;
+        background:  #70DBB8;
+        box-shadow: 4px 0 4px 0.25rem rgba(56, 242, 190, 0.5);
     }
     &:focus{
         box-shadow: 0 0 0 0;

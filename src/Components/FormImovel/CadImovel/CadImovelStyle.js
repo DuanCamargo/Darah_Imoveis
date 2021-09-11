@@ -50,10 +50,14 @@ align-items: center;
 `
 
 export const FormContainerFoto = styled.div`
-  display: flex;
-  flex-wrap:wrap;
-  background-color: #e6e6e6;
-  align-items:center;
-  width: 100%;
-  height: 100vh;
+
+display: flex;
+flex-wrap:wrap;
+background-color: #e6e6e6;
+
+align-items: center;
+   width: 100%;
+   height: 100vh;
+
+
 `

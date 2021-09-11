@@ -2,13 +2,8 @@ import React, { useEffect } from 'react'
 import * as S from './SidebarFilterStyle.js'
 import { useState } from 'react'
 import Anuncios from '../../Service/AnuncioService'
-import {
-	Pagination,
-	PaginationItem,
-	PaginationLink,
-} from 'reactstrap';
-
-
+import * as R from 'reactstrap';
+import {RiFilter2Line} from 'react-icons/ri'
 
 const AnuncioTela = () => {
 
@@ -89,28 +84,33 @@ const AnuncioTela = () => {
 
     return (
         <S.FormContainerGeral>
+
+            
+            
             <S.FilterContainer>
+               <S.FormH1> <RiFilter2Line/> Filtrar</S.FormH1>
+               <S.FormH1> <S.DivSeparator/></S.FormH1>
             <form onSubmit={SendForm} >
 
-            <div className="form-group">
+            <div className="form-group mt-4">
 
                 <label htmlFor="minValue">Preço: </label>
                     <div className="d-flex align-items-center justify-content-between">
-                        <S.InputValueFilter type="number" id="minValue"  name="minValue" placeholder="Valor Mín." onChange={handleInputChange} required /> -
-                        <S.InputValueFilter type="number" id="maxValue"  name="maxValue" placeholder="Valor Máx." onChange={handleInputChange} required />
+                        <S.InputValueFilter autoComplete="off" type="number" id="minValue"  name="minValue" placeholder="Valor Mín." onChange={handleInputChange} required /> -
+                        <S.InputValueFilter autoComplete="off" type="number" id="maxValue"  name="maxValue" placeholder="Valor Máx." onChange={handleInputChange} required />
                     </div>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Localidade:</label>
-                    <S.InputDefaultFilter type="bairro" id="InputBairro" name="bairro" aria-describedby="bairroHelp" placeholder="Insira o Bairro" onChange={handleInputChange} required/>
+                    <S.InputDefaultFilter autoComplete="off" type="bairro" id="InputBairro" name="bairro" aria-describedby="bairroHelp" placeholder="Insira o Bairro" onChange={handleInputChange} required/>
                 </div>
 
                 <div className="form-group">
                 <label htmlFor="moradia">Tipo de moradia</label>
                         <S.SelectInputFilter onChange={handleInputChange} required>
                         <option value="" hidden>
-                        Clique para selecionar
+                        C.lique para selecionar
                         </option>
                         <option value="1">Casa</option>
                         <option value="2">Apartamento</option>
@@ -135,12 +135,43 @@ const AnuncioTela = () => {
             </form>
             </S.FilterContainer>
 
-
+            
+            
             <S.ContainerImoveisGeral>
+            <S.PaginationPink
+				className='pagination justify-content-end ml-5 align-bottom paginacao'
+				listClassName='justify-content-end mb-0'>
+					<R.PaginationItem disabled={currentPage <= 0}  >
+						<R.PaginationLink
+						onClick={handlePreviousClick}
+						first
+						href='#'
+						/>
+					</R.PaginationItem>
+
+										{[...Array(pageCount)].map((page, i) => (
+											<R.PaginationItem active={i === currentPage} key={i}>
+												<R.PaginationLink
+													onClick={(e) => handlePageClick(e, i)}
+													href='#'
+												>
+													{i + 1}
+												</R.PaginationLink>
+											</R.PaginationItem>
+										))}
+
+					<R.PaginationItem disabled={currentPage === pageCount -1}>
+							<R.PaginationLink
+								onClick={handleNextClick}
+								last
+								href='#'
+							/>
+                            
+					</R.PaginationItem>
+			</S.PaginationPink>
             {anuncios && anuncios.slice(currentPage * pageSize,(currentPage + 1) * pageSize).map((anuncio) => {
                 return (
-                    <S.ImovelContainer key={anuncio.id}>
-
+                <S.ImovelContainer key={anuncio.id}>
                     <S.ContainerImageInside>
                         <S.RoundedImg src="https://picsum.photos/320/250"></S.RoundedImg>
                     </S.ContainerImageInside>
@@ -149,15 +180,15 @@ const AnuncioTela = () => {
                     <S.ContainerImovelInfos>
                         <S.ContainerImovelInside1 className="ml-3">
                             <p className="mr-3">{anuncio.moradiaTip}</p>
-                            <S.DivSeparator></S.DivSeparator>
+                            <S.DivSeparatorAnuncio></S.DivSeparatorAnuncio>
                             <p className="ml-3 mr-3 justify-content-center">
                             {anuncio.cidade}
                             </p>
-                            <S.DivSeparator></S.DivSeparator>
+                            <S.DivSeparatorAnuncio></S.DivSeparatorAnuncio>
                             <p className="ml-3 mr-3 justify-content-center">
                             {anuncio.bairro}
                             </p>
-                            <S.DivSeparator></S.DivSeparator>
+                            <S.DivSeparatorAnuncio></S.DivSeparatorAnuncio>
                             <p className="ml-3 justify-content-center">
                             {anuncio.rua}
                             </p>
@@ -186,36 +217,38 @@ const AnuncioTela = () => {
                 )
             })}
 
-            <Pagination
-				className='pagination justify-content-end mb-0'
+            <S.PaginationPink
+				className='pagination justify-content-end ml-5 align-bottom paginacao'
 				listClassName='justify-content-end mb-0'>
-					<PaginationItem disabled={currentPage <= 0}>
-						<PaginationLink
+					<R.PaginationItem disabled={currentPage <= 0}  >
+						<R.PaginationLink
 						onClick={handlePreviousClick}
-						previous
+						first
 						href='#'
 						/>
-							</PaginationItem>
+					</R.PaginationItem>
 
 										{[...Array(pageCount)].map((page, i) => (
-											<PaginationItem active={i === currentPage} key={i}>
-												<PaginationLink
+											<R.PaginationItem active={i === currentPage} key={i}>
+												<R.PaginationLink
 													onClick={(e) => handlePageClick(e, i)}
 													href='#'
 												>
 													{i + 1}
-												</PaginationLink>
-											</PaginationItem>
+												</R.PaginationLink>
+											</R.PaginationItem>
 										))}
 
-										<PaginationItem disabled={currentPage === pageCount -1}>
-											<PaginationLink
-												onClick={handleNextClick}
-												next
-												href='#'
-											/>
-										</PaginationItem>
-									</Pagination>
+					<R.PaginationItem disabled={currentPage === pageCount -1}>
+							<R.PaginationLink
+								onClick={handleNextClick}
+								last
+								href='#'
+							/>
+                            
+					</R.PaginationItem>
+			</S.PaginationPink>
+
             </S.ContainerImoveisGeral>
     
         </S.FormContainerGeral>

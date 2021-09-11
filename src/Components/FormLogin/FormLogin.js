@@ -3,18 +3,10 @@ import { GetForm} from '../../Service/GetLoginForm.js'
 import { UsuarioLogadoContext } from "../../Context/UsuarioLogado";
 import { useState } from 'react';
 import { useContext } from "react";
+import { RiUser6Fill } from "react-icons/ri";
 
-import {
-  CardWrapper,
-  CardHeader,
-  CardHeading,
-  CardBody,
-  CardIcon,
-  CardFieldset,
-  CardInput,
-  CardButton,
-  CardLink
-} from "./Card";
+import * as R from "./Card";
+import { Label } from "reactstrap";
 
 
 function Login2() {
@@ -61,33 +53,28 @@ function Login2() {
   return (
     <div className="App">
       <form onSubmit={loginSenha}>
-      <CardWrapper>
-        <CardHeader>
-          <CardHeading>Sign in</CardHeading>
-        </CardHeader>
+      <R.FormContainerGeral>
+      <R.FormContainer>
+        <R.FormIM><RiUser6Fill/> Login</R.FormIM>
+        <R.FormIM><R.DivSeparator/></R.FormIM>
+        
+        <div>
+          <Label>Usuário:</Label>
+          <R.InputDefaultFilter type="text" placeholder="Usuário" name="user" onChange={handleInputChange} required></R.InputDefaultFilter>
+        </div>
+        <div className="mt-4">
+          <Label>Senha:</Label>
+          <R.InputDefaultFilter type="password" placeholder="Senha" name="password" onChange={handleInputChange} required></R.InputDefaultFilter>
+        </div>
 
-        <CardBody>
-
-          <CardFieldset>
-            <CardInput placeholder="E-mail" type="text" name="email" onChange={handleInputChange} required />
-          </CardFieldset>
-
-          <CardFieldset>
-            <CardInput placeholder="Senha" type="senha" name="senha" onChange={handleInputChange} required />
-            <CardIcon className="fa fa-eye" eye small />
-          </CardFieldset>
-
-         
-
-          <CardFieldset>
-            <CardButton type="submit">Log in</CardButton>
-          </CardFieldset>
-
-          <CardFieldset>
-            <CardLink>Ainda não possuo cadastro</CardLink>
-          </CardFieldset>
-        </CardBody>
-      </CardWrapper>
+        <div className="mt-4 d-flex justify-content-center">
+          <R.ButtonStyledForget> Esqueci a senha </R.ButtonStyledForget>
+          <R.ButtonStyledCadastrar> Cadastrar </R.ButtonStyledCadastrar>
+          <R.ButtonStyledLogin type="submit"> Login </R.ButtonStyledLogin>
+        </div>
+        
+      </R.FormContainer>
+      </R.FormContainerGeral>
       </form>
     </div>
   );

@@ -24,8 +24,6 @@ input[type=number] {
 .num{
   -moz-appearance: textfield;
    appearance: textfield;
-
-  
 }
 .dropbtn {
   background-color: #04AA6D;
@@ -63,4 +61,6 @@ input[type=number] {
 
 .dropdown:hover .dropdown-content {display: block;}
 
-
+.paginacao{
+  margin-top:auto;
+}

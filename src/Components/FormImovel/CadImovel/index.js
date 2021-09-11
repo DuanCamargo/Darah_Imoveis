@@ -1,9 +1,11 @@
 import React from 'react';
 import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
-import { useEffect, useState, useRef } from 'react';
-import { Button } from '../../SectionHome/SectionStyle';
-import '../../../../src/App.css'
-const CadImovel = ({ alt }) => {
+import { useState} from 'react';
+//import { Button } from '../../SectionHome/SectionStyle';
+import { PostCadImovel } from '../../../Service/PostCadImovel';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+
+const CadImovel = () => {
 
     const init = {
         tipo_compartilhamento: "",
@@ -25,7 +27,9 @@ const CadImovel = ({ alt }) => {
 
     const SendForm = (e) => {
         e.preventDefault();
-       
+        setInput({input, data_publicacao: dataEHora})
+        alert(input)
+        PostCadImovel(input);
     }
 
     const dateTime = (data = new Date()) =>{
@@ -89,14 +93,15 @@ const CadImovel = ({ alt }) => {
                         </div>
 
                         <div>
-                            <label htmlFor="detalhes_quarto">Detalhes Quarto</label>
-                            <textarea type="text" className="form-control" id="detalhes_quarto" name="detalhes_quarto" placeholder="ex: mobiliado, frigobar, ar-condicionado, etc" onChange={handleInputChange} />
+                            <label htmlFor="_q">Detalhes Quarto</label>
+                            <textarea type="text" className="form-control" id="_q" name="_q" placeholder="ex: mobiliado, frigobar, ar-condicionado, etc" onChange={handleInputChange} />
                         </div>
 
                         {/* ########### MAPA ######### */}
                         <div>
                             <label htmlFor="mapa">Mapa (EMBED)</label>
-                            <input type="text" className="form-control" id="mapa" name="mapa" placeholder="Embed seu mapa aqui" onChange={handleInputChange} />
+                            <input type="text" className="form-control" id="mapa" name="mapa" placeholder="Embed seu mapa aqui" onChange={handleInputChange}>
+                            </input>
                         </div>
                         <div className="col text-center">
                             <Button type="submit" className="btn btn-primary ">Próximo</Button>
@@ -138,7 +143,7 @@ const CadImovel = ({ alt }) => {
                             <input type="text" className="form-control" id="valorGas" name="valorGas" placeholder="R$ 00,00" onChange={handleInputChange} />
                         </div>
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
+                            <Link to="/CadQuarto" type="submit" className="btn btn-primary ">Próximo</Link>
                         </div>
                     </form>
 
@@ -167,7 +172,7 @@ const CadImovel = ({ alt }) => {
                             <textarea type="text" className="form-control" id="detalhesQuarto" name="detalhesQuarto" placeholder="ex: mobiliado, frigobar, ar-condicionado, etc" onChange={handleInputChange} />
                         </div>
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
+                            <Link to="/imovel" type="submit" className="btn btn-danger ">Voltar</Link>
                         </div>
                     </form>
                     {/* #################### TELA FOTOS!!! ##################*/}
