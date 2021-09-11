@@ -25,7 +25,7 @@ import {
 const Navbar = ({ toggle }) => {
 
     const [teste, setTeste] = useContext(UsuarioLogadoContext)
-    const [logado, setLogado] = useState(true)
+    const [logado, setLogado] = useState(false)
 
     // useEffect(()=>{
     //     if(teste.id != ""){

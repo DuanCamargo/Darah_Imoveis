@@ -1,20 +1,19 @@
 import axios from "../http-common";
 
 export const GetForm = (email, senha) => {
-  var foto = {
-    method: 'POST',
-    url: '/usuario/foto',
+  var login = {
+    method: 'GET',
+    url: '/usuario/loginSenha',
     headers: {
-      
-      'Content-Type': 'multipart/form-data',
-      'foto': foto
-    }
+       'email':email,
+       'senha': senha
+    },
   };
 
   return axios(login)
   .then(function (response){
     console.log("GetLoginForm: "+response.data);
-   
+     return response.data
   })
   .catch(e => {
     console.log(e)

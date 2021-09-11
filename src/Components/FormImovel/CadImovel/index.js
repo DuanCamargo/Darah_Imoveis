@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG, FormContainerFoto } from './CadImovelStyle';
+import { FormContainerGeral, FormContainer, FormIM2, FormContainerFotoG,  } from './CadImovelStyle';
 import { useState} from 'react';
 //import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadImovel } from '../../../Service/PostCadImovel';
@@ -27,7 +27,7 @@ const CadImovel = () => {
 
     const SendForm = (e) => {
         e.preventDefault();
-        setInput({input, data_publicacao: dataEHora})
+        // setInput({input, data_publicacao: dataEHora})
         alert(input)
         PostCadImovel(input);
     }
@@ -104,7 +104,7 @@ const CadImovel = () => {
                             </input>
                         </div>
                         <div className="col text-center">
-                            <Button type="submit" className="btn btn-primary ">Próximo</Button>
+                            {/* <Button type="submit" className="btn btn-primary ">Próximo</Button> */}
                         </div>
                     </form>
 
