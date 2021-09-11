@@ -5,6 +5,7 @@ import { PostCadFoto } from '../../../Service/PostCadFoto';
 import ReactDOMServer from 'react-dom/server';
 import { RiImageAddFill } from "react-icons/ri";
 import { useHistory, useLocation, Link } from "react-router-dom";
+import $ from 'jquery'
 
 const ImageUpload = () => {
     const location = useLocation();
@@ -12,8 +13,8 @@ const ImageUpload = () => {
     // var imagem = document.querySelector("#img");
 
     const init = {
-        imovelDTO: {
-        id_imovel: 0,
+        anuncioDTO: {
+        id_anuncio: 0,
         },
         descricao_foto: "",
     };
@@ -31,30 +32,42 @@ const ImageUpload = () => {
         const file = e.target.img.files;
 
         formData.append("foto", file[0]);
-        console.log(file[0]);
-
-        setFiles([...files,
-        {
-            foto: file[0],
-            // descricao_foto: e.target.descricao.value,
-        },
-        ]);
+        formData.append('id_anuncio', input.anuncioDTO.id_anuncio);
+        formData.append("descricao_foto", input.descricao_foto)
+        
+        // setFiles([...files,
+        // {
+        //     foto: file[0],
+        //     // descricao_foto: e.target.descricao.value,
+        // },
+        // ]);
     };
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setInput({...input,
             [name]: value,
-            imovelDTO: { id_imovel: location.state },
+            anuncioDTO: { id_anuncio: location.state },
         });
     };
 
-    console.log(formData);
+    console.log("FormData: "+{formData});
     console.log(input)
 
     const sendFoto = () => {
-        PostCadFoto(formData, input);
-        alert("Foto(s) salvas(s) com sucesso");
+        $.ajax
+            ({
+                type: "POST",
+                url: "http://localhost:8081/foto",
+                enctype: 'multipart/form-data',
+                data:formData,        
+                processData: false,
+                contentType: false,
+                success: function (data){
+                    alert('Dados salvos com sucesso!')
+                }
+            });
+
     };
 
     const checkFoto = () => {
