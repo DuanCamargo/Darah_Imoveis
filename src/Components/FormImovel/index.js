@@ -7,7 +7,8 @@ import { RiCommunityLine } from "react-icons/ri";
 
 const FormImovel = ()=>{
 
-     const init = {
+    const init = {
+        id_imovel: "",
         cep: "",
         logradouro: "",
         numero: "",

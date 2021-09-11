@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import * as R from "./CadAnuncioStyle";
 import { useState } from "react";
-import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
 import { useLocation, useHistory } from "react-router";
-import { RiCommunityLine , RiQuestionLine } from "react-icons/ri";
+import { RiCommunityLine } from "react-icons/ri";
+import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
 
 const CadAnuncio = () => {
   const init = {
@@ -18,7 +18,16 @@ const CadAnuncio = () => {
     imovelDTO: {
       id_imovel: 0,
     },
+    usuarioDTO: {
+      id_usuario: 0,
+    },
+    anuncioDTO:{
+      id_anuncio:0,
+    }
   };
+
+  const [usuarioLogado, setUsuarioLogado] = useContext(UsuarioLogadoContext)
+  
 
   const location = useLocation();
   const [input, setInput] = useState(init);
@@ -29,21 +38,26 @@ const CadAnuncio = () => {
       ...input,
       [name]: value,
       data_publicacao: dataEHora,
-      imovelDTO: { id_imovel: location.state },
+      imovelDTO: {id_imovel: location.state},
+      usuarioDTO: {id_usuario: usuarioLogado.id}
     });
   };
 
-  console.log(input);
+
   let history = useHistory()
 
   const SendResidencia = (e) => {
     e.preventDefault();
-    PostCadImovel(input);
+    PostCadImovel(input).then(response=>{
+     setInput(input.anuncioDTO.id_anuncio = response)
+    })
     history.push({
       pathname: "/CadValores",
-      state: input.imovelDTO.id_imovel,
+      state: input.imovelDTO.id_imovel
     })
+    console.log(input);
   };
+  
 
   const dateTime = (data = new Date()) => {
     var dia = data.getDate();
@@ -173,7 +187,7 @@ const CadAnuncio = () => {
                 hidden
               />
             </div>
-            <container className="d-flex align-items-center justify-content-between mt-4 ">
+            <div className="d-flex align-items-center justify-content-between mt-4 ">
               <div className="col text-center">
                 <R.ButtonStyledPrevious type="submit" className="btn btn-danger ">
                   Anterior
@@ -182,10 +196,10 @@ const CadAnuncio = () => {
               <R.DivSeparator/>
               <div className="col text-center">
                 <R.ButtonStyledNext type="submit" className="btn btn-primary ">
-                  Próximo
+                  Próximo 
                 </R.ButtonStyledNext>
               </div>
-            </container>
+            </div>
           </form>
         </R.FormContainer>
       </R.FormContainerGeral>

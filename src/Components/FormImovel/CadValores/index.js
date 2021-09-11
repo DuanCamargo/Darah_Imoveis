@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 import { React, useState, useEffect } from "react";
 import * as R from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
 import { useLocation, useHistory } from "react-router";
 import { RiCommunityLine } from "react-icons/ri";
+=======
+import { React, useState, useEffect, useContext } from "react";
+import { FormContainerGeral, FormContainer } from "./CadValoresStyle";
+import { Button } from "../../SectionHome/SectionStyle";
+import { PostCadValores } from "../../../Service/PostCadValores";
+import { useLocation, useHistory } from "react-router";
+import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
+>>>>>>> 6f3a0a6 (e)
 
 const CadValores = () => {
   const location = useLocation();
+
+  const [usuarioLogado, setUsuarioLogado] = useContext(UsuarioLogadoContext)
 
   const init = {
     aluguel: 0,
@@ -20,10 +31,13 @@ const CadValores = () => {
     imovelDTO: {
       id_imovel: 0,
     },
+    anuncioDTO: {
+      id_anuncio: 0,
+    }
   };
 
   const [input, setInput] = useState(init);
-
+  console.log(usuarioLogado)
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setInput({
@@ -42,7 +56,7 @@ const CadValores = () => {
     alert("Contas salvas com sucesso")
     history.push({
       pathname: "/CadFoto",
-      state: input.imovelDTO.id_imovel,
+      state: input.anuncioDTO.id_anuncio,
     })
   };
 
