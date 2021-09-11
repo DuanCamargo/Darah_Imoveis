@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from "react";
-import { FormContainerGeral, FormContainer } from "./CadValoresStyle";
+import * as R from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
-import { useLocation, useHistory, Link} from "react-router-dom";
+import { useLocation, useHistory, Link } from "react-router-dom";
+import { RiCommunityLine } from "react-icons/ri";
 
 const CadValores = () => {
   const location = useLocation();
@@ -47,14 +48,17 @@ const CadValores = () => {
 
   return (
     <>
-      <FormContainerGeral>
-        <FormContainer id="valores">
+      <R.FormContainerGeral>
+        <R.FormContainer id="valores">
           {/* #################### TELA VALORES!!! ##################*/}
           <form onSubmit={SendValores}>
-            <div>
+            <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
+            <R.FormIM2><R.DivSeparator/></R.FormIM2>
+            <R.FormIM2>Etapa 4/5</R.FormIM2>
+            <div className="mt-4">
               <label htmlFor="aluguel">Valor Aluguel</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="aluguel"
                 name="aluguel"
@@ -62,10 +66,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="iptu">Valor IPTU</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="iptu"
                 name="iptu"
@@ -73,10 +77,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="condominio">Valor Condominio</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="condominio"
                 name="condominio"
@@ -84,10 +88,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="internet">Valor Internet</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="internet"
                 name="internet"
@@ -95,10 +99,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="tv_cabo">Valor Tv a Cabo</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="tv_cabo"
                 name="tv_cabo"
@@ -106,10 +110,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="agua">Valor Água</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="agua"
                 name="agua"
@@ -117,10 +121,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="energia">Valor Energia</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="energia"
                 name="energia"
@@ -128,10 +132,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="gas">Valor Gás</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="gas"
                 name="gas"
@@ -148,8 +152,8 @@ const CadValores = () => {
               </Link>
             </div>
           </form>
-        </FormContainer>
-      </FormContainerGeral>
+        </R.FormContainer>
+      </R.FormContainerGeral>
     </>
   );
 };

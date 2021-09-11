@@ -138,7 +138,7 @@ function pesquisacep(valor) {
                 <R.FormContainer>
                     <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
                     <R.DivSeparator/>
-                    <R.FormIM> Etapa 1</R.FormIM>
+                    <R.FormIM> Etapa 1/5</R.FormIM>
                     <form onSubmit={SendForm}>
                         <form onChange={meu_callback, pesquisacep}>
                         <div className="form-group mt-4">

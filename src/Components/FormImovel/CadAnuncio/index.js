@@ -4,9 +4,8 @@ import { useState } from "react";
 //import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
 import { useLocation, useHistory } from "react-router";
-import { RiCommunityLine, RiQuestionLine } from "react-icons/ri";
+import { RiCommunityLine , RiQuestionLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-
 
 const CadAnuncio = () => {
   const init = {
@@ -84,7 +83,7 @@ const CadAnuncio = () => {
           <form onSubmit={SendResidencia}>
             <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
             <R.FormIM2><R.DivSeparator/></R.FormIM2>
-            <R.FormIM2>Etapa 3</R.FormIM2>
+            <R.FormIM2>Etapa 3/5</R.FormIM2>
             <div className="mt-4">
               <label htmlFor="tipo_compartilhamento">
                 Tipo de Compartilhamento:
@@ -150,17 +149,19 @@ const CadAnuncio = () => {
             {/* ########### MAPA ######### */}
             <div className="mt-4">
               <label htmlFor="mapa_embed">Mapa (EMBED):</label>
-              <R.InputDefaultFilter
+              <div className="d-flex justify-content-between">
+              <R.InputDefaultFilterMap1
                 type="text"
                 className="form-control"
                 id="mapa_embed"
                 name="mapa_embed"
                 placeholder="Coloque seu mapa aqui"
                 onChange={handleInputChange}
-              >
-              </R.InputDefaultFilter>
-              <RiQuestionLine type="button" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right" />
-
+              />
+               <R.InputDefaultFilterMap2 className="" onClick="">
+                  <R.FormIM2 ><RiQuestionLine className="iconMap"/></R.FormIM2>
+                </R.InputDefaultFilterMap2>
+              </div>
             </div>
 
             <div className="mt-4">

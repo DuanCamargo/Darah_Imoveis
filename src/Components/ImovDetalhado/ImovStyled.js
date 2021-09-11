@@ -36,6 +36,7 @@ export const FotoImov = styled.div`
 export const Column2 = styled.div`
     margin: 5px auto;
     width: 300px;
+    
    
 `
 // Container dos dados a ser inserido

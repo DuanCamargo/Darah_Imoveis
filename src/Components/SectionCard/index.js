@@ -14,8 +14,8 @@ import {
 const SectionCard = () => {
     return (
         <>
-             <SectionContainer>
-                    <InfoH1>Anúncios proximos de você!</InfoH1>
+             <SectionContainer id="card">
+                   <a href="#card"> <InfoH1>Anúncios proximos de você!</InfoH1> </a>
                     <InfoP>Veja abaixo informações sobre anúncios proximo a sua localidade</InfoP>
                
                 <CardContainer>

@@ -9,7 +9,6 @@ background-color: #e6e6e6;
 align-items: center;
   width: 100%;
   height: 100vh;
- 
 `
 
 export const FormContainer = styled.div`

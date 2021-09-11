@@ -60,7 +60,11 @@ export const FilterContainer =styled.div`
   border: 1px solid #6c757d;
   background-color: #fff;
   height: fit-content;
-  position: fixed;
+  position: absolute;
+
+    
+  
+ 
 
   @media screen and (max-width:820px){
     width: 320px;
@@ -75,10 +79,11 @@ export const FilterContainer =styled.div`
 
 export const FormContainerGeral = styled.div`
 display: flex;
-min-height: 80vh;
+
 justify-content: space-between;
 padding: 20px;
 background-color: #e6e6e6;
+position: relative;
 
   @media screen and (max-width:900px){
     flex-wrap:wrap;
