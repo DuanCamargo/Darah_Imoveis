@@ -82,7 +82,7 @@ const CadAnuncio = () => {
           <form onSubmit={SendResidencia}>
             <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
             <R.FormIM2><R.DivSeparator/></R.FormIM2>
-            <R.FormIM2>Etapa 3</R.FormIM2>
+            <R.FormIM2>Etapa 3/5</R.FormIM2>
             <div className="mt-4">
               <label htmlFor="tipo_compartilhamento">
                 Tipo de Compartilhamento:

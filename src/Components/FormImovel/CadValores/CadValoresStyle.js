@@ -39,7 +39,7 @@ background-color: #e6e6e6;
 
 align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `
 
 export const FormContainerFotoG = styled.div`
@@ -69,4 +69,47 @@ height: 1px;
 /* height: fit-content; */
 background-color: #F2BE38;
 margin: 20px 0 20px 0;
+`;
+
+export const InputDefaultFilter = styled.input`
+  padding: 0.5rem;
+  width: 100%;
+  height: 42px;
+  color: ${props => props.inputColor || "black"};
+  background: #ededed ;
+  border: 1px solid #6c757d;
+  border-radius: 3px;
+  transition: 0.5s;
+  :focus{
+        border: 1px solid #F2BE38;
+        box-shadow: 0 0 0 0.25rem  rgba(242,190,56, 0.5);
+        outline: none;
+        background: white;
+        color: #F2BE38;
+  }
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #6c757d;
+  }
+  :-ms-input-placeholder {
+     color: #6c757d;
+  }
+`
+
+export const ButtonStyledNext = styled.button`
+  background: linear-gradient(to right,  #F2BE38, #ffd56a, #F2BE38);
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 1px solid #6c757d;
+  border-radius: 3px 15px 15px 3px;
+  transition: 0.5s;
+  :hover,:active,:focus{
+        color: white;
+        box-shadow: 0 0 0 0.25rem  rgba(242,190,56, 0.5);
+        background: #B58E2A ; 
+        border-color: #6c757d;
+        outline: none;
+    }
 `;

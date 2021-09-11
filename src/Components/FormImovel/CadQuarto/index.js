@@ -49,7 +49,7 @@ const CadQuarto = () => {
                     <form onSubmit={SendQuarto}>
                     <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
                     <R.DivSeparator/>
-                    <R.FormIM> Etapa 2</R.FormIM>
+                    <R.FormIM> Etapa 2/5</R.FormIM>
                         
                         <div className="form-container mt-4">
                             <label htmlFor="tipo_quarto">Tipo de Quarto:</label>

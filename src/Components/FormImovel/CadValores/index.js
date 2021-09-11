@@ -54,11 +54,11 @@ const CadValores = () => {
           <form onSubmit={SendValores}>
             <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
             <R.FormIM2><R.DivSeparator/></R.FormIM2>
-            <R.FormIM2>Etapa 4</R.FormIM2>
-            <div>
+            <R.FormIM2>Etapa 4/5</R.FormIM2>
+            <div className="mt-4">
               <label htmlFor="aluguel">Valor Aluguel</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="aluguel"
                 name="aluguel"
@@ -66,10 +66,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="iptu">Valor IPTU</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="iptu"
                 name="iptu"
@@ -77,10 +77,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="condominio">Valor Condominio</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="condominio"
                 name="condominio"
@@ -88,10 +88,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="internet">Valor Internet</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="internet"
                 name="internet"
@@ -99,10 +99,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="tv_cabo">Valor Tv a Cabo</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="tv_cabo"
                 name="tv_cabo"
@@ -110,10 +110,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="agua">Valor Água</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="agua"
                 name="agua"
@@ -121,10 +121,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="energia">Valor Energia</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="energia"
                 name="energia"
@@ -132,10 +132,10 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className="mt-4">
               <label htmlFor="gas">Valor Gás</label>
-              <input
-                type="text"
+              <R.InputDefaultFilter
+                type="number"
                 className="form-control"
                 id="gas"
                 name="gas"
@@ -143,10 +143,11 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="col text-center">
-              <Button type="submit" className="btn btn-primary ">
+            <div className="d-flex align-items-center justify-content-between mt-4">
+              <R.DivSeparator/>
+              <R.ButtonStyledNext type="submit" className="btn btn-primary ">
                 Próximo
-              </Button>
+              </R.ButtonStyledNext>
             </div>
           </form>
         </R.FormContainer>

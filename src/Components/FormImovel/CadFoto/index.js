@@ -61,7 +61,7 @@ const ImageUpload = () => {
                     <form onSubmit={fileSelectedHandler}>
                         <R.FormIM><RiImageAddFill/> Upload images</R.FormIM>
                         <R.FormIM><R.DivSeparator/></R.FormIM>
-                        <R.FormIM>Etapa Final</R.FormIM>
+                        <R.FormIM>Etapa 5/5</R.FormIM>
                         {/* <h3>Images</h3> */}
                         <div className="mt-4"> 
                             <input type="file" className="ml-3" id="img" />
