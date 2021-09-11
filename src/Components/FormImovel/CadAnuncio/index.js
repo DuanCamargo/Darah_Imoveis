@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
 import { useLocation, useHistory } from "react-router";
-import { RiCommunityLine } from "react-icons/ri";
+import { RiCommunityLine , RiQuestionLine } from "react-icons/ri";
 
 const CadAnuncio = () => {
   const init = {
@@ -148,7 +148,8 @@ const CadAnuncio = () => {
             {/* ########### MAPA ######### */}
             <div className="mt-4">
               <label htmlFor="mapa_embed">Mapa (EMBED):</label>
-              <R.InputDefaultFilter
+              <div className="d-flex justify-content-between">
+              <R.InputDefaultFilterMap1
                 type="text"
                 className="form-control"
                 id="mapa_embed"
@@ -156,6 +157,10 @@ const CadAnuncio = () => {
                 placeholder="Coloque seu mapa aqui"
                 onChange={handleInputChange}
               />
+               <R.InputDefaultFilterMap2 className="" onClick="">
+                  <R.FormIM2 ><RiQuestionLine className="iconMap"/></R.FormIM2>
+                </R.InputDefaultFilterMap2>
+              </div>
             </div>
 
             <div className="mt-4">

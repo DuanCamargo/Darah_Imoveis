@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from "react";
-import { FormContainerGeral, FormContainer } from "./CadValoresStyle";
+import * as R from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
 import { useLocation, useHistory } from "react-router";
+import { RiCommunityLine } from "react-icons/ri";
 
 const CadValores = () => {
   const location = useLocation();
@@ -47,10 +48,13 @@ const CadValores = () => {
 
   return (
     <>
-      <FormContainerGeral>
-        <FormContainer id="valores">
+      <R.FormContainerGeral>
+        <R.FormContainer id="valores">
           {/* #################### TELA VALORES!!! ##################*/}
           <form onSubmit={SendValores}>
+            <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
+            <R.FormIM2><R.DivSeparator/></R.FormIM2>
+            <R.FormIM2>Etapa 4</R.FormIM2>
             <div>
               <label htmlFor="aluguel">Valor Aluguel</label>
               <input
@@ -145,8 +149,8 @@ const CadValores = () => {
               </Button>
             </div>
           </form>
-        </FormContainer>
-      </FormContainerGeral>
+        </R.FormContainer>
+      </R.FormContainerGeral>
     </>
   );
 };

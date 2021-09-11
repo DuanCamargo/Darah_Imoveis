@@ -110,7 +110,7 @@ const AnuncioTela = () => {
                 <label htmlFor="moradia">Tipo de moradia</label>
                         <S.SelectInputFilter onChange={handleInputChange} required>
                         <option value="" hidden>
-                        C.lique para selecionar
+                        Clique para selecionar
                         </option>
                         <option value="1">Casa</option>
                         <option value="2">Apartamento</option>

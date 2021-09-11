@@ -158,7 +158,8 @@ export const Button = styled.button`
     background: #01BF71 ;
     white-space: nowrap;
     height: 50px;
-    width: 35px;
+    width: 40px;
+    padding-right: 15px;
     border-radius: 0px 20px 20px 0;
     /* box-shadow: 4px 0 4px 0.25rem rgba(56, 242, 190, 0.5); */
     color: #fff;
