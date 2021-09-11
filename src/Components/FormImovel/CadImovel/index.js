@@ -6,44 +6,43 @@ import '../../../../src/App.css'
 const CadImovel = ({ alt }) => {
 
     const init = {
-        tipoResidencia: "",
-        tipoCompartilhamento: "",
-        metragemResidencia: "",
-        qtdPessoaResidencia: "",
-        qtdBaheiroSocial: "",
-        detalhesResidencia: "",
-        regrasResidencia: "",
-
-        valorAluguel: "",
-        valorIPTU: "",
-        valorCondominio: "",
-        valorInternet: "",
-        valorTvCabo: "",
-        valorAgua: "",
-        valorEnergia: "",
-        valorGas: "",
-
-        tipoQuarto: "",
-        metragemQuarto: "",
-        qtdCamaQaurto: "",
-        detalhesQuarto: "",
-
-        detalhesRegiao: "",
-
+        tipo_compartilhamento: "",
+        detalhes_residencia: "",
+        regras_residencia: "",
+        detalhes_regiao: "",
+        detalhes_quarto: "",
         mapa: "",
-
-        fotos: ""
     }
 
+    const [input, setInput] = useState(init)
     
 
-    const handleInputChange = (event) => {
-        
+    const handleInputChange = (event) =>{
+        const {name, value} = event.target;
+        setInput({ ...input, [name]: value});
     }
 
 
     const SendForm = (e) => {
         e.preventDefault();
+       
+    }
+
+    const dateTime = (data = new Date()) =>{
+        var dia = data.getDate();
+        var mes = data.getMonth()+1;
+        var ano = data.getFullYear(); 
+        var hora = data.getHours();
+        var minute = data.getMinutes();
+        var second = data.getSeconds()
+ 
+        if(dia.toString().length ===1){dia = '0'+dia}
+        if(mes.toString().length ===1){mes = '0'+mes}
+        if(hora.toString().length ===1){hora = '0'+hora}
+        if(minute.toString().length ===1){minute = '0'+minute}
+        if(second.toString().length ===1){second = '0'+second}
+    
+        return ano+'-'+mes+'-'+dia+' '+hora+':'+minute+':'+second;
     }
 
     return (
@@ -90,12 +89,8 @@ const CadImovel = ({ alt }) => {
                         </div>
 
                         <div>
-                            <label htmlFor="detalhesResidencia">Detalhes Residência</label>
-                            <textarea className="form-control" id="detalhesResidencia" name="detalhesResidencia" placeholder="ex: Ar-Condicionado, Sugar, " onChange={handleInputChange} />
-                        </div>
-                        <div>
-                            <label htmlFor="detalhesRegiao">Detalhes Residência</label>
-                            <textarea className="form-control" id="detalhesRegiao" name="detalhesRegiao" placeholder="ex: Supermercado, farmacia, etc... " onChange={handleInputChange} />
+                            <label htmlFor="detalhes_quarto">Detalhes Quarto</label>
+                            <textarea type="text" className="form-control" id="detalhes_quarto" name="detalhes_quarto" placeholder="ex: mobiliado, frigobar, ar-condicionado, etc" onChange={handleInputChange} />
                         </div>
 
                         {/* ########### MAPA ######### */}

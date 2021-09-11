@@ -2,6 +2,7 @@ import React from 'react';
 import {FormContainer, FormContainerGeral, FormIM} from './FormImovelStyle';
 import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
+
 //import { Link } from "recat-router-dom";
 
 const FormImovel = ()=>{
@@ -32,8 +33,14 @@ const FormImovel = ()=>{
     
     const SendForm = (e) =>{
         e.preventDefault();
-        PostFormImov(input);
+         PostFormImov(input).then(response=>{
+
+          
+            
+         })
+
         
+       
     }
 
     return (

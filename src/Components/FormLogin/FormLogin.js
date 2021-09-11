@@ -1,5 +1,5 @@
 import React from "react";
-import { GetForm, banco } from '../../Service/GetLoginForm.js'
+import { GetForm} from '../../Service/GetLoginForm.js'
 import { UsuarioLogadoContext } from "../../Context/UsuarioLogado";
 import { useState } from 'react';
 import { useContext } from "react";

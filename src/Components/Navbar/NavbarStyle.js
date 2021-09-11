@@ -4,7 +4,7 @@ import {Link as LinkR} from "react-router-dom"
 
 export const Nav = styled.nav`
     background: #c9d8c5;
-    height: 70px;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,6 +92,7 @@ export const NavLinks = styled(LinkR)`
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
+    font-size: 15px;
     
     
 
@@ -102,9 +103,7 @@ export const NavLinks = styled(LinkR)`
     }
     
 `
-export const Teste = styled.div`
- background-color: blue;
-`
+
 
 export const NavBtn = styled.nav`
     display:flex;
@@ -133,3 +132,32 @@ export const NavBtnLink = styled(LinkR)`
         text-decoration: none;
     }
 `
+
+// export const Dropdown = styled.div`
+//     position: relative;
+//     display: inline-block;    
+    
+// `
+// export const DropdownCont = styled.div`
+//     display: none;
+//     border-radius:  0 0 20px 20px ;
+//     position: absolute;
+//     background-color:  #c9d8c5;
+//     min-width: 190px;
+//     z-index: 1;
+
+    
+// `
+
+// export const DropdownA = styled.a`
+//     color: black;
+//     margin-top: 10px;
+//     padding: 12px 16px;
+//     border-radius:  0 0 20px 20px ;
+//     text-decoration: none;
+//     display: block;
+
+//     &:hover{
+//         color:aqua;
+//     }
+//  `
