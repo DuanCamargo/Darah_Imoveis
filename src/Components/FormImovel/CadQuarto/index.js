@@ -3,7 +3,7 @@ import * as R from './CadQuartoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadQuarto } from '../../../Service/PostCadQuarto';
 import { useLocation } from 'react-router';
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 import { RiCommunityLine } from "react-icons/ri";
 
 const CadQuarto = () => {
@@ -67,7 +67,11 @@ const CadQuarto = () => {
                         </div>
                         <container className="d-flex align-items-center justify-content-between mt-4">
                             <div className="ml-5">
-                                <R.ButtonStyledPrevious type="submit" className="btn btn-danger ">Anterior</R.ButtonStyledPrevious>
+                            <R.ButtonStyledPrevious>
+                                <a href="/imovel">
+                                Anterior
+                                </a>
+                            </R.ButtonStyledPrevious>
                             </div>
                             <R.DivSeparator/>
                             <div className="mr-5">

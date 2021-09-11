@@ -4,7 +4,7 @@ import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadFoto } from '../../../Service/PostCadFoto';
 import ReactDOMServer from 'react-dom/server';
 import { RiImageAddFill } from "react-icons/ri";
-import { useHistory, useLocation } from "react-router";
+import { useHistory, useLocation, Link } from "react-router-dom";
 
 const ImageUpload = () => {
     const location = useLocation();
@@ -17,6 +17,9 @@ const ImageUpload = () => {
         },
         descricao_foto: "",
     };
+
+    
+       
 
     const [files, setFiles] = useState([]);
     const [input, setInput] = useState(init);
@@ -54,6 +57,11 @@ const ImageUpload = () => {
         alert("Foto(s) salvas(s) com sucesso");
     };
 
+    const checkFoto = () => {
+        alert("Adicione uma foto abaixo");
+    };
+    
+
     return (
         <>
             <R.FormContainerFoto>
@@ -68,7 +76,8 @@ const ImageUpload = () => {
                             <R.InputFile type="text" className="file ml-3" name="descricao_foto" id="descricao_foto" placeholder="Descrição da foto" onChange={handleInputChange}/>
                         </div>
                         <div className="mt-3">
-                            <R.ButtonAddPhoto type="submit" className="btn btn-primary">Adicionar Foto</R.ButtonAddPhoto>
+                            <R.ButtonAddPhoto type="submit" className="btn btn-primary" onClick={checkFoto}>Adicionar Foto</R.ButtonAddPhoto>
+                              
                         </div>
                     </form>
                     <div>
@@ -82,6 +91,10 @@ const ImageUpload = () => {
                         })}
                     </div>
                     <div className="mt-3 d-flex justify-content-end">
+                    <Link to="/CadValores" type="submit" className="btn btn-danger ">
+                       Anterior
+                      </Link>
+
                         <R.ButtonConcluir type="submit"  className="btn btn-primary" onClick={sendFoto}>Concluir</R.ButtonConcluir>
                     </div>
                 </R.FormContainer>

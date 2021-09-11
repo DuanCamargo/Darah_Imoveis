@@ -23,6 +23,7 @@ const FormImovel = ()=>{
 
     const [input, setInput] = useState(init)
    
+    
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;

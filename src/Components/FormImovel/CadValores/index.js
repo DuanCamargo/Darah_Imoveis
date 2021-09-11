@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import { FormContainerGeral, FormContainer } from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
-import { useLocation, useHistory } from "react-router";
+import { useLocation, useHistory, Link} from "react-router-dom";
 
 const CadValores = () => {
   const location = useLocation();
@@ -140,9 +140,12 @@ const CadValores = () => {
               />
             </div>
             <div className="col text-center">
-              <Button type="submit" className="btn btn-primary ">
+            <Link to="/CadAnuncio" type="submit" className="btn btn-danger ">
+                  Anterior
+                </Link>
+              <Link to="/CadFoto"type="submit" className="btn btn-primary ">
                 Próximo
-              </Button>
+              </Link>
             </div>
           </form>
         </FormContainer>

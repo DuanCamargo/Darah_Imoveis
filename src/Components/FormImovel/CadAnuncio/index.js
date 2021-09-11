@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import * as R from "./CadAnuncioStyle";
 import { useState } from "react";
-import { Button } from "../../SectionHome/SectionStyle";
+//import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
 import { useLocation, useHistory } from "react-router";
-import { RiCommunityLine } from "react-icons/ri";
+import { RiCommunityLine, RiQuestionLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
+
 
 const CadAnuncio = () => {
   const init = {
@@ -155,7 +157,10 @@ const CadAnuncio = () => {
                 name="mapa_embed"
                 placeholder="Coloque seu mapa aqui"
                 onChange={handleInputChange}
-              />
+              >
+              </R.InputDefaultFilter>
+              <RiQuestionLine type="button" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right" />
+
             </div>
 
             <div className="mt-4">
@@ -170,9 +175,9 @@ const CadAnuncio = () => {
             </div>
             <container className="d-flex align-items-center justify-content-between mt-4 ">
               <div className="col text-center">
-                <R.ButtonStyledPrevious type="submit" className="btn btn-danger ">
+                <Link to="/CadQuarto" type="submit" className="btn btn-danger ">
                   Anterior
-                </R.ButtonStyledPrevious>
+                </Link>
               </div>
               <R.DivSeparator/>
               <div className="col text-center">

@@ -169,3 +169,4 @@ export const ButtonStyledNext = styled.button`
         outline: none;
     }
 `;
+
