@@ -3,7 +3,7 @@ import * as R from "./CadAnuncioStyle";
 import { useState } from "react";
 import { PostCadImovel } from "../../../Service/PostCadImovel";
 import { useLocation, useHistory } from "react-router";
-import { RiCommunityLine } from "react-icons/ri";
+import { RiCommunityLine, RiQuestionLine } from "react-icons/ri";
 import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
 
 const CadAnuncio = () => {
@@ -172,7 +172,7 @@ const CadAnuncio = () => {
                 onChange={handleInputChange}
               />
                <R.InputDefaultFilterMap2 className="" onClick="">
-                  <R.FormIM2 ><RiQuestionLine className="iconMap"/></R.FormIM2>
+                  <R.FormIM2><RiQuestionLine className="iconMap"/></R.FormIM2>
                 </R.InputDefaultFilterMap2>
               </div>
             </div>

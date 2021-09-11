@@ -1,9 +1,10 @@
 import { React, useState, useEffect, useContext } from "react";
-import { FormContainerGeral, FormContainer } from "./CadValoresStyle";
+import * as R from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
 import { useLocation, useHistory } from "react-router";
 import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
+import { RiCommunityLine } from "react-icons/ri"
 
 const CadValores = () => {
   const location = useLocation();
