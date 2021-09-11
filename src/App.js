@@ -5,7 +5,7 @@ import CadastroUser from './Pages/CadastroHome.js'
 import Anuncios from './Pages/Anuncios.js'
 import Login2 from './Pages/Login.js'
 import CadastroImovel from './Pages/CadastroImovel.js'
-import CadastroImovel2 from './Pages/CadastroImovel2.js'
+import CadastroAnuncio from './Pages/CadastroAnuncio.js'
 import CadastroFoto from './Pages/CadastroFoto.js'
 import CadastroValores from './Pages/CadastroValores.js'
 import CadastroQuarto from './Pages/CadastroQuarto.js'
@@ -21,7 +21,7 @@ function App() {
         <Route path="/anuncios" component={Anuncios} exact />
         <Route path="/login" component={Login2} exact />
         <Route path="/imovel" component={CadastroImovel} exact />
-        <Route path="/CadImovel" component={CadastroImovel2} exact />
+        <Route path="/CadAnuncio" component={CadastroAnuncio} exact />
         <Route path="/CadFoto" component={CadastroFoto} exact />
         <Route path="/CadValores" component={CadastroValores} exact />
         <Route path="/CadQuarto" component={CadastroQuarto} exact />

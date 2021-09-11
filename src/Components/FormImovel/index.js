@@ -1,12 +1,14 @@
 import React from 'react';
-import {FormContainer, FormContainerGeral, FormIM, FormContanier1} from './FormImovelStyle';
+import * as R from './FormImovelStyle';
 import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
-import { Link } from "react-router-dom";
+import {useHistory, Link} from 'react-router-dom'
+import { RiCommunityLine } from "react-icons/ri";
 
 const FormImovel = ()=>{
 
-     const init = {
+    const init = {
+        // id_imovel: "",
         cep: "",
         logradouro: "",
         numero: "",
@@ -18,22 +20,28 @@ const FormImovel = ()=>{
         metragem_imovel: "",
         qtd_num_pessoas: "",
         qtd_banheiro: "",
-      };
+    };
 
     const [input, setInput] = useState(init)
-   
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
             setInput({ ...input, [name]: value });
     }
 
-    
+    console.log(input)
+    let history = useHistory()
     
     const SendForm = (e) =>{
         e.preventDefault();
-        PostFormImov(input);
-        
+        PostFormImov(input).then(id_imovel => {
+            
+            console.log("id_imovel = "+id_imovel)
+            history.push({
+                pathname: "/CadQuarto", 
+                state: {id_imovel},
+            })
+        })
     }
 
     //AUTO PREENCHIMENTO CEP
@@ -125,40 +133,42 @@ function pesquisacep(valor) {
 
     return (
         <>
-            <FormContainerGeral> 
-                <FormContainer>
-                    <FormIM>Faça o seu Anúncio</FormIM>
-                    <form onSubmit={SendForm} >
-                            <form onChange={meu_callback, pesquisacep}>
-                        <div className="form-group">
-                            <input type="number"  id="cep"  name="cep" placeholder="Cep" onChange={handleInputChange}  onBlur ={ (e) =>  {pesquisacep(e.target.value)}} required  />  
+            <R.FormContainerGeral> 
+                <R.FormContainer>
+                    <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
+                    <R.DivSeparator/>
+                    <R.FormIM> Etapa 1</R.FormIM>
+                    <form onSubmit={SendForm}>
+                        <form onChange={meu_callback, pesquisacep}>
+                        <div className="form-group mt-4">
+                            <R.InputDefaultFilter type="number" autoComplete="off" className="form-control" id="cep"  name="cep" placeholder="CEP" onChange={handleInputChange} onBlur ={ (e) =>  {pesquisacep(e.target.value)}} required />  
                         </div>
 
                         <div className="form-group">
-                            <input type="text"  id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} value={input.logradouro} required/>                  
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} value={input.logradouro} required/>                  
                         </div>
 
                         <div className="form-group">
-                            <input type="text" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
                         </div>
                        
 
                         <div className="form-group">
-                            <input type="text"  id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
                         </div>
 
                         <div className="form-group">
-                            <input type="text"  id="bairro" name="bairro"  placeholder="bairro" onChange={handleInputChange} value={input.bairro}required />        
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="bairro" name="bairro"  placeholder="Bairro" onChange={handleInputChange} value={input.bairro} required />        
                         </div>
 
                         <div className="form-group">
-                            <input type="text"  name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} value={input.cidade} required/>
+                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} value={input.cidade} required/>
                         </div>
 
                         <div className="form-group">
-                                <select  id="uf" name="estado" onChange={handleInputChange} value={input.estado}>
-                                    <options value={null}>Selecione o Estado</options>
-                                    <option value="AC">Acre</option>
+                        <R.SelectInputFilter id="uf" name="estado" onChange={handleInputChange} value={input.estado}>
+                                <option value={null}>Selecione uma opção abaixo</option>
+                                <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
                                     <option value="AP">Amapá</option>
                                     <option value="AM">Amazonas</option>
@@ -185,40 +195,41 @@ function pesquisacep(valor) {
                                     <option value="SP">São Paulo</option>
                                     <option value="SE">Sergipe</option>
                                     <option value="TO">Tocantins</option>
-                                </select>
-                            </div>
+                            </R.SelectInputFilter>
+                        </div>
                         </form>
 
-                        <div  className="form-container">
-                            <label htmlFor="tipo_imovel">Tipo de Residência</label>
-                            <select id="tipo_imovel" name="tipo_imovel" onChange={handleInputChange}>
+                        <R.DivSeparator/>
+                        <div className="form-container">
+                            <label htmlFor="tipo_imovel">Tipo de Residência:</label>
+                            <R.SelectInputFilter id="tipo_imovel" name="tipo_imovel" onChange={handleInputChange}>
                                 <option value={null}>Selecione uma opção abaixo</option>
                                 <option value="casa">Casa</option>
                                 <option value="apartamento">Apartamento</option>
-                            </select>
+                            </R.SelectInputFilter>
                         </div>
 
-                        <div>
-                            <label htmlFor="metragem_imovel">Metragem da Residencia</label>
-                            <input type="number" min="0" className="form-control" id="metragem_imovel" name="metragem_imovel" placeholder="M²" onChange={handleInputChange} />
+                        <div className="mt-3">
+                            <label htmlFor="metragem_imovel">Metragem da Residencia:</label>
+                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control" id="metragem_imovel" name="metragem_imovel" placeholder="M²" onChange={handleInputChange} />
                         </div>
 
-                        <div>
-                            <label htmlFor="qtd_num_pessoas">Quantidade de Pessoas na Residencia</label>
-                            <input type="number" min="0" className="form-control" id="qtd_num_pessoas" name="qtd_num_pessoas" placeholder="Quantidade de Pessoas na Residencia" onChange={handleInputChange} />
+                        <div className="mt-3">
+                            <label htmlFor="qtd_num_pessoas">Quantidade de Pessoas na Residencia:</label>
+                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control" id="qtd_num_pessoas" name="qtd_num_pessoas" placeholder="Quantidade de Pessoas na Residencia" onChange={handleInputChange} />
                         </div>
 
-                        <div>
-                            <label htmlFor="qtd_banheiro">Quantidade de Banheiro Social</label>
-                            <input type="number" min="0" className="form-control num" id="qtd_banheiro" name="qtd_banheiro" placeholder="Quantidade de Banheiro Social" onChange={handleInputChange} />
+                        <div className="mt-3">
+                            <label htmlFor="qtd_banheiro">Quantidade de Banheiro Social:</label>
+                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control num" id="qtd_banheiro" name="qtd_banheiro" placeholder="Quantidade de Banheiro Social" onChange={handleInputChange} />
                         </div>
                     
-                        <div className="col text-center">
-                        < Link to="/CadImovel"  type = "submit"  className = "btn btn-primary"> Próximo </Link>
+                        <div className="col text-center mt-3">
+                        <R.ButtonStyled  type = "submit"  className = "btn btn-primary"> Próximo </R.ButtonStyled>
                         </div>
                     </form>
-                </FormContainer>
-            </FormContainerGeral>  
+                </R.FormContainer>
+            </R.FormContainerGeral>  
         </>
     )
 }

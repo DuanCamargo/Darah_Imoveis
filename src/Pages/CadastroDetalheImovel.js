@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar/index';
 import CadastroDetalheImovel from '../Components/FormImovel/CadImovel/index';
 import Sidebar from '../Components/Sidebar/index';
 import { useState } from 'react';
+import Footer from '../Components/Footer/index'
 
 const CadDetalheImovel = () =>{
     const [isOpen, setIsOpen] = useState(false)
@@ -16,6 +17,7 @@ const CadDetalheImovel = () =>{
             <Navbar  toggle={toggle}/>
            
             <CadastroDetalheImovel />
+            <Footer/>
         </>
     )
 }
