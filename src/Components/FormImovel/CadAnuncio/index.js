@@ -21,9 +21,6 @@ const CadAnuncio = () => {
     usuarioDTO: {
       id_usuario: 0,
     },
-    anuncioDTO:{
-      id_anuncio:0,
-    }
   };
 
   const [usuarioLogado, setUsuarioLogado] = useContext(UsuarioLogadoContext)
@@ -43,22 +40,24 @@ const CadAnuncio = () => {
     });
   };
 
-
   let history = useHistory()
+
+  const [ids, setIds] = useState()
 
   const SendResidencia = (e) => {
     e.preventDefault();
     PostCadImovel(input).then(response=>{
-     setInput(input.anuncioDTO.id_anuncio = response)
+    setInput(input.imovelDTO.id_imovel = response)
+
     })
     history.push({
       pathname: "/CadValores",
-      state: input.imovelDTO.id_imovel
+      state: input.imovelDTO.id_imovel,
     })
-    console.log(input);
+    
   };
-  
-
+  console.log("Input: ")
+  console.log(input);
   const dateTime = (data = new Date()) => {
     var dia = data.getDate();
     var mes = data.getMonth() + 1;

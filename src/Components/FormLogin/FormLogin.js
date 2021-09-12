@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { RiUser6Fill } from "react-icons/ri";
 
 import * as R from "./Card";
-import { Label } from "reactstrap";
+import { Alert, Label } from "reactstrap";
 
 
 function Login2() {
@@ -25,7 +25,6 @@ function Login2() {
     setInput({ ...input, [name]: value });
    
   }
-  
  
   const loginSenha = (event) =>{
     
@@ -42,17 +41,25 @@ function Login2() {
           whatsapp:""
         };
 
-         data.id = response.id_usuario
-         data.nome = response.nome
-         data.sobrenome = response.sobrenome
-         data.email = response.email
-         data.senha = response.senha
-         data.whatsapp = response.whatsapp
+        data.id = response.id_usuario
+        data.nome = response.nome
+        data.sobrenome = response.sobrenome
+        data.email = response.email
+        data.senha = response.senha
+        data.whatsapp = response.whatsapp
         setUsuarioLogado(data)
+
+        console.log("Data: ")
+        console.log(data)
+        console.log("response id usuario: ")
+        console.log(response.id_usuario)
 
         history.push({
           pathname: "/",
         })
+      }).catch(e => {
+        alert("Login ou Senha errado! ")
+        // setInput(input.email = "", input.senha = "")
       })
   }
 }

@@ -13,8 +13,8 @@ const ImageUpload = () => {
     // var imagem = document.querySelector("#img");
 
     const init = {
-        anuncioDTO: {
-        id_anuncio: 0,
+        imovelDTO: {
+        id_imovel: 0,
         },
         descricao_foto: "",
     };
@@ -32,7 +32,7 @@ const ImageUpload = () => {
         const file = e.target.img.files;
 
         formData.append("foto", file[0]);
-        formData.append('id_anuncio', input.anuncioDTO.id_anuncio);
+        formData.append('id_imovel', input.imovelDTO.id_imovel);
         formData.append("descricao_foto", input.descricao_foto)
         
         // setFiles([...files,
@@ -47,7 +47,7 @@ const ImageUpload = () => {
         const { name, value } = event.target;
         setInput({...input,
             [name]: value,
-            anuncioDTO: { id_anuncio: location.state },
+            imovelDTO: { id_imovel: location.state },
         });
     };
 
@@ -55,19 +55,17 @@ const ImageUpload = () => {
     console.log(input)
 
     const sendFoto = () => {
-        $.ajax
-            ({
-                type: "POST",
-                url: "http://localhost:8081/foto",
-                enctype: 'multipart/form-data',
-                data:formData,        
-                processData: false,
-                contentType: false,
-                success: function (data){
-                    alert('Dados salvos com sucesso!')
-                }
-            });
-
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/foto",
+            enctype: 'multipart/form-data',
+            data:formData,        
+            processData: false,
+            contentType: false,
+            success: function (data){
+                alert('Dados salvos com sucesso!')
+            }
+        });
     };
 
     const checkFoto = () => {

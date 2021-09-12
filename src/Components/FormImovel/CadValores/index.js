@@ -23,9 +23,6 @@ const CadValores = () => {
     imovelDTO: {
       id_imovel: 0,
     },
-    anuncioDTO: {
-      id_anuncio: 0,
-    }
   };
 
   const [input, setInput] = useState(init);
@@ -48,7 +45,7 @@ const CadValores = () => {
     alert("Contas salvas com sucesso")
     history.push({
       pathname: "/CadFoto",
-      state: input.anuncioDTO.id_anuncio,
+      state: input.imovelDTO.id_imovel,
     })
   };
 
