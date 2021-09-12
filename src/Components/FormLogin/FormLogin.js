@@ -55,34 +55,32 @@ function Login2() {
         })
       })
   }
-
-  
 }
   return (
     <div className="App">
       <form onSubmit={loginSenha}>
-      <R.FormContainerGeral>
-      <R.FormContainer>
-        <R.FormIM><RiUser6Fill/> Login</R.FormIM>
-        <R.FormIM><R.DivSeparator/></R.FormIM>
-        
-        <div>
-          <Label>Email:</Label>
-          <R.InputDefaultFilter type="text" placeholder="Usuário" name="email" onChange={handleInputChange} required></R.InputDefaultFilter>
-        </div>
-        <div className="mt-4">
-          <Label>Senha:</Label>
-          <R.InputDefaultFilter type="password" placeholder="Senha" name="senha" onChange={handleInputChange} required></R.InputDefaultFilter>
-        </div>
+      <R.ContainerGeral>
+        <R.ContainerGeralInterno1>
+          <R.HeaderContainerFont><RiUser6Fill/> Login</R.HeaderContainerFont>
+          <R.HeaderContainerFont><R.DivSeparatorLoginX/></R.HeaderContainerFont>
+          
+          <div>
+            <Label>Email:</Label>
+            <R.InputDefaultLogin type="text" placeholder="Usuário" name="email" onChange={handleInputChange} required></R.InputDefaultLogin>
+          </div>
+          <div className="mt-4">
+            <Label>Senha:</Label>
+            <R.InputDefaultLogin type="password" placeholder="Senha" name="senha" onChange={handleInputChange} required></R.InputDefaultLogin>
+          </div>
 
-        <div className="mt-4 d-flex justify-content-center">
-          <R.ButtonStyledForget> Esqueci a senha </R.ButtonStyledForget>
-          <R.ButtonStyledCadastrar> Cadastrar </R.ButtonStyledCadastrar>
-          <R.ButtonStyledLogin type="submit"> Login </R.ButtonStyledLogin>
-        </div>
-        
-      </R.FormContainer>
-      </R.FormContainerGeral>
+          <div className="mt-4 d-flex justify-content-center">
+            <R.ButtonStyledLoginForget> Esqueci a senha </R.ButtonStyledLoginForget>
+            <R.ButtonStyledLoginCadastrar> Cadastrar </R.ButtonStyledLoginCadastrar>
+            <R.ButtonStyledLoginLogar type="submit"> Login </R.ButtonStyledLoginLogar>
+          </div>
+          
+        </R.ContainerGeralInterno1>
+      </R.ContainerGeral>
       </form>
     </div>
   );

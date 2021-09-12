@@ -14,7 +14,6 @@ export const FormContainer =styled.div`
   background-color: #fff;
   border: 1px solid #6c757d;
   
-
   @media screen and (max-width:820px){
     margin-top: 20px;
     width: 320px;
@@ -22,8 +21,6 @@ export const FormContainer =styled.div`
     
   }
 `
-
-
 
 export const FormH1 = styled.h1`
     text-align: center;
@@ -51,7 +48,6 @@ height: 1px;
 background-color: #70C8DB;
 margin: 20px 0 20px 0;
 `;
-
 
 export const ContainerImg = styled.div`
   width: 450px;
@@ -83,6 +79,7 @@ export const Img = styled.img`
 
   }
 `
+
 export const Pdiv = styled.div`
   width: 100%;
 
@@ -91,6 +88,7 @@ export const Pdiv = styled.div`
   
   }
 `
+
 export const Imgh1 = styled.p`
   width:100%;
   font-size: 15px;
@@ -102,8 +100,6 @@ export const Imgh1 = styled.p`
   }
 
 `
-
-
 
 export const InputDefaultFilter = styled.input`
   padding: 0.5rem;
