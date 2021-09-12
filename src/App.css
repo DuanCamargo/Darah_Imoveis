@@ -70,3 +70,10 @@ input[type=number] {
 .paginacao{
   margin-top:auto;
 }
+
+.ads {
+ display: flex;
+ width: 100%;
+ background-color: red;
+
+}

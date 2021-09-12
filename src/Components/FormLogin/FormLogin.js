@@ -4,6 +4,7 @@ import { UsuarioLogadoContext } from "../../Context/UsuarioLogado";
 import { useState } from 'react';
 import { useContext } from "react";
 import { RiUser6Fill } from "react-icons/ri";
+import {AiOutlineCloseCircle} from 'react-icons/ai'
 
 import * as R from "./Card";
 import { Label } from "reactstrap";
@@ -18,6 +19,8 @@ function Login2() {
 
   const [input, setInput] = useState(initialLoginState)
   const [usuarioLogado, setUsuarioLogado] = useContext(UsuarioLogadoContext)
+
+  const [erroLog, setErroLog] = useState(false)
 
   const handleInputChange = (event) =>{
     const {name, value} = event.target;
@@ -47,6 +50,8 @@ function Login2() {
 
         setUsuarioLogado(data)
         console.log(usuarioLogado)
+      }).catch(e =>{
+          setErroLog(true)
       })
   }
 }
@@ -66,11 +71,16 @@ function Login2() {
           <Label>Senha:</Label>
           <R.InputDefaultFilter type="password" placeholder="Senha" name="password" onChange={handleInputChange} required></R.InputDefaultFilter>
         </div>
+        <div>
+        { erroLog ? 
+           <R.Perro> <AiOutlineCloseCircle className="mr-1"/>Dados incorretos!</R.Perro>:  null}
+           </div>
 
         <div className="mt-4 d-flex justify-content-center">
           <R.ButtonStyledForget> Esqueci a senha </R.ButtonStyledForget>
           <R.ButtonStyledCadastrar> Cadastrar </R.ButtonStyledCadastrar>
           <R.ButtonStyledLogin type="submit"> Login </R.ButtonStyledLogin>
+         
         </div>
         
       </R.FormContainer>

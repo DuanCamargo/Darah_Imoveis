@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
 import {useHistory, Link} from 'react-router-dom'
 import { RiCommunityLine } from "react-icons/ri";
+import '../../../src/App.css'
 
 const FormImovel = ()=>{
 
@@ -22,6 +23,7 @@ const FormImovel = ()=>{
       };
 
     const [input, setInput] = useState(init)
+    const [erroCad, setErroCad] = useState(false)
    
 
     const handleInputChange = (event) =>{
@@ -138,8 +140,14 @@ function pesquisacep(valor) {
                     <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
                     <R.DivSeparator/>
                     <R.FormIM> Etapa 1/5</R.FormIM>
+                    
+
+
+                <div className="ads">
                     <form onSubmit={SendForm}>
+
                         <form onChange={meu_callback, pesquisacep}>
+                      <div>
                         <div className="form-group mt-4">
                             <R.InputDefaultFilter type="number" autoComplete="off" className="form-control" id="cep"  name="cep" placeholder="CEP" onChange={handleInputChange} onBlur ={ (e) =>  {pesquisacep(e.target.value)}} required />  
                         </div>
@@ -156,7 +164,7 @@ function pesquisacep(valor) {
                         <div className="form-group">
                             <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
                         </div>
-
+                
                         <div className="form-group">
                             <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="bairro" name="bairro"  placeholder="Bairro" onChange={handleInputChange} value={input.bairro} required />        
                         </div>
@@ -197,9 +205,14 @@ function pesquisacep(valor) {
                                     <option value="TO">Tocantins</option>
                             </R.SelectInputFilter>
                         </div>
+
+
+                        </div>
                         </form>
 
-                        <R.DivSeparator/>
+                        {/* <R.DivSeparator/> */}
+
+                    
                         <div className="form-container">
                             <label htmlFor="tipo_imovel">Tipo de Residência:</label>
                             <R.SelectInputFilter id="tipo_imovel" name="tipo_imovel" onChange={handleInputChange}>
@@ -227,7 +240,9 @@ function pesquisacep(valor) {
                         <div className="col text-center mt-3">
                         <R.ButtonStyled  type = "submit"  className = "btn btn-primary"> Próximo </R.ButtonStyled>
                         </div>
+                        
                     </form>
+                </div>
                 </R.FormContainer>
             </R.FormContainerGeral>  
         </>

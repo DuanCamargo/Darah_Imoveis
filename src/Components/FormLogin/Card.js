@@ -277,4 +277,11 @@ export const ButtonStyledForget = styled.button`
         border-color: #6c757d;
         outline: none;
     }
-`;
+`
+
+export const Perro = styled.p`
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: center;
+  color: red;
+`

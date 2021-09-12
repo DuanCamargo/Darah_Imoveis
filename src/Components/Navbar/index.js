@@ -28,7 +28,7 @@ const Navbar = ({ toggle }) => {
     const [logado, setLogado] = useState(false)
 
     // useEffect(()=>{
-    //     if(teste.id != ""){
+    //     if(teste.id !== ""){
     //         setLogado(true)
     //     }else{
     //         setLogado(false)
