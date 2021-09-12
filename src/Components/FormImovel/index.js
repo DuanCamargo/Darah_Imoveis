@@ -135,103 +135,107 @@ function pesquisacep(valor) {
 
     return (
         <>
-            <R.FormContainerGeral> 
-                <R.FormContainer>
-                    <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
-                    <R.DivSeparator/>
-                    <R.FormIM> Etapa 1/5</R.FormIM>
-                    <form onSubmit={SendForm}>
-                        <form onChange={meu_callback, pesquisacep}>
-                        <div className="form-group mt-4">
-                            <R.InputDefaultFilter type="number" autoComplete="off" className="form-control" id="cep"  name="cep" placeholder="CEP" onChange={handleInputChange} onBlur ={ (e) =>  {pesquisacep(e.target.value)}} required />  
-                        </div>
+            <R.ContainerGeral> 
+                <R.ContainerGeralInterno1>
+                    <R.HeaderContainerFont> <RiCommunityLine/> Faça o seu Anúncio</R.HeaderContainerFont>
+                    <R.DivSeparatorFormImovelX/>
+                    <R.HeaderContainerFont> Etapa 1 de 5</R.HeaderContainerFont>
+                    <form className="d-flex justify-content-center" onSubmit={SendForm}>
+                        <form className="mr-5" onChange={meu_callback, pesquisacep}>
+                            
+                            <div className="form-group">
+                                <label> Endereço: </label>
+                                <R.InputDefaultFormImovel type="number" autoComplete="off" className="form-control" id="cep"  name="cep" placeholder="CEP" onChange={handleInputChange} onBlur ={ (e) =>  {pesquisacep(e.target.value)}} required />  
+                            </div>
 
-                        <div className="form-group">
-                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} value={input.logradouro} required/>                  
-                        </div>
+                            <div className="form-group">
+                                <R.InputDefaultFormImovel type="text" autoComplete="off" className="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" onChange={handleInputChange} value={input.logradouro} required/>                  
+                            </div>
 
-                        <div className="form-group">
-                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
-                        </div>
-                       
+                            <div className="form-group">
+                                <R.InputDefaultFormImovel type="text" autoComplete="off" className="form-control" id="numero" name="numero" placeholder="Nº" onChange={handleInputChange} required/>
+                            </div>
+                        
 
-                        <div className="form-group">
-                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
-                        </div>
+                            <div className="form-group">
+                                <R.InputDefaultFormImovel type="text" autoComplete="off" className="form-control" id="complemento" name="complemento"  placeholder="Complemento" onChange={handleInputChange} required />        
+                            </div>
 
-                        <div className="form-group">
-                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" id="bairro" name="bairro"  placeholder="Bairro" onChange={handleInputChange} value={input.bairro} required />        
-                        </div>
+                            <div className="form-group">
+                                <R.InputDefaultFormImovel type="text" autoComplete="off" className="form-control" id="bairro" name="bairro"  placeholder="Bairro" onChange={handleInputChange} value={input.bairro} required />        
+                            </div>
 
-                        <div className="form-group">
-                            <R.InputDefaultFilter type="text" autoComplete="off" className="form-control" name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} value={input.cidade} required/>
-                        </div>
+                            <div className="form-group">
+                                <R.InputDefaultFormImovel type="text" autoComplete="off" className="form-control" name="cidade" id="cidade" placeholder="Cidade" onChange={handleInputChange} value={input.cidade} required/>
+                            </div>
 
-                        <div className="form-group">
-                        <R.SelectInputFilter id="uf" name="estado" onChange={handleInputChange} value={input.estado}>
-                                <option value={null}>Selecione uma opção abaixo</option>
-                                <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espírito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraíba</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piauí</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RO">Rondônia</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="TO">Tocantins</option>
-                            </R.SelectInputFilter>
-                        </div>
+                            <div className="form-group">
+                                <R.InputSelectDefaultFormImovel id="uf" name="estado" onChange={handleInputChange} value={input.estado}>
+                                    <option value={null}>Estado</option>
+                                    <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                </R.InputSelectDefaultFormImovel>
+                            </div>
                         </form>
-
-                        <R.DivSeparator/>
-                        <div className="form-container">
-                            <label htmlFor="tipo_imovel">Tipo de Residência:</label>
-                            <R.SelectInputFilter id="tipo_imovel" name="tipo_imovel" onChange={handleInputChange}>
-                                <option value={null}>Selecione uma opção abaixo</option>
-                                <option value="casa">Casa</option>
-                                <option value="apartamento">Apartamento</option>
-                            </R.SelectInputFilter>
+                        <div className="mr-5 ">
+                            <R.DivSeparatorFormImovelY/>
                         </div>
+                        <div>
+                            <div className="form-container">
+                                <label htmlFor="tipo_imovel">Tipo de Residência:</label>
+                                <R.InputSelectDefaultFormImovel id="tipo_imovel" name="tipo_imovel" onChange={handleInputChange}>
+                                    <option value={null}>Selecione uma opção abaixo</option>
+                                    <option value="casa">Casa</option>
+                                    <option value="apartamento">Apartamento</option>
+                                </R.InputSelectDefaultFormImovel>
+                            </div>
 
-                        <div className="mt-3">
-                            <label htmlFor="metragem_imovel">Metragem da Residencia:</label>
-                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control" id="metragem_imovel" name="metragem_imovel" placeholder="M²" onChange={handleInputChange} />
-                        </div>
+                            <div className="mt-3">
+                                <label htmlFor="metragem_imovel">Metragem da Residencia:</label>
+                                <R.InputDefaultFormImovel autoComplete="off" type="number" min="0" className="form-control" id="metragem_imovel" name="metragem_imovel" placeholder="M²" onChange={handleInputChange} />
+                            </div>
 
-                        <div className="mt-3">
-                            <label htmlFor="qtd_num_pessoas">Quantidade de Pessoas na Residencia:</label>
-                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control" id="qtd_num_pessoas" name="qtd_num_pessoas" placeholder="Quantidade de Pessoas na Residencia" onChange={handleInputChange} />
-                        </div>
+                            <div className="mt-3">
+                                <label htmlFor="qtd_num_pessoas">Quantidade de Pessoas na Residencia:</label>
+                                <R.InputDefaultFormImovel autoComplete="off" type="number" min="0" className="form-control" id="qtd_num_pessoas" name="qtd_num_pessoas" placeholder="Quantidade de Pessoas na Residencia" onChange={handleInputChange} />
+                            </div>
 
-                        <div className="mt-3">
-                            <label htmlFor="qtd_banheiro">Quantidade de Banheiro Social:</label>
-                            <R.InputDefaultFilter autoComplete="off" type="number" min="0" className="form-control num" id="qtd_banheiro" name="qtd_banheiro" placeholder="Quantidade de Banheiro Social" onChange={handleInputChange} />
-                        </div>
-                    
-                        <div className="col text-center mt-3">
-                        <R.ButtonStyled  type = "submit"  className = "btn btn-primary"> Próximo </R.ButtonStyled>
+                            <div className="mt-3">
+                                <label htmlFor="qtd_banheiro">Quantidade de Banheiro Social:</label>
+                                <R.InputDefaultFormImovel autoComplete="off" type="number" min="0" className="form-control num" id="qtd_banheiro" name="qtd_banheiro" placeholder="Quantidade de Banheiro Social" onChange={handleInputChange} />
+                            </div>
                         </div>
                     </form>
-                </R.FormContainer>
-            </R.FormContainerGeral>  
+                    <div className="col text-center mt-3">
+                            <R.ButtonStyledFormImovel  type = "submit"  className = "btn btn-primary"> Próximo </R.ButtonStyledFormImovel>
+                    </div>
+                </R.ContainerGeralInterno1>
+            </R.ContainerGeral>  
         </>
     )
 }

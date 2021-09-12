@@ -44,45 +44,45 @@ const CadQuarto = () => {
 
     return (
         <>
-            <R.FormContainerGeral>
-                <R.FormContainer id="quarto">
+            <R.ContainerGeral>
+                <R.ContainerGeralInterno1 id="quarto">
                     {/* #################### TELA QUARTO!!! ##################*/}
                     <form onSubmit={SendQuarto}>
-                    <R.FormIM> <RiCommunityLine/> Faça o seu Anúncio</R.FormIM>
-                    <R.DivSeparator/>
-                    <R.FormIM> Etapa 2/5</R.FormIM>
+                    <R.HeaderContainerFont> <RiCommunityLine/> Faça o seu Anúncio</R.HeaderContainerFont>
+                    <R.DivSeparatorFormImovelY/>
+                    <R.HeaderContainerFont> Etapa 2 de 5</R.HeaderContainerFont>
                         
                         <div className="form-container mt-4">
                             <label htmlFor="tipo_quarto">Tipo de Quarto:</label>
-                            <R.SelectInputFilter id="tipo_quarto" name="tipo_quarto" onChange={handleInputChange}>
+                            <R.InputSelectDefaultFormImovel id="tipo_quarto" name="tipo_quarto" onChange={handleInputChange}>
                                 <option value={null}>Selecione uma opção abaixo</option>
                                 <option value="solteiro">Solteiro</option>
                                 <option value="solteiroSuite">Solteiro Suite</option>
                                 <option value="casal">Casal</option>
                                 <option value="casaSuite">Casal Suite</option>
-                            </R.SelectInputFilter>
+                            </R.InputSelectDefaultFormImovel>
                         </div>
                         <div className="mt-4">
                             <label htmlFor="metragem_quarto">Metragem do Quarto:</label>
-                            <R.InputDefaultFilter type="text" className="form-control" id="metragem_quarto" name="metragem_quarto" placeholder="M²" onChange={handleInputChange} />
+                            <R.InputDefaultFormImovel type="text" className="form-control" id="metragem_quarto" name="metragem_quarto" placeholder="M²" onChange={handleInputChange} />
                         </div>
                         <div className="d-flex align-items-center justify-content-between mt-4">
                             <div className="ml-5">
-                            <R.ButtonStyledPrevious>
+                            <R.ButtonStyledFormImovelPrevious>
                                 <a href="/imovel">
                                 Anterior
                                 </a>
-                            </R.ButtonStyledPrevious>
+                            </R.ButtonStyledFormImovelPrevious>
                             </div>
-                            <R.DivSeparator/>
+                            <R.DivSeparatorFormImovelY/>
                             <div className="mr-5">
-                                <R.ButtonStyledNext type="submit" className="btn btn-primary ">Próximo</R.ButtonStyledNext>
+                                <R.ButtonStyledFormImovelNext type="submit" className="btn btn-primary ">Próximo</R.ButtonStyledFormImovelNext>
                             </div>
                         </div>
                         
                     </form>
-                </R.FormContainer>
-            </R.FormContainerGeral>
+                </R.ContainerGeralInterno1>
+            </R.ContainerGeral>
         </>
     )
 }

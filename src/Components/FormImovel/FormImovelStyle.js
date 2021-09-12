@@ -1,13 +1,25 @@
 import styled from 'styled-components'
 
-export const FormContainer =styled.div`
+//Container geral da página que engloba tudo exceto footer e navbar
+export const ContainerGeral = styled.div`
+display: flex;
+flex-wrap:wrap;
+background-color: #e6e6e6;
+
+align-items: center;
+  width: 100%;
+  height: 100vh;
+`
+
+//Container que contem o cadastro de anuncio
+export const ContainerGeralInterno1 =styled.div`
   box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
   0 12.5px 10px rgba(0, 0, 0, 0.06),
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
-  width: 400px;
+  width: 1000px;
   margin: 40px auto;
   margin-bottom: 40px;
   padding: 20px;
@@ -24,11 +36,8 @@ export const FormContainer =styled.div`
   }
 `
 
-export const FormContanier1 = styled.div`
-
-`
-
-export const FormIM = styled.h1`
+//Componente para montar o header dos containers
+export const HeaderContainerFont = styled.h1`
     text-align: center;
     font-size: 28px;
     @media screen and (max-width:820px){
@@ -36,20 +45,27 @@ export const FormIM = styled.h1`
   }
 `
 
-export const FormContainerGeral = styled.div`
-display: flex;
-flex-wrap:wrap;
-background-color: #e6e6e6;
+//Separador horizontal de divs customizado horizontal da tela de Cadastro de Imóveis
+export const DivSeparatorFormImovelX = styled.div`
+width: 100%;
+height: 1px;
+background-color: #F2BE38;
+margin: 20px 0 20px 0;
+`;
 
-align-items: center;
-  width: 100%;
-  height: 100%;
- 
-`
+//Separador vertical de divs customizado horizontal da tela de Cadastro de Imóveis
+export const DivSeparatorFormImovelY = styled.div`
+width: 1px;
+height: 100%;
+background-color: #F2BE38;
+margin: 20px 0 20px 0;
+`;
 
-export const InputDefaultFilter = styled.input`
+
+//Input de texto customizado da tela de Cadastro de Imóveis
+export const InputDefaultFormImovel = styled.input`
   padding: 0.5rem;
-  width: 100%;
+  width: 400px;
   height: 42px;
   color: ${props => props.inputColor || "black"};
   background: #ededed ;
@@ -72,15 +88,8 @@ export const InputDefaultFilter = styled.input`
   }
 `
 
-export const DivSeparator = styled.div`
-width: 100%;
-height: 1px;
-/* height: fit-content; */
-background-color: #F2BE38;
-margin: 20px 0 20px 0;
-`;
-
-export const SelectInputFilter = styled.select`
+//Input de Select customizado da tela de Cadastro de Imóveis
+export const InputSelectDefaultFormImovel = styled.select`
   width: 100%;
   height: 42px;
   background: #ededed;
@@ -114,7 +123,8 @@ export const SelectInputFilter = styled.select`
   }
 `;
 
-export const ButtonStyled = styled.button`
+//Botão estilo customizado da tela de Cadastro Imovel
+export const ButtonStyledFormImovel = styled.button`
   background: linear-gradient(to right, #F2BE38, #ffd56a, #F2BE38);
   color: white;
   font-size: 1em;

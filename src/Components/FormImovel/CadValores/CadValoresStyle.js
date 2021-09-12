@@ -1,13 +1,26 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const FormContainer = styled.div`
+//Container geral da página que engloba tudo exceto footer e navbar
+export const ContainerGeral = styled.div`
+display: flex;
+flex-wrap:wrap;
+background-color: #e6e6e6;
+
+align-items: center;
+  width: 100%;
+  height: 100vh;
+`
+
+//Container que contem o cadastro de anuncio
+export const ContainerGeralInterno1 =styled.div`
   box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
   0 12.5px 10px rgba(0, 0, 0, 0.06),
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
-  width: 400px;
+  width: fit-content;
   margin: 40px auto;
   margin-bottom: 40px;
   padding: 20px;
@@ -24,7 +37,8 @@ export const FormContainer = styled.div`
   }
 `
 
-export const FormIM2 = styled.h1`
+//Componente para montar o header dos containers
+export const HeaderContainerFont = styled.h1`
     text-align: center;
     font-size: 28px;
     @media screen and (max-width:820px){
@@ -32,46 +46,25 @@ export const FormIM2 = styled.h1`
   }
 `
 
-export const FormContainerGeral = styled.div`
-display: flex;
-flex-wrap:wrap;
-background-color: #e6e6e6;
-
-align-items: center;
-  width: 100%;
-  height: 100%;
-`
-
-export const FormContainerFotoG = styled.div`
-display: felx;
-flex-wrap:wrap;
-background-color: #e6e6e6;
-
-align-items: center;
-   width: 100%;
-   height: 100 vh;
-`
-
-export const FormContainerFoto = styled.div`
-display: felx;
-flex-wrap:wrap;
-background-color: #e6e6e6;
-
-align-items: center;
-   width: 100%;
-   height: 100 vh;
-`;
-
-
-export const DivSeparator = styled.div`
+//Separador vertical de divs customizado horizontal da tela de Cadastro de Imóveis
+export const DivSeparatorFormImovelX = styled.div`
 width: 100%;
 height: 1px;
-/* height: fit-content; */
+background-color: #F2BE38;
+margin: 20px 0 20px 0;
+`
+
+//Separador vertical de divs customizado vertical da tela de Cadastro de Imóveis
+export const DivSeparatorFormImovelY = styled.div`
+width: 1px;
+height: 100%;
 background-color: #F2BE38;
 margin: 20px 0 20px 0;
 `;
 
-export const InputDefaultFilter = styled.input`
+
+//Input de texto customizado da tela de Cadastro de Imóveis
+export const InputDefaultFormImovel = styled.input`
   padding: 0.5rem;
   width: 100%;
   height: 42px;
@@ -96,7 +89,27 @@ export const InputDefaultFilter = styled.input`
   }
 `
 
-export const ButtonStyledNext = styled.button`
+//Botão customizado da tela de Cadastro Imovel com objetivo de retroceder a tela
+export const ButtonStyledFormImovelPrevious = styled(Link)`
+  background: linear-gradient(to right,  #F2BE38, #ffd56a, #F2BE38);
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 1px solid #6c757d;
+  border-radius: 15px 3px 3px 15px;
+  transition: 0.5s;
+  :hover,:active,:focus{
+        color: white;
+        box-shadow: 0 0 0 0.25rem  rgba(242,190,56, 0.5);
+        background: #B58E2A ; 
+        border-color: #6c757d;
+        outline: none;
+    }
+`;
+
+//Botão customizado da tela de Cadastro Imovel com objetivo de avançar a tela
+export const ButtonStyledFormImovelNext = styled(Link)`
   background: linear-gradient(to right,  #F2BE38, #ffd56a, #F2BE38);
   color: white;
   font-size: 1em;

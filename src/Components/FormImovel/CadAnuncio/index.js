@@ -91,118 +91,129 @@ const CadAnuncio = () => {
 
   return (
     <>
-      <R.FormContainerGeral>
-        <R.FormContainer className="mt-5 mb-5" id="residencia">
-          <form onSubmit={SendResidencia}>
-            <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
-            <R.FormIM2><R.DivSeparator/></R.FormIM2>
-            <R.FormIM2>Etapa 3/5</R.FormIM2>
-            <div className="mt-4">
-              <label htmlFor="tipo_compartilhamento">
-                Tipo de Compartilhamento:
-              </label>
-              <R.SelectInputFilter
-                id="tipo_compartilhamento"
-                name="tipo_compartilhamento"
-                onChange={handleInputChange}
-              >
-                <option value={null}>Selecione uma opção abaixo</option>
-                <option value="quarto_residencia">Quarto e residência</option>
-                <option value="residencia">Residência</option>
-              </R.SelectInputFilter>
-            </div>
-
-            <div className="mt-4">
-              <label htmlFor="detalhes_residencia">
-                Detalhes da Residência:
-              </label>
-              <R.InputTextAreaFilter
-                className="form-control"
-                id="detalhes_residencia"
-                name="detalhes_residencia"
-                placeholder="ex: Ar-Condicionado, Sugar, "
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="mt-4">
-              <label htmlFor="regras_residencia">Regras da Residência:</label>
-              <R.InputTextAreaFilter
-                className="form-control"
-                id="regras_residencia"
-                name="regras_residencia"
-                placeholder="Ex:  não pode festa, não pode pet, etc..."
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="mt-4">
-              <label htmlFor="detalhes_regiao">Detalhes da Região:</label>
-              <R.InputTextAreaFilter
-                className="form-control"
-                id="detalhes_regiao"
-                name="detalhes_regiao"
-                placeholder="ex: Supermercado, farmacia, etc... "
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="mt-4">
-              <label htmlFor="detalhes_quarto">Detalhes Quarto:</label>
-              <R.InputTextAreaFilter
-                type="text"
-                className="form-control"
-                id="detalhes_quarto"
-                name="detalhes_quarto"
-                placeholder="ex: mobiliado, frigobar, ar-condicionado, etc"
-                onChange={handleInputChange}
-              />
-            </div>
-
-            {/* ########### MAPA ######### */}
-            <div className="mt-4">
-              <label htmlFor="mapa_embed">Mapa (EMBED):</label>
-              <div className="d-flex justify-content-between">
-              <R.InputDefaultFilterMap1
-                type="text"
-                className="form-control"
-                id="mapa_embed"
-                name="mapa_embed"
-                placeholder="Coloque seu mapa aqui"
-                onChange={handleInputChange}
-              />
-               <R.InputDefaultFilterMap2 className="" onClick="">
-                  <R.FormIM2><RiQuestionLine className="iconMap"/></R.FormIM2>
-                </R.InputDefaultFilterMap2>
+      <R.ContainerGeral>
+        <R.ContainerGeralInterno1 className="mt-5 mb-5" id="residencia">
+        <R.HeaderContainerFont><RiCommunityLine/> Preencha os campos abaixo</R.HeaderContainerFont>
+            <R.HeaderContainerFont><R.DivSeparatorFormImovelX/></R.HeaderContainerFont>
+            <R.HeaderContainerFont>Etapa 3 de 5</R.HeaderContainerFont>
+          <form className="d-flex justify-content-center " onSubmit={SendResidencia}>
+            <R.ContainerGeralInterno2 className="">
+              <div className="mt-4">
+                <label htmlFor="tipo_compartilhamento">
+                  Tipo de Compartilhamento:
+                </label>
+                <R.InputSelectDefaultFormImovel
+                  id="tipo_compartilhamento"
+                  name="tipo_compartilhamento"
+                  onChange={handleInputChange}
+                >
+                  <option value={null}>Selecione uma opção abaixo</option>
+                  <option value="quarto_residencia">Quarto e residência</option>
+                  <option value="residencia">Residência</option>
+                </R.InputSelectDefaultFormImovel>
               </div>
-            </div>
 
-            <div className="mt-4">
-              <input
-                type="datetime"
-                defaultValue={dataEHora}
-                className="form-control"
-                id="data_publicacao"
-                name="data_publicacao"
-                hidden
-              />
-            </div>
-            <div className="d-flex align-items-center justify-content-between mt-4 ">
-              <div className="col text-center">
-                <Link to="/CadQuarto" type="submit" className="btn btn-danger ">
-                  Anterior
-                </Link>
+              <div className="mt-4">
+                <label htmlFor="detalhes_residencia">
+                  Detalhes da Residência:
+                </label>
+                <R.InputTextAreaFormImovel
+                  className="form-control"
+                  id="detalhes_residencia"
+                  name="detalhes_residencia"
+                  placeholder="ex: Ar-Condicionado, Sugar, "
+                  onChange={handleInputChange}
+                />
               </div>
-              <R.DivSeparator/>
-              <div className="col text-center">
-                <R.ButtonStyledNext type="submit" className="btn btn-primary ">
-                  Próximo 
-                </R.ButtonStyledNext>
+
+              <div className="mt-4">
+                <label htmlFor="regras_residencia">Regras da Residência:</label>
+                <R.InputTextAreaFormImovel
+                  className="form-control"
+                  id="regras_residencia"
+                  name="regras_residencia"
+                  placeholder="Ex:  não pode festa, não pode pet, etc..."
+                  onChange={handleInputChange}
+                />
               </div>
-            </div>
+          
+            </R.ContainerGeralInterno2>
+
+              <div  className="ml-auto mr-auto"> <R.DivSeparatorFormImovelY/> </div>
+
+            <R.ContainerGeralInterno2 className="">
+
+              {/* ########### MAPA ######### */}
+              <div className="mt-4">
+                <label htmlFor="mapa_embed">Mapa (EMBED):</label>
+                <div className="d-flex justify-content-between">
+                <R.InputFormImovelCampoMap
+                  type="text"
+                  className="form-control"
+                  id="mapa_embed"
+                  name="mapa_embed"
+                  placeholder="Coloque seu mapa aqui"
+                  onChange={handleInputChange}
+                />
+                <R.ButtonFormImovelCampoMap className="" onClick="">
+                    <R.HeaderContainerFont><RiQuestionLine className="iconMap"/></R.HeaderContainerFont>
+                  </R.ButtonFormImovelCampoMap>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <label htmlFor="detalhes_regiao">Detalhes da Região:</label>
+                <R.InputTextAreaFormImovel
+                  className="form-control"
+                  id="detalhes_regiao"
+                  name="detalhes_regiao"
+                  placeholder="ex: Supermercado, farmacia, etc... "
+                  onChange={handleInputChange}
+                />
+              </div>
+
+              <div className="mt-4">
+                <label htmlFor="detalhes_quarto">Detalhes Quarto:</label>
+                <R.InputTextAreaFormImovel
+                  type="text"
+                  className="form-control"
+                  id="detalhes_quarto"
+                  name="detalhes_quarto"
+                  placeholder="ex: mobiliado, frigobar, ar-condicionado, etc"
+                  onChange={handleInputChange}
+                />
+              </div>
+
+              <div className="mt-4">
+                <input
+                  type="datetime"
+                  defaultValue={dataEHora}
+                  className="form-control"
+                  id="data_publicacao"
+                  name="data_publicacao"
+                  hidden
+                />
+              </div>
+
+            </R.ContainerGeralInterno2>
           </form>
-        </R.FormContainer>
-      </R.FormContainerGeral>
+          <div> 
+              <div className="d-flex align-items-center justify-content-between mt-4 ">
+                <div className="col text-center">
+                  <R.ButtonStyledFormImovelPrevious to="/CadQuarto" type="submit" className="btn btn-danger ">
+                    Anterior
+                  </R.ButtonStyledFormImovelPrevious>
+                </div>
+                <R.DivSeparatorFormImovelX/>
+                <div className="col text-center">
+                  <R.ButtonStyledFormImovelNext type="submit" className="btn btn-primary ">
+                    Próximo 
+                  </R.ButtonStyledFormImovelNext>
+                </div>
+              </div>
+            </div>
+        </R.ContainerGeralInterno1>
+      </R.ContainerGeral>
     </>
   );
 };
