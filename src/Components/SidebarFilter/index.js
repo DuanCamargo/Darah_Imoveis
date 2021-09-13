@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import * as S from './SidebarFilterStyle.js'
+import * as R from './SidebarFilterStyle.js'
 import { useState } from 'react'
 import Anuncios from '../../Service/AnuncioService'
-import * as R from 'reactstrap';
+import * as S from 'reactstrap';
 import {RiFilter2Line} from 'react-icons/ri'
 
 const AnuncioTela = () => {
@@ -83,175 +83,175 @@ const AnuncioTela = () => {
    
 
     return (
-        <S.FormContainerGeral>
-
-            
-            
-            <S.FilterContainer>
-               <S.FormH1> <RiFilter2Line/> Filtrar</S.FormH1>
-               <S.FormH1> <S.DivSeparator/></S.FormH1>
+        <R.ContainerGeral>
+            <R.ContainerGeralInterno1>
+               <R.HeaderContainerFont> <RiFilter2Line/> Filtrar</R.HeaderContainerFont>
+               <R.HeaderContainerFont> <R.DivSeparatorAnuncioX/></R.HeaderContainerFont>
             <form onSubmit={SendForm} >
 
             <div className="form-group mt-4">
 
                 <label htmlFor="minValue">Preço: </label>
                     <div className="d-flex align-items-center justify-content-between">
-                        <S.InputValueFilter autoComplete="off" type="number" id="minValue"  name="minValue" placeholder="Valor Mín." onChange={handleInputChange} required /> -
-                        <S.InputValueFilter autoComplete="off" type="number" id="maxValue"  name="maxValue" placeholder="Valor Máx." onChange={handleInputChange} required />
+                        <R.InputDefaultFormFilterValue autoComplete="off" type="number" id="minValue"  name="minValue" placeholder="Valor Mín." onChange={handleInputChange} required /> -
+                        <R.InputDefaultFormFilterValue autoComplete="off" type="number" id="maxValue"  name="maxValue" placeholder="Valor Máx." onChange={handleInputChange} required />
                     </div>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Localidade:</label>
-                    <S.InputDefaultFilter autoComplete="off" type="bairro" id="InputBairro" name="bairro" aria-describedby="bairroHelp" placeholder="Insira o Bairro" onChange={handleInputChange} required/>
+                    <R.InputDefaultFormFilterText autoComplete="off" type="bairro" id="InputBairro" name="bairro" aria-describedby="bairroHelp" placeholder="Insira o Bairro" onChange={handleInputChange} required/>
                 </div>
 
                 <div className="form-group">
                 <label htmlFor="moradia">Tipo de moradia</label>
-                        <S.SelectInputFilter onChange={handleInputChange} required>
+                    <R.InputSelectDefaultFormFilter onChange={handleInputChange} required>
                         <option value="" hidden>
                         Clique para selecionar
                         </option>
                         <option value="1">Casa</option>
                         <option value="2">Apartamento</option>
-                    </S.SelectInputFilter>
+                    </R.InputSelectDefaultFormFilter>
                 </div>
 
                 <div className="form-group">
                 <label htmlFor="compartilhamento">Tipo de compartilhamento</label>
-                        <S.SelectInputFilter onChange={handleInputChange} required>
+                        <R.InputSelectDefaultFormFilter onChange={handleInputChange} required>
                         <option value="" hidden>
                         Clique para selecionar
                         </option>
                         <option value="1">Quarto e residência</option>
                         <option value="2">Residência</option>
-                    </S.SelectInputFilter>
+                    </R.InputSelectDefaultFormFilter>
                 </div>
 
                 <div className="col text-center">
-                    <S.ButtonStyled primary type="submit">Filtrar</S.ButtonStyled>
+                    <R.ButtonStyledFormFilter primary type="submit">Filtrar</R.ButtonStyledFormFilter>
                 </div>
              
             </form>
-            </S.FilterContainer>
+            </R.ContainerGeralInterno1>
 
             
             
-            <S.ContainerImoveisGeral>
-            <S.PaginationPink
-				className='pagination justify-content-end ml-5 align-bottom paginacao'
-				listClassName='justify-content-end mb-0'>
-					<R.PaginationItem disabled={currentPage <= 0}  >
-						<R.PaginationLink
-						onClick={handlePreviousClick}
-						first
-						href='#'
-						/>
-					</R.PaginationItem>
+            <R.ContainerGeralInterno2>
+                <R.PaginationPink
+                    className='pagination justify-content-end ml-5 align-bottom paginacao'
+                    listClassName='justify-content-end mb-0'>
+                        <S.PaginationItem disabled={currentPage <= 0}  >
+                            <S.PaginationLink
+                            onClick={handlePreviousClick}
+                            first
+                            href='#'
+                            />
+                        </S.PaginationItem>
+                        {[...Array(pageCount)].map((page, i) => (
+                            <S.PaginationItem active={i === currentPage} key={i}>
+                                <S.PaginationLink
+                                        onClick={(e) => handlePageClick(e, i)}
+                                        href='#'
+                                >
+                                                        {i + 1}
+                                </S.PaginationLink>
+                            </S.PaginationItem>
+                        ))}
 
-										{[...Array(pageCount)].map((page, i) => (
-											<R.PaginationItem active={i === currentPage} key={i}>
-												<R.PaginationLink
-													onClick={(e) => handlePageClick(e, i)}
-													href='#'
-												>
-													{i + 1}
-												</R.PaginationLink>
-											</R.PaginationItem>
-										))}
+                            <S.PaginationItem disabled={currentPage === pageCount -1}>
+                                <S.PaginationLink
+                                    onClick={handleNextClick}
+                                    last
+                                    href='#'
+                                />     
+                            </S.PaginationItem>
+                </R.PaginationPink>
+                {anuncios && anuncios.slice(currentPage * pageSize,(currentPage + 1) * pageSize).map((anuncio) => {
+                    return (
+                    <R.ImovelContainer key={anuncio.id}>
+                        <R.ContainerImageInside>
+                            <R.RoundedImg src="https://picsum.photos/320/250"></R.RoundedImg>
+                        </R.ContainerImageInside>
 
-					<R.PaginationItem disabled={currentPage === pageCount -1}>
-							<R.PaginationLink
-								onClick={handleNextClick}
-								last
-								href='#'
-							/>
+
+                        <R.ContainerImovelInfos className="">
+
+                            <R.ContainerImovelInside1 className="d-flex justify-content-around ml-3">
+
+                                <div className="mr-3 mt-1">{anuncio.moradiaTip}</div>
+                                    <R.DivSeparatorAnuncioY/>
+                                <div className="ml-3 mr-3 mt-1">{anuncio.cidade}</div>
+                                    <R.DivSeparatorAnuncioY/>
+                                <div className="ml-3 mr-3 mt-1">{anuncio.bairro}</div>
+                                    <R.DivSeparatorAnuncioY/>
+                                <div className="ml-3 mt-1">{anuncio.rua}</div>
+
+                            </R.ContainerImovelInside1>
+
+                            <R.DivSeparatorAnuncioX className="mt-1 mb-1"/>
+
+                            <R.ContainerImovelInside2 className="d-flex justify-content-around">
+
+                                <R.DivTextValue className="ml-3 mr-3">
+                                    <R.TextValue>R$ {anuncio.valor}</R.TextValue>
+                                </R.DivTextValue>
                             
-					</R.PaginationItem>
-			</S.PaginationPink>
-            {anuncios && anuncios.slice(currentPage * pageSize,(currentPage + 1) * pageSize).map((anuncio) => {
-                return (
-                <S.ImovelContainer key={anuncio.id}>
-                    <S.ContainerImageInside>
-                        <S.RoundedImg src="https://picsum.photos/320/250"></S.RoundedImg>
-                    </S.ContainerImageInside>
+                                <R.DivSeparatorAnuncioY/>
 
+                                <R.DivTextDescription className="ml-auto mr-auto">
+                                    {anuncio.informacoes}
+                                </R.DivTextDescription>
 
-                    <S.ContainerImovelInfos>
-                        <S.ContainerImovelInside1 className="ml-3">
-                            <p className="mr-3">{anuncio.moradiaTip}</p>
-                            <S.DivSeparatorAnuncio></S.DivSeparatorAnuncio>
-                            <p className="ml-3 mr-3 justify-content-center">
-                            {anuncio.cidade}
-                            </p>
-                            <S.DivSeparatorAnuncio></S.DivSeparatorAnuncio>
-                            <p className="ml-3 mr-3 justify-content-center">
-                            {anuncio.bairro}
-                            </p>
-                            <S.DivSeparatorAnuncio></S.DivSeparatorAnuncio>
-                            <p className="ml-3 justify-content-center">
-                            {anuncio.rua}
-                            </p>
-                        </S.ContainerImovelInside1>
+                            </R.ContainerImovelInside2>
 
+                            <R.DivSeparatorAnuncioX className="mt-1"/>
 
-                        <S.ContainerImovelInside2>
-                            <S.DivTextValue className="ml-3">
-                                <S.TextValue>R$ {anuncio.valor}</S.TextValue>
-                            </S.DivTextValue>
-                            <p className="ml-3 mr-3">
-                                {anuncio.informacoes}
-                            </p>
-                        </S.ContainerImovelInside2>
+                            <R.ContainerImovelInside3 className="d-flex justify-content-between">
+                                <div className="ml-3 mr-3">
+                                    {anuncio.fornecedor}
+                                </div>
+                                <R.ButtonStyledFormFilterAcess>Acessar anuncio</R.ButtonStyledFormFilterAcess>
+                            </R.ContainerImovelInside3>
 
-                        <S.ContainerImovelInside3>
-                            <p className="ml-3 mr-3">
-                                {anuncio.fornecedor}
-                            </p>
-                            <S.DivTextValue className="ml-3">
-                                <S.TextValue>Zapeie aqui</S.TextValue>
-                            </S.DivTextValue>
-                        </S.ContainerImovelInside3>
-                    </S.ContainerImovelInfos>
-                </S.ImovelContainer>
-                )
-            })}
+                        </R.ContainerImovelInfos>
+                        
+                    </R.ImovelContainer>
+                    )
+                })}
 
-            <S.PaginationPink
-				className='pagination justify-content-end ml-5 align-bottom paginacao'
-				listClassName='justify-content-end mb-0'>
-					<R.PaginationItem disabled={currentPage <= 0}  >
-						<R.PaginationLink
-						onClick={handlePreviousClick}
-						first
-						href='#'
-						/>
-					</R.PaginationItem>
+                <R.PaginationPink
+                    className='pagination justify-content-end ml-5 align-bottom paginacao'
+                    listClassName='justify-content-end mb-0'>
+                        <S.PaginationItem disabled={currentPage <= 0}  >
+                            <S.PaginationLink
+                            onClick={handlePreviousClick}
+                            first
+                            href='#'
+                            />
+                        </S.PaginationItem>
 
-										{[...Array(pageCount)].map((page, i) => (
-											<R.PaginationItem active={i === currentPage} key={i}>
-												<R.PaginationLink
-													onClick={(e) => handlePageClick(e, i)}
-													href='#'
-												>
-													{i + 1}
-												</R.PaginationLink>
-											</R.PaginationItem>
-										))}
+                                            {[...Array(pageCount)].map((page, i) => (
+                                                <S.PaginationItem active={i === currentPage} key={i}>
+                                                    <S.PaginationLink
+                                                        onClick={(e) => handlePageClick(e, i)}
+                                                        href='#'
+                                                    >
+                                                        {i + 1}
+                                                    </S.PaginationLink>
+                                                </S.PaginationItem>
+                                            ))}
 
-					<R.PaginationItem disabled={currentPage === pageCount -1}>
-							<R.PaginationLink
-								onClick={handleNextClick}
-								last
-								href='#'
-							/>
-                            
-					</R.PaginationItem>
-			</S.PaginationPink>
+                        <S.PaginationItem disabled={currentPage === pageCount -1}>
+                                <S.PaginationLink
+                                    onClick={handleNextClick}
+                                    last
+                                    href='#'
+                                />
+                                
+                        </S.PaginationItem>
+                </R.PaginationPink>
 
-            </S.ContainerImoveisGeral>
+            </R.ContainerGeralInterno2>
     
-        </S.FormContainerGeral>
+        </R.ContainerGeral>
     )
 
 
