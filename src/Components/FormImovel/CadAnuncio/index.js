@@ -48,7 +48,6 @@ const CadAnuncio = () => {
     e.preventDefault();
     PostCadImovel(input).then(response=>{
     setInput(input.imovelDTO.id_imovel = response)
-
     })
     history.push({
       pathname: "/CadValores",
@@ -95,7 +94,7 @@ const CadAnuncio = () => {
         <R.HeaderContainerFont><RiCommunityLine/> Preencha os campos abaixo</R.HeaderContainerFont>
             <R.HeaderContainerFont><R.DivSeparatorFormImovelX/></R.HeaderContainerFont>
             <R.HeaderContainerFont>Etapa 3 de 5</R.HeaderContainerFont>
-          <form className="d-flex justify-content-center " onSubmit={SendResidencia}>
+          <form className="d-flex justify-content-center ">
             <R.ContainerGeralInterno2 className="">
               <div className="mt-4">
                 <label htmlFor="tipo_compartilhamento">
@@ -154,7 +153,7 @@ const CadAnuncio = () => {
                   placeholder="Coloque seu mapa aqui"
                   onChange={handleInputChange}
                 />
-                <R.ButtonFormImovelCampoMap className="" onClick="">
+                <R.ButtonFormImovelCampoMap className="" >
                     <R.HeaderContainerFont><RiQuestionLine className="iconMap"/></R.HeaderContainerFont>
                   </R.ButtonFormImovelCampoMap>
                 </div>
@@ -205,7 +204,7 @@ const CadAnuncio = () => {
                 </div>
                 <R.DivSeparatorFormImovelX/>
                 <div className="col text-center">
-                  <R.ButtonStyledFormImovelNext type="submit" className="btn btn-primary ">
+                  <R.ButtonStyledFormImovelNext type="button" onClick={SendResidencia} className="btn btn-primary ">
                     Próximo 
                   </R.ButtonStyledFormImovelNext>
                 </div>

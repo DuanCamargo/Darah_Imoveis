@@ -3,13 +3,13 @@ import * as R from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
 import { useLocation, useHistory, Link } from "react-router-dom";
-import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
+
 import { RiCommunityLine } from "react-icons/ri"
 
 const CadValores = () => {
   const location = useLocation();
 
-  const [usuarioLogado, setUsuarioLogado] = useContext(UsuarioLogadoContext)
+ 
 
   const init = {
     aluguel: 0,
@@ -20,33 +20,34 @@ const CadValores = () => {
     agua: 0,
     energia: 0,
     gas: 0,
-    imovelDTO: {
-      id_imovel: 0,
-    },
+    
+    id_imovel: 0,
   };
 
   const [input, setInput] = useState(init);
-  console.log(usuarioLogado)
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setInput({
       ...input,
-      [name]: value,
-      imovelDTO: { id_imovel: location.state },
+      [name]: value, id_imovel:  location.state
+     
     });
+    // setInput(input.id_imovel =  location.state)
+    console.log( input)
   };
-
-  console.log(input);
+ 
+  
   let history = useHistory()
 
   const SendValores = (e) => {
     e.preventDefault();
     PostCadValores(input);
-    alert("Contas salvas com sucesso")
     history.push({
       pathname: "/CadFoto",
-      state: input.imovelDTO.id_imovel,
+      state: input.id_imovel,
     })
+    
   };
 
   return (
@@ -57,7 +58,7 @@ const CadValores = () => {
             <R.HeaderContainerFont><RiCommunityLine/> Preencha os campos abaixo</R.HeaderContainerFont>
             <R.HeaderContainerFont><R.DivSeparatorFormImovelX/></R.HeaderContainerFont>
             <R.HeaderContainerFont>Etapa 4 de 5</R.HeaderContainerFont>
-          <form className="d-flex justify-content-center" onSubmit={SendValores}>
+          <form className="d-flex justify-content-center" >
 
           <div className="mr-5"> 
             <div className="mt-4">
@@ -163,7 +164,7 @@ const CadValores = () => {
             </div>  
               <R.DivSeparatorFormImovelX/>
             <div className="col text-center">
-              <R.ButtonStyledFormImovelNext to="/CadFoto"type="submit" className="btn btn-primary ">
+              <R.ButtonStyledFormImovelNext type="button" className="btn btn-primary " onClick={SendValores}>
                   Próximo
               </R.ButtonStyledFormImovelNext>
             </div>

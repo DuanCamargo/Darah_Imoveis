@@ -73,11 +73,11 @@ function Login2() {
           
           <div>
             <Label>Email:</Label>
-            <R.InputDefaultLogin type="text" placeholder="Usuário" name="email" onChange={handleInputChange} required></R.InputDefaultLogin>
+            <R.InputDefaultLogin type="text" placeholder="Usuário" name="email" defaultValue="" onChange={handleInputChange} required></R.InputDefaultLogin>
           </div>
           <div className="mt-4">
             <Label>Senha:</Label>
-            <R.InputDefaultLogin type="password" placeholder="Senha" name="senha" onChange={handleInputChange} required></R.InputDefaultLogin>
+            <R.InputDefaultLogin type="password" placeholder="Senha" name="senha" defaultValue="" onChange={handleInputChange} required></R.InputDefaultLogin>
           </div>
 
           <div className="mt-4 d-flex justify-content-center">
