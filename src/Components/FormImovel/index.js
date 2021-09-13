@@ -37,11 +37,11 @@ const FormImovel = ()=>{
     const SendForm = (e) =>{
         e.preventDefault();
         PostFormImov(input).then(id_imovel => {
-            
-            console.log("id_imovel = "+id_imovel)
+            console.log("id_imovel")
+            console.log(id_imovel)
             history.push({
                 pathname: "/CadQuarto", 
-                state: {id_imovel},
+                state: id_imovel,
             })
         })
     }
@@ -97,21 +97,21 @@ function pesquisacep(valor) {
             //var script = document.createElement('script');
 
             fetch('https://viacep.com.br/ws/' + cep +'/json/')
-  .then(response => response.json())
-  .then(data => {
-    let endereço = {
-        cep: cep,
-        logradouro: data.logradouro,
-        numero: "",
-        complemento:"",
-        bairro: data.bairro,
-        cidade: data.localidade,
-        estado: data.uf,
-        tipo_imovel: "",
-        metragem_imovel: "",
-        qtd_num_pessoas: "",
-        qtd_banheiro: "",
-      };
+            .then(response => response.json())
+            .then(data => {
+                let endereço = {
+                    cep: cep,
+                    logradouro: data.logradouro,
+                    numero: "",
+                    complemento:"",
+                    bairro: data.bairro,
+                    cidade: data.localidade,
+                    estado: data.uf,
+                    tipo_imovel: "",
+                    metragem_imovel: "",
+                    qtd_num_pessoas: "",
+                    qtd_banheiro: "",
+            };
 
       setInput (endereço)
        //Preenche os campos com "..." enquanto consulta webservice.
@@ -140,7 +140,7 @@ function pesquisacep(valor) {
                     <R.HeaderContainerFont> <RiCommunityLine/> Faça o seu Anúncio</R.HeaderContainerFont>
                     <R.DivSeparatorFormImovelX/>
                     <R.HeaderContainerFont> Etapa 1 de 5</R.HeaderContainerFont>
-                    <form className="d-flex justify-content-center" onSubmit={SendForm}>
+                    <form className="d-flex justify-content-center">
                         <form className="mr-5" onChange={meu_callback, pesquisacep}>
                             
                             <div className="form-group">
@@ -232,7 +232,7 @@ function pesquisacep(valor) {
                         </div>
                     </form>
                     <div className="col text-center mt-3">
-                            <R.ButtonStyledFormImovel  type = "submit"  className = "btn btn-primary"> Próximo </R.ButtonStyledFormImovel>
+                            <R.ButtonStyledFormImovel  type = "button"  className = "btn btn-primary" onClick={SendForm}> Próximo </R.ButtonStyledFormImovel>
                     </div>
                 </R.ContainerGeralInterno1>
             </R.ContainerGeral>  
