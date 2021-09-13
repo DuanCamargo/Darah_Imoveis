@@ -6,6 +6,7 @@ import Anuncios from './Pages/Anuncios.js'
 import Login2 from './Pages/Login.js'
 import CadastroImovel from './Pages/CadastroImovel.js'
 import DetalheImovel from './Pages/CadastroDetalheImovel'
+import MeusAnuncios from './Pages/MeusAnuncios'
 import CadastroAnuncio from './Pages/CadastroAnuncio.js'
 import CadastroFoto from './Pages/CadastroFoto.js'
 import CadastroValores from './Pages/CadastroValores.js'
@@ -27,6 +28,8 @@ function App() {
         <Route path="/CadValores" component={CadastroValores} exact />
         <Route path="/CadQuarto" component={CadastroQuarto} exact />
         <Route path="/detalhe" component={DetalheImovel} exact />
+        <Route path="/MeusAnuncios" component={MeusAnuncios} exact />
+
         
       </Switch>
     </Router>

@@ -10,14 +10,11 @@ const AnuncioTela = () => {
     const initialCadastroState = {
         minValue: "",
         maxValue: "",
-        email: "",
-        senha:"",
-        telefone:""
+        localidade: "",
+        moradia:"",
+        compartilhamento:""
      };
-
-
-
-    
+   
     const [input, setInput] = useState(initialCadastroState)
     const [anuncios, setAnuncios] = useState([]);
     const [maxPage, setMaxPage] = useState(0);
@@ -62,9 +59,6 @@ const AnuncioTela = () => {
         /* PostForm(input); */
     }
     
-
-
-
     useEffect (() => {
         retrieveAnuncios();
         Anuncios.getAll().then(
@@ -79,14 +73,12 @@ const AnuncioTela = () => {
         console.log(anuncios)
     },[anuncios])
 
-    
-   
-
     return (
         <R.ContainerGeral>
             <R.ContainerGeralInterno1>
+            <R.DivSeparatorAnuncioX/>
                <R.HeaderContainerFont> <RiFilter2Line/> Filtrar</R.HeaderContainerFont>
-               <R.HeaderContainerFont> <R.DivSeparatorAnuncioX/></R.HeaderContainerFont>
+               <R.HeaderContainerFont></R.HeaderContainerFont>
             <form onSubmit={SendForm} >
 
             <div className="form-group mt-4">
@@ -171,7 +163,6 @@ const AnuncioTela = () => {
                             <R.RoundedImg src="https://picsum.photos/320/250"></R.RoundedImg>
                         </R.ContainerImageInside>
 
-
                         <R.ContainerImovelInfos className="">
 
                             <R.ContainerImovelInside1 className="d-flex justify-content-around ml-3">
@@ -253,11 +244,6 @@ const AnuncioTela = () => {
     
         </R.ContainerGeral>
     )
-
-
-    
 }
-
-
 
 export default AnuncioTela
