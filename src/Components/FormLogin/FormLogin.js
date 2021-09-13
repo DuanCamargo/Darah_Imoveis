@@ -1,7 +1,8 @@
 import React from "react";
 import { GetForm} from '../../Service/GetLoginForm.js'
 import { UsuarioLogadoContext } from "../../Context/UsuarioLogado";
-import { useState } from 'react';
+import { useState} from 'react';
+import { useHistory } from 'react-router'
 import { useContext } from "react";
 import { RiUser6Fill } from "react-icons/ri";
 import {AiOutlineCloseCircle} from 'react-icons/ai'
@@ -11,7 +12,7 @@ import { Label } from "reactstrap";
 
 
 function Login2() {
-
+  let history = useHistory()
   const initialLoginState = {
     email: "",
     senha:""
@@ -25,11 +26,13 @@ function Login2() {
   const handleInputChange = (event) =>{
     const {name, value} = event.target;
     setInput({ ...input, [name]: value });
+   
   }
-
+  
+ 
   const loginSenha = (event) =>{
+    
     if(input.email != null && input.senha !=null){
-      console.log("Eles não são NULOS")
       event.preventDefault();
 
       GetForm(input.email, input.senha).then(response => {
@@ -41,19 +44,25 @@ function Login2() {
           senha:"",
           whatsapp:""
         };
-        data.nome = response.nome;
-        data.sobrenome = response.sobrenome;
-        data.whatsapp = response.whatsapp;
-        data.email = response.email;
-        data.senha = response.senha;
-        data.id = response.id_usuario;
 
+         data.id = response.id_usuario
+         data.nome = response.nome
+         data.sobrenome = response.sobrenome
+         data.email = response.email
+         data.senha = response.senha
+         data.whatsapp = response.whatsapp
         setUsuarioLogado(data)
         console.log(usuarioLogado)
+
+        history.push({
+          pathname: "/",
+        })
       }).catch(e =>{
           setErroLog(true)
       })
   }
+
+  
 }
   return (
     <div className="App">
@@ -64,12 +73,12 @@ function Login2() {
         <R.FormIM><R.DivSeparator/></R.FormIM>
         
         <div>
-          <Label>Usuário:</Label>
-          <R.InputDefaultFilter type="text" placeholder="Usuário" name="user" onChange={handleInputChange} required></R.InputDefaultFilter>
+          <Label>Email:</Label>
+          <R.InputDefaultFilter type="text" placeholder="Usuário" name="email" onChange={handleInputChange} required></R.InputDefaultFilter>
         </div>
         <div className="mt-4">
           <Label>Senha:</Label>
-          <R.InputDefaultFilter type="password" placeholder="Senha" name="password" onChange={handleInputChange} required></R.InputDefaultFilter>
+          <R.InputDefaultFilter type="password" placeholder="Senha" name="senha" onChange={handleInputChange} required></R.InputDefaultFilter>
         </div>
         <div>
         { erroLog ? 

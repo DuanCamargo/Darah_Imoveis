@@ -1,15 +1,16 @@
-import {React, useState, useEffect} from 'react';
+import {React, useState, useEffect, useContext} from 'react';
 import * as R from './CadQuartoStyle';
 import { Button } from '../../SectionHome/SectionStyle';
 import { PostCadQuarto } from '../../../Service/PostCadQuarto';
 import { useLocation } from 'react-router';
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 import { RiCommunityLine } from "react-icons/ri";
+import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
 
 const CadQuarto = () => {
 
     const location = useLocation()
-
+    
     const init = {
         tipo_quarto: "",
         metragem_quarto: "",
@@ -29,7 +30,7 @@ const CadQuarto = () => {
             setInput({ ...input, [name]: value });
     }
 
-    console.log(input)
+  
     let history = useHistory()
 
     const SendQuarto = (e) => {
@@ -65,15 +66,19 @@ const CadQuarto = () => {
                             <label htmlFor="metragem_quarto">Metragem do Quarto:</label>
                             <R.InputDefaultFilter type="text" className="form-control" id="metragem_quarto" name="metragem_quarto" placeholder="M²" onChange={handleInputChange} />
                         </div>
-                        <container className="d-flex align-items-center justify-content-between mt-4">
+                        <div className="d-flex align-items-center justify-content-between mt-4">
                             <div className="ml-5">
-                                <R.ButtonStyledPrevious type="submit" className="btn btn-danger ">Anterior</R.ButtonStyledPrevious>
+                            <R.ButtonStyledPrevious>
+                                <a href="/imovel">
+                                Anterior
+                                </a>
+                            </R.ButtonStyledPrevious>
                             </div>
                             <R.DivSeparator/>
                             <div className="mr-5">
                                 <R.ButtonStyledNext type="submit" className="btn btn-primary ">Próximo</R.ButtonStyledNext>
                             </div>
-                        </container>
+                        </div>
                         
                     </form>
                 </R.FormContainer>

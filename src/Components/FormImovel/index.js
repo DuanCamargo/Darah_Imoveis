@@ -2,7 +2,7 @@ import React from 'react';
 import * as R from './FormImovelStyle';
 import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
-import {useHistory, Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import { RiCommunityLine } from "react-icons/ri";
 import '../../../src/App.css'
 
@@ -23,7 +23,7 @@ const FormImovel = ()=>{
       };
 
     const [input, setInput] = useState(init)
-    const [erroCad, setErroCad] = useState(false)
+    
    
 
     const handleInputChange = (event) =>{
@@ -79,7 +79,7 @@ function pesquisacep(valor) {
     
 
     //Verifica se campo cep possui valor informado.
-    if (cep != "") {
+    if (cep !== "") {
 
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;

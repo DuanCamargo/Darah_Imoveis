@@ -25,6 +25,22 @@ input[type=number] {
    appearance: textfield;
 }
 
+a{
+  text-decoration: none;
+  color: #fff;
+}
+a:hover{
+  text-decoration: none;
+  color:rgb(255, 255, 255)
+}
+a:focus{
+  color:#fff
+}
+Link:focus{
+  text-decoration-color: #fff;
+}
+
+
 .num{
   -moz-appearance: textfield;
    appearance: textfield;

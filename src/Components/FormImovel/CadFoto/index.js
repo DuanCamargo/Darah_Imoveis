@@ -1,22 +1,25 @@
-import { React, useEffect, useState } from 'react';
+import  {React, useState} from 'react';
 import * as R from './CadFotoStyle';
-import { Button } from '../../SectionHome/SectionStyle';
-import { PostCadFoto } from '../../../Service/PostCadFoto';
-import ReactDOMServer from 'react-dom/server';
 import { RiImageAddFill } from "react-icons/ri";
-import { useHistory, useLocation } from "react-router";
+import {  useLocation, Link } from "react-router-dom";
+import $ from 'jquery'
 
 const ImageUpload = () => {
     const location = useLocation();
+    
+
     var formData = new FormData();
     // var imagem = document.querySelector("#img");
 
     const init = {
-        imovelDTO: {
-        id_imovel: 0,
+        anuncioDTO: {
+        id_anuncio: 0,
         },
         descricao_foto: "",
     };
+
+    
+       
 
     const [files, setFiles] = useState([]);
     const [input, setInput] = useState(init);
@@ -28,31 +31,49 @@ const ImageUpload = () => {
         const file = e.target.img.files;
 
         formData.append("foto", file[0]);
-        console.log(file[0]);
-
-        setFiles([...files,
+        formData.append('id_anuncio', input.anuncioDTO.id_anuncio);
+        formData.append("descricao_foto", input.descricao_foto)
+        
+        setFiles(files,
         {
             foto: file[0],
-            // descricao_foto: e.target.descricao.value,
+           
         },
-        ]);
+        );
     };
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setInput({...input,
             [name]: value,
-            imovelDTO: { id_imovel: location.state },
+            anuncioDTO: { id_anuncio: location.state },
         });
     };
 
-    console.log(formData);
+    console.log("FormData: "+{formData});
     console.log(input)
 
     const sendFoto = () => {
-        PostCadFoto(formData, input);
-        alert("Foto(s) salvas(s) com sucesso");
+        $.ajax
+            ({
+                type: "POST",
+                url: "http://localhost:8081/foto",
+                enctype: 'multipart/form-data',
+                data:formData,        
+                processData: false,
+                contentType: false,
+                success: function (data){
+                    alert('Dados salvos com sucesso!')
+                }
+                
+            });
+
     };
+
+    const checkFoto = () => {
+        alert("Adicione uma foto abaixo");
+    };
+    
 
     return (
         <>
@@ -68,20 +89,25 @@ const ImageUpload = () => {
                             <R.InputFile type="text" className="file ml-3" name="descricao_foto" id="descricao_foto" placeholder="Descrição da foto" onChange={handleInputChange}/>
                         </div>
                         <div className="mt-3">
-                            <R.ButtonAddPhoto type="submit" className="btn btn-primary">Adicionar Foto</R.ButtonAddPhoto>
+                            <R.ButtonAddPhoto type="submit" className="btn btn-primary" onClick={checkFoto}>Adicionar Foto</R.ButtonAddPhoto>
+                              
                         </div>
                     </form>
                     <div>
                         {files.map((file, i) => {
                             return (
                                 <div key={i}>
-                                    <img src={URL.createObjectURL(file.foto)} />
+                                    {/* <img src={window.URL.createObjectURL(blob)} /> */}
                                     <p>{file.descricao}</p>
                                 </div>
                             );
                         })}
                     </div>
                     <div className="mt-3 d-flex justify-content-end">
+                    <Link to="/CadValores" type="submit" className="btn btn-danger ">
+                       Anterior
+                      </Link>
+
                         <R.ButtonConcluir type="submit"  className="btn btn-primary" onClick={sendFoto}>Concluir</R.ButtonConcluir>
                     </div>
                 </R.FormContainer>

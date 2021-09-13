@@ -1,12 +1,15 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import * as R from "./CadValoresStyle";
 import { Button } from "../../SectionHome/SectionStyle";
 import { PostCadValores } from "../../../Service/PostCadValores";
-import { useLocation, useHistory } from "react-router";
-import { RiCommunityLine } from "react-icons/ri";
+import { useLocation, useHistory, Link } from "react-router-dom";
+import { UsuarioLogadoContext } from "../../../Context/UsuarioLogado";
+import { RiCommunityLine } from "react-icons/ri"
 
 const CadValores = () => {
   const location = useLocation();
+
+  const [usuarioLogado, setUsuarioLogado] = useContext(UsuarioLogadoContext)
 
   const init = {
     aluguel: 0,
@@ -20,10 +23,13 @@ const CadValores = () => {
     imovelDTO: {
       id_imovel: 0,
     },
+    anuncioDTO: {
+      id_anuncio: 0,
+    }
   };
 
   const [input, setInput] = useState(init);
-
+  console.log(usuarioLogado)
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setInput({
@@ -42,7 +48,7 @@ const CadValores = () => {
     alert("Contas salvas com sucesso")
     history.push({
       pathname: "/CadFoto",
-      state: input.imovelDTO.id_imovel,
+      state: input.anuncioDTO.id_anuncio,
     })
   };
 
@@ -143,11 +149,13 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="d-flex align-items-center justify-content-between mt-4">
-              <R.DivSeparator/>
-              <R.ButtonStyledNext type="submit" className="btn btn-primary ">
+            <div className="col text-center">
+            <Link to="/CadAnuncio" type="submit" className="btn btn-danger ">
+                  Anterior
+                </Link>
+              <Link to="/CadFoto"type="submit" className="btn btn-primary ">
                 Próximo
-              </R.ButtonStyledNext>
+              </Link>
             </div>
           </form>
         </R.FormContainer>
