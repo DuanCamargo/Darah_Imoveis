@@ -65,13 +65,15 @@ export const DadosBancoPrice = styled.div`
 // p do preço
 export const Price = styled.p`
     font-size: 35px;
+    width: 100px
+   
 `
 
 // div que tem os dados a direita do preço
 export const TitleImov = styled.div`
     display: flex;
     padding: 10px;
-    width: 700px;
+    width: 800px;
     height: 50px;
  
 `

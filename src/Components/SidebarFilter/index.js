@@ -11,6 +11,8 @@ const AnuncioTela = () => {
 
     var history = useHistory()
 
+    const [images, setImage] = useState("")
+
     const initialCadastroState = {
         minValue: "",
         maxValue: "",
@@ -42,8 +44,7 @@ const AnuncioTela = () => {
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
-        setInput({ ...input, [name]: value });
-            
+        setInput({ ...input, [name]: value }); 
     }
 
     const SendForm = (e) =>{
@@ -61,6 +62,27 @@ const AnuncioTela = () => {
 
     console.log(anuncios)
 
+    const blobToImage = (blob) => {
+  
+        // var arrayBufferView = new Uint8Array(blobb);                                       
+        // var blob = new Blob( [ arrayBufferView ], { type: "image/*"  } );
+        // var urlCreator = window.URL || window.webkitURL;
+        // var imageUrl = urlCreator.createObjectURL( blob );  
+        // setImage(imageUrl)
+       
+        // return new Promise(resolve => {
+        //   const url = URL.createObjectURL(new Blob(blob))
+          
+        //   let img = document.querySelector("#image")
+        //   img.onload = () => {
+        //     URL.revokeObjectURL(url)
+        //     resolve(img)
+        //   }
+        //   img.src = url
+        // })  
+    }
+
+    
     return (
         <R.ContainerGeral>
             <R.ContainerGeralInterno1>
@@ -145,7 +167,10 @@ const AnuncioTela = () => {
                     return (
                     <R.ImovelContainer key={anuncio.id_anuncio}>
                         <R.ContainerImageInside>
-                            <R.RoundedImg src=""></R.RoundedImg>
+                            <R.RoundedImg id="imagem" src="" ></R.RoundedImg>
+                            <button type="button" onClick={blobToImage(anuncio.imovel.fotos[0].foto)}></button>
+
+                            
                         </R.ContainerImageInside>
 
                         <R.ContainerImovelInfos className="">

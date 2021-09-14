@@ -39,17 +39,11 @@ const ImageUpload = () => {
             [name]: value,
              imovelDTO: {id_imovel : location.state}
         });
-        
-        
-
     }
     
     console.log("input")
     console.log(input)
    
-    
-    
-
     const sendFoto = () => {
         $.ajax({
             type: "POST",
@@ -64,14 +58,11 @@ const ImageUpload = () => {
         });
     };
 
-  
-    
-
     return (
         <>
             <R.ContainerGeral>
                 <R.ContainerGeralInterno1>
-                        <R.HeaderContainerFont><RiImageAddFill/> Upload images</R.HeaderContainerFont>
+                        <R.HeaderContainerFont><RiImageAddFill/> Upload images </R.HeaderContainerFont>
                         <R.HeaderContainerFont><R.DivSeparatorFormImovelX/></R.HeaderContainerFont>
                         <R.HeaderContainerFont>Etapa 5 de 5</R.HeaderContainerFont>
                     <form onSubmit={fileSelectedHandler}>
@@ -105,7 +96,6 @@ const ImageUpload = () => {
                     </div>
                 </div>
                 </R.ContainerGeralInterno1>
-                
             </R.ContainerGeral>
         </>
     );
