@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react'
 import {ContainerGeral, ContainerWrapper, Column1 ,Column2, Description, Chat, ItensText, Embed, FotoImov, DadosBancoPrice, Price, TitleImov, InfoImov, LocationImov, DivLocation}  from './ImovStyled'
 import { useLocation } from 'react-router-dom'
 import { GetAnunciosById } from '../../Service/GetAnuncioById'
-import { get } from 'react-scroll/modules/mixins/scroller'
+import Chatbot from "react-chatbot-kit";
+import config from './chatbot/config'
+import MessageParser from './chatbot/MessageParser';
+import ActionProvider from './chatbot/ActionProvider'
+import '../../../src/App.css'
+
 
 const ImovDetalhado = () => {
     let location = useLocation()
@@ -80,7 +85,14 @@ const ImovDetalhado = () => {
                             </Embed>
                         </Column1>
                         <Column2>
-                            <Chat>  <h2>Chat</h2></Chat>
+                            <Chat>  
+
+                            <Chatbot
+                                config={config}
+                                messageParser={MessageParser}
+                                actionProvider={ActionProvider}
+                                />
+                            </Chat>
                         </Column2>
                     </ContainerWrapper>
 

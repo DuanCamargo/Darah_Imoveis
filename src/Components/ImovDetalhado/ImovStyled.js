@@ -90,10 +90,12 @@ export const Description = styled.div`
 // Chat container
 export const Chat = styled.div`
     border-radius: 10px ;
-    width: 300px;
-    height: 400px;
+    background-color: #f7f794;
+    padding: 4px;
+    width: 285px;
+    height: 510px;
     position: fixed;
-    background-color: aquamarine;
+    
     
 `
 // iframe do mapa

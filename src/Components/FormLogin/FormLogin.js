@@ -51,7 +51,6 @@ function Login2() {
         data.senha = response.senha
         data.whatsapp = response.whatsapp
         setUsuarioLogado(data)
-        console.log(usuarioLogado)
 
         console.log("Data: ")
         console.log(data)
@@ -69,33 +68,32 @@ function Login2() {
   return (
     <div className="App">
       <form onSubmit={loginSenha}>
-      <R.FormContainerGeral>
-      <R.FormContainer>
-        <R.FormIM><RiUser6Fill/> Login</R.FormIM>
-        <R.FormIM><R.DivSeparator/></R.FormIM>
+      <R.ContainerGeral>
+      <R.ContainerGeralInterno1>
+        <R.HeaderContainerFont ><RiUser6Fill/> Login</R.HeaderContainerFont >
+        <R.DivSeparatorLoginX/>
         
         <div>
           <Label>Email:</Label>
-          <R.InputDefaultFilter type="text" placeholder="Usuário" name="email" onChange={handleInputChange} required></R.InputDefaultFilter>
+          <R.InputDefaultLogin type="text" placeholder="Usuário" name="email" onChange={handleInputChange} required></R.InputDefaultLogin>
         </div>
         <div className="mt-4">
           <Label>Senha:</Label>
-          <R.InputDefaultFilter type="password" placeholder="Senha" name="senha" onChange={handleInputChange} required></R.InputDefaultFilter>
+          <R.InputDefaultLogin type="password" placeholder="Senha" name="senha" onChange={handleInputChange} required></R.InputDefaultLogin>
         </div>
         <div>
-        { erroLog ? 
-           <R.Perro> <AiOutlineCloseCircle className="mr-1"/>Dados incorretos!</R.Perro>:  null}
-           </div>
+          { erroLog ? <R.Perro> <AiOutlineCloseCircle className="mr-1"/>Dados incorretos!</R.Perro>:  null}
+        </div>
 
         <div className="mt-4 d-flex justify-content-center">
-          <R.ButtonStyledForget> Esqueci a senha </R.ButtonStyledForget>
-          <R.ButtonStyledCadastrar> Cadastrar </R.ButtonStyledCadastrar>
-          <R.ButtonStyledLogin type="submit"> Login </R.ButtonStyledLogin>
+          <R.ButtonStyledLoginForget> Esqueci a senha </R.ButtonStyledLoginForget>
+          <R.ButtonStyledLoginCadastrar> Cadastrar </R.ButtonStyledLoginCadastrar>
+          <R.ButtonStyledLoginLogar type="submit"> Login </R.ButtonStyledLoginLogar>
          
         </div>
         
-      </R.FormContainer>
-      </R.FormContainerGeral>
+      </R.ContainerGeralInterno1>
+      </R.ContainerGeral>
       </form>
     </div>
   );

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { PostFormImov} from '../../Service/PostImovelForm';
 import {useHistory} from 'react-router-dom'
 import { RiCommunityLine } from "react-icons/ri";
+import {AiOutlineCloseCircle} from 'react-icons/ai'
 import '../../../src/App.css'
 
 const FormImovel = ()=>{
@@ -23,6 +24,7 @@ const FormImovel = ()=>{
       };
 
     const [input, setInput] = useState(init)
+    
     
    
 
@@ -232,6 +234,8 @@ function pesquisacep(valor) {
                         </div>
                         
                     </form>
+                   
+
                     <div className="col text-center mt-3">
                             <R.ButtonStyledFormImovel  type = "button"  className = "btn btn-primary" onClick={SendForm}> Próximo </R.ButtonStyledFormImovel>
                     </div>

@@ -1,7 +1,5 @@
 import  {React, useState} from 'react';
 import * as R from './CadFotoStyle';
-import { Button } from '../../SectionHome/SectionStyle';
-import ReactDOMServer from 'react-dom/server';
 import { RiImageAddFill } from "react-icons/ri";
 import {  useLocation } from "react-router-dom";
 import $ from 'jquery'
@@ -91,7 +89,7 @@ const ImageUpload = () => {
                         {files.map((file, i) => {
                             return (
                                 <div key={i}>
-                                    {/* <img src={window.URL.createObjectURL(blob)} /> */}
+                                     {/* <img src={} */}
                                     <p>{file.descricao}</p>
                                 </div>
                             );

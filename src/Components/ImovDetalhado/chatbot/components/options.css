@@ -1,0 +1,17 @@
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .option-button {
+    margin: 3px;
+    border-radius: 25px;
+    padding: 3px;
+    border-color: #f2be38;
+    background: transparent;
+    text-align: center;
+  }
+
+  .option-button:focus{
+    border: none;
+  }

@@ -59,6 +59,8 @@ const AnuncioTela = () => {
         })
     },[])
 
+    const [blob] = ""
+
     console.log(anuncios)
 
     return (

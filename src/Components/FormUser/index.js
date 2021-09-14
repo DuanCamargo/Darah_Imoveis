@@ -5,6 +5,8 @@ import { PostForm } from '../../Service/PostUsuarioForm'
 import loginSenha from '../FormLogin/FormLogin'
 import * as R from '../FormUser/FormStyle'
 
+import '../../../src/App.css'
+
 const FormUser = ({img, alt})=>{
 
      const initialCadastroState = {
@@ -16,6 +18,7 @@ const FormUser = ({img, alt})=>{
       };
 
     const [input, setInput] = useState(initialCadastroState)
+    
     // const history = useHistory();
 
     const handleInputChange = (event) =>{
@@ -25,8 +28,9 @@ const FormUser = ({img, alt})=>{
     
     const SendForm = (e) =>{
         e.preventDefault();
-        PostForm(input);
-        loginSenha(input)
+        PostForm(input).then(response =>{
+            console.log("Cadastrado")
+        })
     }
 
     return (
@@ -59,20 +63,21 @@ const FormUser = ({img, alt})=>{
                             <label htmlFor="senha">Senha:</label>
                             <R.InputDefaultFormCadUser autoComplete="off" type="password" className="form-control" name="senha" id="senha" placeholder="Insira a sua senha" onChange={handleInputChange} required/>
                         </div>
-
+                        
                         <div className="col text-center">
                             <R.ButtonStyledCadUser autoComplete="off" type="submit" className="btn btn-primary ">Cadastrar</R.ButtonStyledCadUser>
                         </div>
                     </form>
+                
                 </R.ContainerGeralInterno1>
 
                 <R.ContainerGeralInterno2>
                     <R.HeaderContainerFont>Cadastre-se no nosso banco de dados</R.HeaderContainerFont>
                     <R.DivImgCadUser>
-                                <R.ImgCadUserText>lakdjalksdjklasjdlkajsldkjaslkdjalskj
-                                dlaksjdlaksjdklasjdklasasdklajsldkjasldkjals
-                                dkjaklsjdlaksjdlkasjd
-                                asdkljaldkjaslkdjaslkdjalskdj</R.ImgCadUserText>
+                                <R.ImgCadUserText>Realize o seu cadastro para ter total
+                                    acesso da aplicação web, além de possibilitar o uso 
+                                    das suas ferramentas
+                                </R.ImgCadUserText>
                     </R.DivImgCadUser>
                     
                     <R.ImgCadUser src={img} alt={alt} ></R.ImgCadUser>
