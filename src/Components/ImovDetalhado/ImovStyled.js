@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 // Container geral
 export const ContainerGeral = styled.div`
-    width: 1450px;
+    width: 100%;
     margin: 0 auto;
-   
+    background-color: #e1dcdc;  
 `
 export const ContainerWrapper = styled.div`
     padding: 20px;
@@ -26,7 +26,6 @@ export const FotoImov = styled.div`
     border-radius: 10px ;
     margin: 0 auto;
     height: 300px;
-    background: url("https://www.mercadoeeventos.com.br/wp-content/uploads/2021/07/630x355-1.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
   
@@ -65,13 +64,15 @@ export const DadosBancoPrice = styled.div`
 // p do preço
 export const Price = styled.p`
     font-size: 35px;
+    width: 100px
+   
 `
 
 // div que tem os dados a direita do preço
 export const TitleImov = styled.div`
     display: flex;
     padding: 10px;
-    width: 700px;
+    width: 800px;
     height: 50px;
  
 `
@@ -107,7 +108,7 @@ export const Embed = styled.div`
 `
 
 export const LocationImov = styled.div`
-    width: 600px;
+    width: 700px;
     height: 200px;
 `
 export const DivLocation = styled.div`

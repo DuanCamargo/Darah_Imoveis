@@ -22,15 +22,10 @@ const SectionCompany = ({img,alt}) => {
                 <CompanyWrapper >
                     <Column1>
                         <TextWrap>
-                            <TopH1>Alguma coisa aqui</TopH1>
-                            <TopP>Legenda aqui</TopP>
-                            <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when 
-                                an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                 It has survived not only five centuries, but also the leap into electronic typesetting,
-                                  remaining essentially unchanged. It was popularised in the 1960s with the release
-                                   of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Description>
+                            <TopH1>Quem somos nós?</TopH1>
+                            <TopP>Alunos do curso de programação do Hub Salvador</TopP>
+                            <Description>Somos uma equipe de alunos do turno vespertino do curso de programação FullStack do HubSalvador,
+                                apaixonados por programação, design e tudo mais relacionado ao mundo digital.</Description>
                         </TextWrap>
                     </Column1>
 

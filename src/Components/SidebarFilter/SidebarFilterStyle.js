@@ -7,6 +7,7 @@ display: flex;
 justify-content: space-between;
 padding: 20px;
 background-color: #e6e6e6;
+width: 100%;
 position: relative;
 
   @media screen and (max-width:900px){
@@ -196,7 +197,7 @@ export const ImovelContainer =styled.div`
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
-  width: 100%;
+  width: 1040px;
   display: flex;
   /* flex-wrap: wrap; */
   /* flex-direction: column; */
@@ -213,7 +214,6 @@ export const ImovelContainer =styled.div`
     margin-top: 20px;
     width: 320px;
     flex-direction: column;
-    
   }
 `
 
@@ -249,16 +249,17 @@ width: 100%;
 export const ContainerImovelInside1 = styled.div`
 display: flex;
 justify-content: space-between;
-width: 1000px;
+width: 700px;
 margin-top: 1%;
 margin-left: 1%;
+// background-color: Red;
 `;
 
 //Sessão do anuncio responsável por mostrar a segunda linha de informações do imovel
 export const ContainerImovelInside2 = styled.div`
 display: flex;
 align-items: center;
-width: fit-content;
+width: 100%;
 /* margin-top: 3%; */
 `;
 
@@ -266,7 +267,7 @@ width: fit-content;
 export const ContainerImovelInside3 = styled.div`
 display: flex;
 align-items: center;
-/* width: fit-content; */
+width: 100%; 
 /* margin-top: 3%; */
 `;
 

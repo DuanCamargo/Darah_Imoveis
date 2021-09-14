@@ -11,6 +11,8 @@ const AnuncioTela = () => {
 
     var history = useHistory()
 
+    const [images, setImage] = useState("")
+
     const initialCadastroState = {
         minValue: "",
         maxValue: "",
@@ -42,8 +44,7 @@ const AnuncioTela = () => {
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
-        setInput({ ...input, [name]: value });
-            
+        setInput({ ...input, [name]: value }); 
     }
 
     const SendForm = (e) =>{
@@ -63,11 +64,32 @@ const AnuncioTela = () => {
 
     console.log(anuncios)
 
+    const blobToImage = (blob) => {
+  
+        // var arrayBufferView = new Uint8Array(blobb);                                       
+        // var blob = new Blob( [ arrayBufferView ], { type: "image/*"  } );
+        // var urlCreator = window.URL || window.webkitURL;
+        // var imageUrl = urlCreator.createObjectURL( blob );  
+        // setImage(imageUrl)
+       
+        // return new Promise(resolve => {
+        //   const url = URL.createObjectURL(new Blob(blob))
+          
+        //   let img = document.querySelector("#image")
+        //   img.onload = () => {
+        //     URL.revokeObjectURL(url)
+        //     resolve(img)
+        //   }
+        //   img.src = url
+        // })  
+    }
+
+    
     return (
         <R.ContainerGeral>
             <R.ContainerGeralInterno1>
-                <R.DivSeparatorAnuncioX/>
                 <R.HeaderContainerFont> <RiFilter2Line/> Filtrar</R.HeaderContainerFont>
+                <R.DivSeparatorAnuncioX/>
                 <R.HeaderContainerFont></R.HeaderContainerFont>
                     <form onSubmit={SendForm} >
 
@@ -147,7 +169,7 @@ const AnuncioTela = () => {
                     return (
                     <R.ImovelContainer key={anuncio.id_anuncio}>
                         <R.ContainerImageInside>
-                            <R.RoundedImg src=""></R.RoundedImg>
+                            <R.RoundedImg id="imagem" src="https://www.tuacasa.com.br/wp-content/uploads/2016/07/33-cinza-espelhado-1024x767.jpg"width="300px"></R.RoundedImg>                            
                         </R.ContainerImageInside>
 
                         <R.ContainerImovelInfos className="">
@@ -155,13 +177,13 @@ const AnuncioTela = () => {
                             <R.ContainerImovelInside1 className="d-flex justify-content-around ml-3">
 
                                
-                                <div className="ml-3 mr-3 mt-1">Cidade: {anuncio.imovel.cidade}</div>
+                                <div className="ml-3 mr-3 mt-1">{anuncio.imovel.cidade}</div>
                                     <R.DivSeparatorAnuncioY/>
-                                <div className="ml-3 mr-3 mt-1">Bairro: {anuncio.imovel.bairro}</div>
+                                <div className="ml-3 mr-3 mt-1">{anuncio.imovel.bairro}</div>
                                     <R.DivSeparatorAnuncioY/>
-                                <div className="mr-3 mt-1">Tipo Imóvel: {anuncio.imovel.tipo_imovel}</div>
+                                <div className="mr-3 mt-1">{anuncio.imovel.tipo_imovel}</div>
                                 <R.DivSeparatorAnuncioY/>
-                                <div className="ml-3 mt-1"> Tipo Compartilhamento: {anuncio.tipo_compartilhamento}</div>
+                                <div className="ml-3 mt-1">{anuncio.tipo_compartilhamento}</div>
 
                             </R.ContainerImovelInside1>
 
@@ -170,7 +192,7 @@ const AnuncioTela = () => {
                             <R.ContainerImovelInside2 className="d-flex justify-content-around">
 
                                 <R.DivTextValue className="ml-3 mr-3">
-                                    <R.TextValue>Aluguel: R$ {anuncio.imovel.conta.aluguel}</R.TextValue>
+                                    <R.TextValue>Aluguel: R$ {anuncio.imovel.conta.aluguel},00</R.TextValue>
                                 </R.DivTextValue>
                             
                                 <R.DivSeparatorAnuncioY/>
@@ -193,7 +215,7 @@ const AnuncioTela = () => {
                                         state: anuncio.imovel.id_imovel,
                                     })
                                 }}> 
-                                Tututchuuuuuu
+                                Detalhes
                                 </R.ButtonStyledFormFilterAcess>
                                 {/* Acessar anuncio {anuncio.imovel.id_imovel} */}
                             </R.ContainerImovelInside3>

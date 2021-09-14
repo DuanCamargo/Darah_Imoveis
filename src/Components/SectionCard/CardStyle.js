@@ -18,26 +18,24 @@ export const SectionContainer = styled.div`
 `
 
 export const CardInfo = styled.div`
-    padding-top: 10px;
-    box-shadow: 0 0 1em ;
     border-radius: 5px;
     margin: 20px;
-    background:#fff;
+    background:#eaeaea;
     height: 360px;
     width: 250px;
+    border: 1px solid #6c757d;
      z-index: 3; 
     display: flex;
     flex-direction: column;
 `
 
 export const Icon = styled.img`
-    width: 150px;
-    height: 150px;
+    width: 248px;
+    height: 160px;
     margin: 0 auto;
     flex: 0 0 auto;
     margin-top: 0%;
     margin-bottom: 2rem;
-    border-radius: 50%;
     font-size: 40px;
     background-color: blue;
 `
@@ -68,30 +66,24 @@ export const IconPrice = styled.h1`
 
 export const LocationIcon = styled.p`
     text-align: center;
-    color: #000;
+    font-size: 20px;
+    color:  palevioletred;
 `
 
 export const ButtonIcon = styled.button`
-    border-radius: 20px;
-    background:  #009E10 ;
-    width:150px;
-    padding:  5px 5px;
-    color: #fff;
-    font-size: 16px;
-   margin: 0 auto;
-    border:none;
-    cursor: pointer;
-    
-    transition: all 0.2s ease-in-out;
-    
-    &:hover{
-        transition: all 0.2s ease-in-out;
-        background:  #01BF71;
-        
-    }
-    &:focus{
-        box-shadow: 0 0 0 0;
-        border: 0 none;
+  background: #70DBB8;
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 1px solid #6c757d;
+  border-radius: 3px;
+  transition: 0.5s;
+  :hover,:active,:focus{
+        color: white;
+        box-shadow: 0 0 0 0.25rem  rgba(112, 219, 184, 0.5);
+        background: #4ea488 ; 
+        border-color: #6c757d;
         outline: none;
     }
-`
+`;
