@@ -136,7 +136,9 @@ const ImovDetalhado = () => {
                 <ContainerGeral>
                     <ContainerWrapper>
                         <Column1>
-                            <FotoImov> </FotoImov>
+                            <FotoImov>
+                                <img src="https://media.gazetadopovo.com.br/haus/2015/09/bruno-colle-quarto-do-rapaz-la-1-1002x564-8c9c3a50.jpg" width="980" height="300"/>
+                            </FotoImov>
                             <ItensText>
                                 <DadosBancoPrice>
                                     <Price>R${anuncio.aluguel},00</Price>
