@@ -23,9 +23,6 @@ const CadValores = () => {
     imovelDTO: {
       id_imovel: 0,
     },
-    anuncioDTO: {
-      id_anuncio: 0,
-    }
   };
 
   const [input, setInput] = useState(init);
@@ -48,22 +45,24 @@ const CadValores = () => {
     alert("Contas salvas com sucesso")
     history.push({
       pathname: "/CadFoto",
-      state: input.anuncioDTO.id_anuncio,
+      state: input.imovelDTO.id_imovel,
     })
   };
 
   return (
     <>
-      <R.FormContainerGeral>
-        <R.FormContainer id="valores">
+      <R.ContainerGeral>
+        <R.ContainerGeralInterno1 id="valores">
           {/* #################### TELA VALORES!!! ##################*/}
-          <form onSubmit={SendValores}>
-            <R.FormIM2><RiCommunityLine/> Preencha os campos abaixo</R.FormIM2>
-            <R.FormIM2><R.DivSeparator/></R.FormIM2>
-            <R.FormIM2>Etapa 4/5</R.FormIM2>
+            <R.HeaderContainerFont><RiCommunityLine/> Preencha os campos abaixo</R.HeaderContainerFont>
+            <R.HeaderContainerFont><R.DivSeparatorFormImovelX/></R.HeaderContainerFont>
+            <R.HeaderContainerFont>Etapa 4 de 5</R.HeaderContainerFont>
+          <form className="d-flex justify-content-center" onSubmit={SendValores}>
+
+          <div className="mr-5"> 
             <div className="mt-4">
               <label htmlFor="aluguel">Valor Aluguel</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="aluguel"
@@ -74,7 +73,7 @@ const CadValores = () => {
             </div>
             <div className="mt-4">
               <label htmlFor="iptu">Valor IPTU</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="iptu"
@@ -85,7 +84,7 @@ const CadValores = () => {
             </div>
             <div className="mt-4">
               <label htmlFor="condominio">Valor Condominio</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="condominio"
@@ -96,7 +95,7 @@ const CadValores = () => {
             </div>
             <div className="mt-4">
               <label htmlFor="internet">Valor Internet</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="internet"
@@ -105,9 +104,14 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
+          </div> 
+
+          <div><R.DivSeparatorFormImovelY/></div> 
+          
+          <div className="ml-5"> 
             <div className="mt-4">
               <label htmlFor="tv_cabo">Valor Tv a Cabo</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="tv_cabo"
@@ -118,7 +122,7 @@ const CadValores = () => {
             </div>
             <div className="mt-4">
               <label htmlFor="agua">Valor Água</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="agua"
@@ -129,7 +133,7 @@ const CadValores = () => {
             </div>
             <div className="mt-4">
               <label htmlFor="energia">Valor Energia</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="energia"
@@ -140,7 +144,7 @@ const CadValores = () => {
             </div>
             <div className="mt-4">
               <label htmlFor="gas">Valor Gás</label>
-              <R.InputDefaultFilter
+              <R.InputDefaultFormImovel
                 type="number"
                 className="form-control"
                 id="gas"
@@ -149,17 +153,23 @@ const CadValores = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="col text-center">
-            <Link to="/CadAnuncio" type="submit" className="btn btn-danger ">
-                  Anterior
-                </Link>
-              <Link to="/CadFoto"type="submit" className="btn btn-primary ">
-                Próximo
-              </Link>
-            </div>
+          </div>
           </form>
-        </R.FormContainer>
-      </R.FormContainerGeral>
+          <div className="d-flex align-items-center justify-content-between mt-4 "> 
+            <div className="col text-center">
+              <R.ButtonStyledFormImovelPrevious to="/CadAnuncio" type="submit" className="btn btn-danger ">
+                  Anterior
+              </R.ButtonStyledFormImovelPrevious>
+            </div>  
+              <R.DivSeparatorFormImovelX/>
+            <div className="col text-center">
+              <R.ButtonStyledFormImovelNext to="/CadFoto"type="submit" className="btn btn-primary ">
+                  Próximo
+              </R.ButtonStyledFormImovelNext>
+            </div>
+          </div>          
+        </R.ContainerGeralInterno1>
+      </R.ContainerGeral>
     </>
   );
 };

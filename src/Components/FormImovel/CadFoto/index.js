@@ -1,7 +1,7 @@
 import  {React, useState} from 'react';
 import * as R from './CadFotoStyle';
 import { RiImageAddFill } from "react-icons/ri";
-import {  useLocation, Link } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import $ from 'jquery'
 
 const ImageUpload = () => {
@@ -12,8 +12,8 @@ const ImageUpload = () => {
     // var imagem = document.querySelector("#img");
 
     const init = {
-        anuncioDTO: {
-        id_anuncio: 0,
+        imovelDTO: {
+        id_imovel: 0,
         },
         descricao_foto: "",
     };
@@ -31,7 +31,7 @@ const ImageUpload = () => {
         const file = e.target.img.files;
 
         formData.append("foto", file[0]);
-        formData.append('id_anuncio', input.anuncioDTO.id_anuncio);
+        formData.append('id_imovel', input.imovelDTO.id_imovel);
         formData.append("descricao_foto", input.descricao_foto)
         
         setFiles(files,
@@ -46,7 +46,7 @@ const ImageUpload = () => {
         const { name, value } = event.target;
         setInput({...input,
             [name]: value,
-            anuncioDTO: { id_anuncio: location.state },
+            imovelDTO: { id_imovel: location.state },
         });
     };
 
@@ -54,20 +54,17 @@ const ImageUpload = () => {
     console.log(input)
 
     const sendFoto = () => {
-        $.ajax
-            ({
-                type: "POST",
-                url: "http://localhost:8081/foto",
-                enctype: 'multipart/form-data',
-                data:formData,        
-                processData: false,
-                contentType: false,
-                success: function (data){
-                    alert('Dados salvos com sucesso!')
-                }
-                
-            });
-
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/foto",
+            enctype: 'multipart/form-data',
+            data:formData,        
+            processData: false,
+            contentType: false,
+            success: function (data){
+                alert('Dados salvos com sucesso!')
+            }
+        });
     };
 
     const checkFoto = () => {
@@ -77,22 +74,22 @@ const ImageUpload = () => {
 
     return (
         <>
-            <R.FormContainerFoto>
-                <R.FormContainer>
+            <R.ContainerGeral>
+                <R.ContainerGeralInterno1>
+                        <R.HeaderContainerFont><RiImageAddFill/> Upload images</R.HeaderContainerFont>
+                        <R.HeaderContainerFont><R.DivSeparatorFormImovelX/></R.HeaderContainerFont>
+                        <R.HeaderContainerFont>Etapa 5 de 5</R.HeaderContainerFont>
                     <form onSubmit={fileSelectedHandler}>
-                        <R.FormIM><RiImageAddFill/> Upload images</R.FormIM>
-                        <R.FormIM><R.DivSeparator/></R.FormIM>
-                        <R.FormIM>Etapa 5/5</R.FormIM>
                         {/* <h3>Images</h3> */}
-                        <div className="mt-4"> 
+                        <div className="mt-4 d-flex"> 
                             <input type="file" className="ml-3" id="img" />
-                            <R.InputFile type="text" className="file ml-3" name="descricao_foto" id="descricao_foto" placeholder="Descrição da foto" onChange={handleInputChange}/>
-                        </div>
-                        <div className="mt-3">
-                            <R.ButtonAddPhoto type="submit" className="btn btn-primary" onClick={checkFoto}>Adicionar Foto</R.ButtonAddPhoto>
-                              
+                            <R.InputDefaultFormImovel type="text" className="file ml-3" name="descricao_foto" id="descricao_foto" placeholder="Descrição da foto" onChange={handleInputChange}/>
                         </div>
                     </form>
+                    <div className="mt-3">
+                            <R.ButtonStyledFormImovelAddPhoto type="submit" className="btn btn-primary" onClick={checkFoto}>Adicionar Foto</R.ButtonStyledFormImovelAddPhoto>
+                              
+                        </div>
                     <div>
                         {files.map((file, i) => {
                             return (
@@ -103,16 +100,18 @@ const ImageUpload = () => {
                             );
                         })}
                     </div>
-                    <div className="mt-3 d-flex justify-content-end">
-                    <Link to="/CadValores" type="submit" className="btn btn-danger ">
-                       Anterior
-                      </Link>
-
-                        <R.ButtonConcluir type="submit"  className="btn btn-primary" onClick={sendFoto}>Concluir</R.ButtonConcluir>
+                <div className="d-flex align-items-center justify-content-between mt-4 ">
+                    <div className="col text-center">
+                        <R.ButtonStyledFormImovelPrevious to="/CadValores" type="submit" className="btn btn-danger ">Anterior</R.ButtonStyledFormImovelPrevious>
                     </div>
-                </R.FormContainer>
+                        <R.DivSeparatorFormImovelX/>
+                    <div className="col text-center">
+                        <R.ButtonStyledFormImovelConcluir type="submit"  className="btn btn-primary" onClick={sendFoto}>Concluir</R.ButtonStyledFormImovelConcluir>
+                    </div>
+                </div>
+                </R.ContainerGeralInterno1>
                 
-            </R.FormContainerFoto>
+            </R.ContainerGeral>
         </>
     );
 };
