@@ -61,21 +61,14 @@ function Login2() {
         history.push({
           pathname: "/",
         })
-<<<<<<< HEAD
       }).catch(e =>{
           setErroLog(true)
-=======
-      }).catch(e => {
-        alert("Login ou Senha errado! ")
-        // setInput(input.email = "", input.senha = "")
->>>>>>> a2892f2483a746fd8d463028df4761c329447ff5
       })
   }
 }
   return (
     <div className="App">
       <form onSubmit={loginSenha}>
-<<<<<<< HEAD
       <R.FormContainerGeral>
       <R.FormContainer>
         <R.FormIM><RiUser6Fill/> Login</R.FormIM>
@@ -103,30 +96,6 @@ function Login2() {
         
       </R.FormContainer>
       </R.FormContainerGeral>
-=======
-      <R.ContainerGeral>
-        <R.ContainerGeralInterno1>
-          <R.HeaderContainerFont><RiUser6Fill/> Login</R.HeaderContainerFont>
-          <R.HeaderContainerFont><R.DivSeparatorLoginX/></R.HeaderContainerFont>
-          
-          <div>
-            <Label>Email:</Label>
-            <R.InputDefaultLogin type="text" placeholder="Usuário" name="email" defaultValue="" onChange={handleInputChange} required></R.InputDefaultLogin>
-          </div>
-          <div className="mt-4">
-            <Label>Senha:</Label>
-            <R.InputDefaultLogin type="password" placeholder="Senha" name="senha" defaultValue="" onChange={handleInputChange} required></R.InputDefaultLogin>
-          </div>
-
-          <div className="mt-4 d-flex justify-content-center">
-            <R.ButtonStyledLoginForget> Esqueci a senha </R.ButtonStyledLoginForget>
-            <R.ButtonStyledLoginCadastrar> Cadastrar </R.ButtonStyledLoginCadastrar>
-            <R.ButtonStyledLoginLogar type="submit"> Login </R.ButtonStyledLoginLogar>
-          </div>
-          
-        </R.ContainerGeralInterno1>
-      </R.ContainerGeral>
->>>>>>> a2892f2483a746fd8d463028df4761c329447ff5
       </form>
     </div>
   );
