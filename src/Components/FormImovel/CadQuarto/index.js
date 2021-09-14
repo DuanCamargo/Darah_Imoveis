@@ -27,9 +27,10 @@ const CadQuarto = () => {
 
     const handleInputChange = (event) =>{
         const {name, value} = event.target;
-            setInput({ ...input, [name]: value });
+            setInput({ ...input, [name]: value , id_imovel : location.state});
+            
     }
-
+    console.log(input)
   
     let history = useHistory()
 

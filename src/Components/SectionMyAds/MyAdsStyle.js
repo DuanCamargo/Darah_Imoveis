@@ -1,11 +1,14 @@
-import styled from 'styled-components'
-import * as R from 'reactstrap';
+import styled from "styled-components"
+
+
+
 
 //Container geral da página que engloba tudo exceto footer e navbar
 export const ContainerGeral = styled.div`
 display: flex;
 justify-content: space-between;
 padding: 20px;
+height: 100vh;
 background-color: #e6e6e6;
 position: relative;
 
@@ -15,9 +18,9 @@ position: relative;
     width: 100%;
   }
 
-  /* @media screen and (height:60){
+  @media screen and (min-height:100%){
     height: 100vh;
-  } */
+  }
 `
 
 //Container que contem o filtro de anuncios
@@ -43,14 +46,24 @@ export const ContainerGeralInterno1 =styled.div`
     position: relative;
   }
 `
+
 //Container que contem os anuncios
 export const ContainerGeralInterno2 = styled.div`
+box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
 width: 100%;
-margin: 0 30px;
+margin: 10px auto;
 margin-left: 350px;
-padding: 0 20px;
+padding: 20px;
 display: flex;
 flex-direction: column;
+border-radius: 10px;
+border: 1px solid #6c757d;
+background-color: #fff;
 
 @media screen and (max-width:820px){
     margin-left: 0;
@@ -68,125 +81,22 @@ export const HeaderContainerFont = styled.h1`
 `
 
 //Separador horizontal de divs customizado da tela de Anuncio
-export const DivSeparatorAnuncioX = styled.div`
+export const DivSeparatorMeusAnunciosX = styled.div`
 width: 100%;
 height: 1px;
 /* height: fit-content; */
-background-color: #db7093;
+background-color: #EDB8E4;
 margin: 0 auto;
-`;
+`
 
-//Separador vertical de divs customizado da tela de Anuncio
-export const DivSeparatorAnuncioY = styled.div`
+//Separador horizontal de divs customizado da tela de Anuncio
+export const DivSeparatorMeusAnunciosY = styled.div`
 width: 1px;
-height: fit;
-background-color: #db7093;
+height: 100%;
+/* height: fit-content; */
+background-color: #EDB8E4;
 margin: 0 auto;
-`;
-
-//Input de valor customizado do filtro da tela de Anuncios
-export const InputDefaultFormFilterValue = styled.input`
-  padding: 0.5em;
-  width: 45%;
-  color: ${props => props.inputColor || "black"};
-  background: #ededed ;
-  border: 1px solid #6c757d;
-  border-radius: 3px;
-  transition: 0.5s;
-  :focus{
-        border: 1px solid #db7093;
-        box-shadow: 0 0 0 0.25rem  rgba(219, 112, 147, 0.5);
-        outline: none;
-        background: white;
-        color: palevioletred;
-  }
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    color: #6c757d;
-  }
-  :-ms-input-placeholder {
-     color: #6c757d;
-  }
 `
-
-//Input de texto customizado do filtro da tela de Anuncios
-export const InputDefaultFormFilterText = styled.input`
-  padding: 0.5rem;
-  width: 100%;
-  color: ${props => props.inputColor || "black"};
-  background: #ededed ;
-  border: 1px solid #6c757d;
-  border-radius: 3px;
-  transition: 0.5s;
-  :focus{
-        border: 1px solid #db7093;
-        box-shadow: 0 0 0 0.25rem  rgba(219, 112, 147, 0.5);
-        outline: none;
-        background: white;
-        color: palevioletred;
-  }
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    color: #6c757d;
-  }
-  :-ms-input-placeholder {
-     color: #6c757d;
-  }
-`
-
-//Input de select customizado do filtro da tela de Anuncios
-export const InputSelectDefaultFormFilter = styled.select`
-  width: 100%;
-  height: 42px;
-  background: #ededed;
-  color: ${props => props.inputColor || "black"};
-  padding: 0.5rem;
-  font-size: 15px;
-  border: 1px solid #6c757d;
-  border-radius: 3px;
-  color: #6c757d;
-  transition: 0.5s;
-  appearance: none;
-  :focus,:active,:hover{
-    border: 1px solid #db7093;
-        box-shadow: 0 0 0 0.25rem  rgba(219, 112, 147, 0.5);
-        outline: none;
-        background: white;
-        color: palevioletred;
-  }
-
-  option {
-    color: black;
-    background: #ededed;
-    display: flex;
-    white-space: pre;
-    min-height: 20px;
-    padding: 0px 2px 1px;
-  }
-
-  :-ms-expand {
-    display: none;
-  }
-`;
-
-//Botão estilo customizado do filtro da tela de anuncio
-export const ButtonStyledFormFilter = styled.button`
-  background: linear-gradient(to right, #DB7093, #E28DA9, #DB7093);
-  color: white;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 1px solid #6c757d;
-  border-radius: 3px;
-  transition: 0.5s;
-  :hover,:active,:focus{
-        color: white;
-        box-shadow: 0 0 0 0.25rem  rgba(219, 112, 147, 0.5);
-        background: #ad5f79 ; 
-        border-color: #6c757d;
-        outline: none;
-    }
-`;
 
 //container dos imoveis individualmente na tela de anuncio
 export const ImovelContainer =styled.div`
@@ -314,43 +224,3 @@ export const ButtonStyledFormFilterAcess = styled.button`
         outline: none;
     }
 `;
-
-
-
-
-//Paginação da tela de anúncio
-export const PaginationPink = styled(R.Pagination)`
-  .page-item.active .page-link{
-    background-color: #db7093;
-    border-color: #6c757d;
-    transition: 0.5s;
-    :focus,:active,:hover{
-        border: 1px solid #6c757d;
-        box-shadow: 0 0 0 0.25rem  rgba(219, 112, 147, 0.5);
-        outline: none;
-        border-radius: 5px;
-    }
-  }
-  .page-item.disabled .page-link{
-    background-color: #db7093;
-    border-color: #6c757d;
-    box-shadow: 0 0 0 0.25rem  rgba(219, 112, 147, 0.5);
-    transition: 0.5s;
-    color: white;
-    background-position: right;
-  }
-  .page-link{
-    background-color: white;
-    color: #6c757d;
-    border-color: #6c757d;
-    transition: 0.5s;
-    :focus,:active,:hover{
-        border: 1px solid #6c757d;
-        box-shadow: 0 0 0 0.25rem  rgba(118, 117, 125, 0.5);
-        outline: none;
-        border-radius: 5px;
-        background: #6c757d;
-        color: white;
-    }
-  }
-` 

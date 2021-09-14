@@ -1,5 +1,7 @@
 import  {React, useState} from 'react';
 import * as R from './CadFotoStyle';
+import { Button } from '../../SectionHome/SectionStyle';
+import ReactDOMServer from 'react-dom/server';
 import { RiImageAddFill } from "react-icons/ri";
 import {  useLocation } from "react-router-dom";
 import $ from 'jquery'
@@ -9,17 +11,14 @@ const ImageUpload = () => {
     
 
     var formData = new FormData();
-    // var imagem = document.querySelector("#img");
+  
 
     const init = {
         imovelDTO: {
-        id_imovel: 0,
+            id_imovel: 0,
         },
         descricao_foto: "",
     };
-
-    
-       
 
     const [files, setFiles] = useState([]);
     const [input, setInput] = useState(init);
@@ -33,25 +32,25 @@ const ImageUpload = () => {
         formData.append("foto", file[0]);
         formData.append('id_imovel', input.imovelDTO.id_imovel);
         formData.append("descricao_foto", input.descricao_foto)
-        
-        setFiles(files,
-        {
-            foto: file[0],
-           
-        },
-        );
     };
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
+       
         setInput({...input,
             [name]: value,
-            imovelDTO: { id_imovel: location.state },
+             imovelDTO: {id_imovel : location.state}
         });
-    };
+        
+        
 
-    console.log("FormData: "+{formData});
+    }
+    
+    console.log("input")
     console.log(input)
+   
+    
+    
 
     const sendFoto = () => {
         $.ajax({
@@ -67,9 +66,7 @@ const ImageUpload = () => {
         });
     };
 
-    const checkFoto = () => {
-        alert("Adicione uma foto abaixo");
-    };
+  
     
 
     return (
@@ -85,11 +82,11 @@ const ImageUpload = () => {
                             <input type="file" className="ml-3" id="img" />
                             <R.InputDefaultFormImovel type="text" className="file ml-3" name="descricao_foto" id="descricao_foto" placeholder="Descrição da foto" onChange={handleInputChange}/>
                         </div>
-                    </form>
-                    <div className="mt-3">
-                            <R.ButtonStyledFormImovelAddPhoto type="submit" className="btn btn-primary" onClick={checkFoto}>Adicionar Foto</R.ButtonStyledFormImovelAddPhoto>
-                              
+                        <div className="mt-3">
+                            <R.ButtonStyledFormImovelAddPhoto type="submit" className="btn btn-primary" >Adicionar Foto</R.ButtonStyledFormImovelAddPhoto>
                         </div>
+                    </form>
+                    
                     <div>
                         {files.map((file, i) => {
                             return (
@@ -106,7 +103,7 @@ const ImageUpload = () => {
                     </div>
                         <R.DivSeparatorFormImovelX/>
                     <div className="col text-center">
-                        <R.ButtonStyledFormImovelConcluir type="submit"  className="btn btn-primary" onClick={sendFoto}>Concluir</R.ButtonStyledFormImovelConcluir>
+                        <R.ButtonStyledFormImovelConcluir type="button"  className="btn btn-primary" onClick={sendFoto}>Concluir</R.ButtonStyledFormImovelConcluir>
                     </div>
                 </div>
                 </R.ContainerGeralInterno1>

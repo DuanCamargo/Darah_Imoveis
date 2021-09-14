@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {ContainerGeral, ContainerWrapper, Column1 ,Column2, Description, Chat, ItensText, Embed, FotoImov, DadosBancoPrice, Price, TitleImov, InfoImov, LocationImov, DivLocation}  from './ImovStyled'
+import { useLocation } from 'react-router-dom'
+import { GetAnunciosById } from '../../Service/GetAnuncioById'
+import { get } from 'react-scroll/modules/mixins/scroller'
 
 const ImovDetalhado = () => {
+    let location = useLocation()
+    const [getId, setGetId] = useState(location.state)
+
+    console.log("Id:")
+    console.log(getId)
+
+    useEffect(() => {
+        GetAnunciosById(getId).then(response => {
+            console.log("Response:")
+            console.log(response)
+        }).catch(e =>{
+            console.log(e)
+        }) 
+    },[])
+    
     return (
         <>
                 <ContainerGeral>
                    
                     <ContainerWrapper>
                         <Column1>
-                          
+
                             <FotoImov> </FotoImov>
                             <ItensText>
                                 <DadosBancoPrice>
